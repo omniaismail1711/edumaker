@@ -117,7 +117,7 @@ export default function Index() {
       {/* Features */}
       <section className="container py-16 md:py-20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">لماذا تعليم بلس؟</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">لماذا صِنّاع التعليم؟</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             أكثر من مجرد شبكة اجتماعية — منصة تقييم مهني ذكية للمعلمين
           </p>
@@ -184,14 +184,14 @@ export default function Index() {
             <div className="w-8 h-8 rounded-lg hero-gradient flex items-center justify-center">
               <GraduationCap className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-bold text-foreground">تعليم بلس</span>
+            <span className="font-bold text-foreground">صِنّاع التعليم</span>
           </div>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-foreground transition-colors">الرئيسية</Link>
             <Link to="/explore" className="hover:text-foreground transition-colors">المعلمون</Link>
             <Link to="/jobs" className="hover:text-foreground transition-colors">الوظائف</Link>
           </div>
-          <p className="text-xs text-muted-foreground">© 2026 تعليم بلس. جميع الحقوق محفوظة.</p>
+          <p className="text-xs text-muted-foreground">© 2026 صِنّاع التعليم. جميع الحقوق محفوظة.</p>
         </div>
       </footer>
     </div>

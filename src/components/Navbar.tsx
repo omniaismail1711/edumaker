@@ -23,7 +23,7 @@ export default function Navbar() {
           <div className="w-9 h-9 rounded-lg hero-gradient flex items-center justify-center">
             <GraduationCap className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-bold text-foreground">تعليم بلس</span>
+          <span className="text-xl font-bold text-foreground">صِنّاع التعليم</span>
         </Link>
 
         {/* Desktop Nav */}
