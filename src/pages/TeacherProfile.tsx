@@ -13,7 +13,7 @@ const certificates = [
   { title: "شهادة Google للمعلمين - المستوى 2", issuer: "Google for Education", verified: true, date: "2025" },
   { title: "مدرب معتمد في الذكاء الاصطناعي", issuer: "أكاديمية المستقبل", verified: true, date: "2025" },
   { title: "التصميم التعليمي المتقدم", issuer: "Coursera", verified: true, date: "2024" },
-  { title: "استخدام ChatGPT في التعليم", issuer: "تعليم بلس", verified: false, date: "2024" },
+  { title: "استخدام ChatGPT في التعليم", issuer: "صِنّاع التعليم", verified: false, date: "2024" },
 ];
 
 const portfolio = [
