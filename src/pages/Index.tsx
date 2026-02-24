@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import TeacherCard from "@/components/TeacherCard";
 import { mockTeachers } from "@/data/mockData";
+import heroBg from "@/assets/hero-bg.png";
 
 const stats = [
   { label: "معلم مسجل", value: "12,500+", icon: Users },
@@ -53,38 +54,40 @@ export default function Index() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="hero-gradient relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 w-72 h-72 rounded-full bg-primary-foreground/20 blur-3xl" />
-          <div className="absolute bottom-10 left-32 w-96 h-96 rounded-full bg-primary-foreground/10 blur-3xl" />
-        </div>
+      <section className="relative overflow-hidden min-h-[520px] flex items-center">
+        <img
+          src={heroBg}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[hsl(215_40%_60%/0.3)] to-[hsl(215_40%_60%/0.7)]" />
         <div className="container relative py-20 md:py-28">
-          <div className="max-w-3xl">
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="mb-4 bg-primary-foreground/15 text-primary-foreground border-primary-foreground/20 hover:bg-primary-foreground/20">
+              <Badge className="mb-4 bg-white/20 text-foreground border-white/30 hover:bg-white/30 backdrop-blur-sm">
                 <Sparkles className="w-3.5 h-3.5 ml-1" />
                 الشبكة المهنية الأولى للمعلمين
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary-foreground leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
                 ابنِ هويتك المهنية
                 <br />
-                <span className="opacity-80">واكتشف مستقبل التعليم</span>
+                <span className="text-primary">واكتشف مستقبل التعليم</span>
               </h1>
-              <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-2xl leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
                 منصة تجمع المعلمين والمدارس في مكان واحد. اعرض مهاراتك، شهاداتك، وخبراتك في الذكاء الاصطناعي وتكنولوجيا التعليم.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" variant="secondary" className="text-base font-semibold" asChild>
+                <Button size="lg" className="text-base font-semibold" asChild>
                   <Link to="/explore">
                     استكشف المعلمين
                     <ArrowLeft className="w-5 h-5 mr-2" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="ghost" className="text-primary-foreground border-primary-foreground/30 border hover:bg-primary-foreground/10 text-base" asChild>
+                <Button size="lg" variant="outline" className="text-base bg-white/50 backdrop-blur-sm border-white/40 hover:bg-white/70" asChild>
                   <Link to="/jobs">تصفح الوظائف</Link>
                 </Button>
               </div>
@@ -164,11 +167,11 @@ export default function Index() {
 
       {/* CTA */}
       <section className="container py-16 md:py-20">
-        <div className="hero-gradient rounded-2xl p-8 md:p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+        <div className="rounded-2xl p-8 md:p-12 text-center relative overflow-hidden" style={{ background: 'var(--hero-gradient)' }}>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             انضم لأكبر شبكة مهنية للمعلمين
           </h2>
-          <p className="text-primary-foreground/80 mb-6 max-w-xl mx-auto">
+          <p className="text-white/80 mb-6 max-w-xl mx-auto">
             أنشئ ملفك المهني مجاناً وابدأ في بناء هويتك التعليمية الرقمية اليوم
           </p>
           <Button size="lg" variant="secondary" className="font-semibold">
