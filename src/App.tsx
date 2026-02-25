@@ -10,6 +10,7 @@ import TeacherProfile from "./pages/TeacherProfile";
 import Jobs from "./pages/Jobs";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import Auth from "./pages/Auth";
 
 const queryClient = new QueryClient();
 
@@ -19,14 +20,23 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/explore" element={<ExploreTeachers />} />
-          <Route path="/profile/:id" element={<TeacherProfile />} />
-          <Route path="/jobs" element={<Jobs />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="*" element={<NotFound />} />
+          {/* Auth page without navbar */}
+          <Route path="/auth" element={<Auth />} />
+          {/* All other pages with navbar */}
+          <Route path="*" element={
+            <>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/explore" element={<ExploreTeachers />} />
+                <Route path="/profile/:id" element={<TeacherProfile />} />
+                <Route path="/jobs" element={<Jobs />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </>
+          } />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
