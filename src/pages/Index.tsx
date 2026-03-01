@@ -174,8 +174,8 @@ export default function Index() {
           <p className="text-white/80 mb-6 max-w-xl mx-auto">
             أنشئ ملفك المهني مجاناً وابدأ في بناء هويتك التعليمية الرقمية اليوم
           </p>
-          <Button size="lg" variant="secondary" className="font-semibold">
-            أنشئ حسابك مجاناً
+          <Button size="lg" variant="secondary" className="font-semibold" asChild>
+            <Link to="/auth">أنشئ حسابك مجاناً</Link>
           </Button>
         </div>
       </section>
