@@ -52,7 +52,7 @@ export default function Navbar() {
             </Link>
           </Button>
           <Button size="sm" asChild>
-            <Link to="/explore">ابدأ الآن</Link>
+            <Link to="/auth">ابدأ الآن</Link>
           </Button>
         </div>
 
@@ -92,7 +92,7 @@ export default function Navbar() {
                   <Link to="/profile/1" onClick={() => setMobileOpen(false)}>ملفي</Link>
                 </Button>
                 <Button size="sm" className="flex-1" asChild>
-                  <Link to="/explore" onClick={() => setMobileOpen(false)}>ابدأ الآن</Link>
+                  <Link to="/auth" onClick={() => setMobileOpen(false)}>ابدأ الآن</Link>
                 </Button>
               </div>
             </div>
