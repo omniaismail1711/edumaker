@@ -40,8 +40,8 @@ const faqData: { keywords: string[]; ar: string; en: string }[] = [
   },
   {
     keywords: ["اشتراك", "مميز", "premium", "subscription", "عضوية"],
-    ar: "العضوية المميزة تمنحك شارة التوثيق الذهبية، ظهور مميز في البحث، وصول للدورات الحصرية، وأولوية في التوظيف. السعر 49 ر.س شهرياً.",
-    en: "Premium membership gives you a gold verification badge, featured search placement, access to exclusive courses, and job priority. Price: $13/month.",
+    ar: "العضوية المميزة تمنحك شارة التوثيق الذهبية، ظهور مميز في البحث، وصول للدورات الحصرية، وأولوية في التوظيف. السعر 49 ج.م شهرياً.",
+    en: "Premium membership gives you a gold verification badge, featured search placement, access to exclusive courses, and job priority. Price: EGP 49/month.",
   },
   {
     keywords: ["ذكاء", "اصطناعي", "ai", "artificial", "intelligence", "chatgpt", "gemini"],
