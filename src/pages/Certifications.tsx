@@ -378,6 +378,160 @@ export default function Certifications() {
         />
       )}
 
+      {/* Recruitment Exams Section */}
+      {(filter === "all" || filter === "recruitment") && (
+        <section className="container max-w-6xl mx-auto px-4 py-12">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
+            <div className="flex items-center gap-2 mb-2">
+              <ClipboardList className="w-5 h-5 text-primary" />
+              <h2 className="text-2xl font-bold text-foreground">
+                {lang === "ar" ? "اختبارات التوظيف للمعلمين الجدد" : "Teacher Recruitment Exams"}
+              </h2>
+            </div>
+            <p className="text-sm text-muted-foreground mb-8 leading-[1.8]">
+              {lang === "ar"
+                ? "اختبارات تهدف إلى تقييم الكفاءة المهنية والتربوية للمعلمين المتقدمين للعمل في المدارس."
+                : "Exams designed to assess the professional and pedagogical competency of teachers applying to work in schools."}
+            </p>
+
+            {/* Egypt Exam Card */}
+            <Card className="overflow-hidden border mb-8">
+              <div className="h-2 bg-gradient-to-r from-[hsl(145,50%,45%)] to-[hsl(210,55%,50%)]" />
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(145,50%,45%)] to-[hsl(210,55%,50%)] flex items-center justify-center text-white shrink-0">
+                    <School className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">
+                      {lang === "ar" ? "اختبار مسابقة تعيين المعلمين – مصر" : "Egypt Teacher Recruitment Exam"}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {lang === "ar" ? "الأكاديمية المهنية للمعلمين" : "Professional Academy for Teachers"}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground leading-[1.8] mb-6">
+                  {lang === "ar"
+                    ? "اختبار يقيس كفاءة المعلم في الجوانب التربوية، التخصصية، والمهارات المهنية قبل الالتحاق بالوظائف التعليمية."
+                    : "An exam measuring teacher competency in pedagogical, specialized, and professional skills before joining teaching positions."}
+                </p>
+
+                {/* Exam Structure */}
+                <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                  {[
+                    { icon: ListChecks, label: { ar: "نوع الأسئلة", en: "Question Type" }, value: { ar: "اختيار من متعدد (MCQ)", en: "Multiple Choice (MCQ)" } },
+                    { icon: Clock, label: { ar: "زمن الاختبار", en: "Duration" }, value: { ar: "حوالي ساعة واحدة", en: "Approx. 1 hour" } },
+                    { icon: MapPin, label: { ar: "مكان الاختبار", en: "Location" }, value: { ar: "مراكز اختبار معتمدة", en: "Certified test centers" } },
+                  ].map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                      <motion.div key={i} variants={fadeUp} custom={i + 1} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                        <div className="bg-secondary/50 rounded-xl p-4 text-center">
+                          <Icon className="w-5 h-5 text-primary mx-auto mb-2" />
+                          <p className="text-xs text-muted-foreground mb-1">{item.label[lang]}</p>
+                          <p className="text-sm font-semibold text-foreground">{item.value[lang]}</p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                {/* Knowledge Areas */}
+                <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                  <Brain className="w-4 h-4 text-primary" />
+                  {lang === "ar" ? "المجالات المعرفية" : "Knowledge Areas Covered"}
+                </h4>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-6">
+                  {[
+                    { icon: Users, label: { ar: "إدارة الصف", en: "Classroom Management" } },
+                    { icon: Lightbulb, label: { ar: "طرق التدريس الحديثة", en: "Modern Teaching Methods" } },
+                    { icon: Brain, label: { ar: "صعوبات التعلم", en: "Learning Difficulties" } },
+                    { icon: BookOpen, label: { ar: "التخصص الأكاديمي", en: "Academic Specialization" } },
+                    { icon: Languages, label: { ar: "اللغة العربية", en: "Arabic Language" } },
+                    { icon: Globe, label: { ar: "اللغة الإنجليزية", en: "English Language" } },
+                    { icon: Monitor, label: { ar: "الحاسب الآلي", en: "Computer Skills" } },
+                    { icon: FileText, label: { ar: "المعلومات العامة", en: "General Knowledge" } },
+                    { icon: MessageSquare, label: { ar: "مهارات التواصل والإلقاء", en: "Communication & Presentation" } },
+                  ].map((area, i) => {
+                    const Icon = area.icon;
+                    return (
+                      <div key={i} className="flex items-center gap-2 bg-secondary/30 rounded-lg px-3 py-2">
+                        <Icon className="w-4 h-4 text-primary shrink-0" />
+                        <span className="text-xs font-medium text-foreground">{area.label[lang]}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Requirements & Documents */}
+                <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                      <UserCheck className="w-4 h-4 text-primary" />
+                      {lang === "ar" ? "شروط التقديم" : "Application Requirements"}
+                    </h4>
+                    <div className="space-y-2">
+                      {[
+                        { ar: "المؤهل التربوي المناسب", en: "Appropriate educational qualification" },
+                        { ar: "تقدير جامعي لا يقل عن مقبول", en: "University grade not less than Pass" },
+                        { ar: "ألا يزيد العمر عن 40 سنة", en: "Age not exceeding 40 years" },
+                        { ar: "بطاقة رقم قومي سارية", en: "Valid national ID card" },
+                      ].map((req, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                          <span className="text-sm text-foreground">{req[lang]}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                      <FileText className="w-4 h-4 text-primary" />
+                      {lang === "ar" ? "المستندات المطلوبة" : "Required Documents"}
+                    </h4>
+                    <div className="space-y-2">
+                      {[
+                        { ar: "بطاقة الرقم القومي", en: "National ID card" },
+                        { ar: "صورة من البطاقة", en: "Copy of ID card" },
+                        { ar: "المؤهل الدراسي", en: "Educational certificate" },
+                      ].map((doc, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                          <span className="text-sm text-foreground">{doc[lang]}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Preparation Tips */}
+                <div className="bg-primary/5 rounded-xl p-5 border border-primary/10">
+                  <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                    <PenTool className="w-4 h-4 text-primary" />
+                    {lang === "ar" ? "كيف تستعد للاختبار" : "How to Prepare"}
+                  </h4>
+                  <div className="space-y-2.5">
+                    {[
+                      { ar: "مراجعة أساسيات التربية وطرق التدريس الحديثة", en: "Review pedagogy fundamentals and modern teaching methods" },
+                      { ar: "دراسة مهارات إدارة الصف والتعامل مع الطلاب", en: "Study classroom management and student interaction skills" },
+                      { ar: "تحديث المعرفة باستخدام التكنولوجيا في التعليم", en: "Update knowledge on technology use in education" },
+                      { ar: "التدرب على أسئلة اختيار من متعدد", en: "Practice multiple choice questions" },
+                      { ar: "مراجعة أساسيات اللغة العربية والإنجليزية", en: "Review Arabic and English language basics" },
+                    ].map((tip, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <Lightbulb className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                        <span className="text-sm text-foreground">{tip[lang]}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </section>
+      )}
+
       {/* Section 6 – Preparation Courses */}
       <section className="container max-w-6xl mx-auto px-4 py-16">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
