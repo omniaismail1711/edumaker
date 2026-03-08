@@ -4,8 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import {
   GraduationCap, Search, Award, Brain, Briefcase, Users, CheckCircle2,
-  ArrowLeft, ArrowRight, Sparkles, TrendingUp, BookOpen, Shield
-} from "lucide-react";
+  ArrowLeft, ArrowRight, Sparkles, TrendingUp, BookOpen, Shield } from
+"lucide-react";
 import TeacherCard from "@/components/TeacherCard";
 import { mockTeachers } from "@/data/mockData";
 import heroBg from "@/assets/hero-bg.png";
@@ -17,20 +17,20 @@ export default function Index() {
   const h = translations.home;
 
   const stats = [
-    { label: t(h.registeredTeachers, lang), value: "12,500+", icon: Users },
-    { label: t(h.verifiedCerts, lang), value: "35,000+", icon: Award },
-    { label: t(h.partnerSchools, lang), value: "850+", icon: GraduationCap },
-    { label: t(h.jobOpportunities, lang), value: "2,300+", icon: Briefcase },
-  ];
+  { label: t(h.registeredTeachers, lang), value: "12,500+", icon: Users },
+  { label: t(h.verifiedCerts, lang), value: "35,000+", icon: Award },
+  { label: t(h.partnerSchools, lang), value: "850+", icon: GraduationCap },
+  { label: t(h.jobOpportunities, lang), value: "2,300+", icon: Briefcase }];
+
 
   const features = [
-    { icon: Brain, title: t(h.aiSkills, lang), desc: t(h.aiSkillsDesc, lang) },
-    { icon: Award, title: t(h.verifiedCertificates, lang), desc: t(h.verifiedCertificatesDesc, lang) },
-    { icon: TrendingUp, title: t(h.impactPoints, lang), desc: t(h.impactPointsDesc, lang) },
-    { icon: Search, title: t(h.talentDiscovery, lang), desc: t(h.talentDiscoveryDesc, lang) },
-    { icon: BookOpen, title: t(h.portfolio, lang), desc: t(h.portfolioDesc, lang) },
-    { icon: Shield, title: t(h.trustedNetwork, lang), desc: t(h.trustedNetworkDesc, lang) },
-  ];
+  { icon: Brain, title: t(h.aiSkills, lang), desc: t(h.aiSkillsDesc, lang) },
+  { icon: Award, title: t(h.verifiedCertificates, lang), desc: t(h.verifiedCertificatesDesc, lang) },
+  { icon: TrendingUp, title: t(h.impactPoints, lang), desc: t(h.impactPointsDesc, lang) },
+  { icon: Search, title: t(h.talentDiscovery, lang), desc: t(h.talentDiscoveryDesc, lang) },
+  { icon: BookOpen, title: t(h.portfolio, lang), desc: t(h.portfolioDesc, lang) },
+  { icon: Shield, title: t(h.trustedNetwork, lang), desc: t(h.trustedNetworkDesc, lang) }];
+
 
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
@@ -47,7 +47,7 @@ export default function Index() {
                 <Sparkles className={`w-3.5 h-3.5 ${isRTL ? "ml-1" : "mr-1"}`} />
                 {t(h.badge, lang)}
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.8] md:leading-[2] mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.8] md:leading-[2] mb-6 mx-px">
                 {t(h.heroTitle1, lang)}
                 <br />
                 <span className="text-primary">{t(h.heroTitle2, lang)}</span>
@@ -75,13 +75,13 @@ export default function Index() {
       <section className="border-b bg-card">
         <div className="container py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((s, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + i * 0.1 }} className="text-center">
+            {stats.map((s, i) =>
+            <motion.div key={i} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 + i * 0.1 }} className="text-center">
                 <s.icon className="w-6 h-6 text-primary mx-auto mb-2" />
                 <p className="text-2xl md:text-3xl font-bold text-foreground">{s.value}</p>
                 <p className="text-sm text-muted-foreground">{s.label}</p>
               </motion.div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -93,15 +93,15 @@ export default function Index() {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t(h.whyUsDesc, lang)}</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="bg-card rounded-xl border p-6 card-elevated">
+          {features.map((f, i) =>
+          <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="bg-card rounded-xl border p-6 card-elevated">
               <div className="w-11 h-11 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <f.icon className="w-5 h-5 text-primary" />
               </div>
               <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
             </motion.div>
-          ))}
+          )}
         </div>
       </section>
 
@@ -118,9 +118,9 @@ export default function Index() {
             </Button>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {mockTeachers.slice(0, 3).map((teacher, i) => (
-              <TeacherCard key={teacher.id} teacher={teacher} index={i} />
-            ))}
+            {mockTeachers.slice(0, 3).map((teacher, i) =>
+            <TeacherCard key={teacher.id} teacher={teacher} index={i} />
+            )}
           </div>
         </div>
       </section>
@@ -154,6 +154,6 @@ export default function Index() {
           <p className="text-xs text-muted-foreground">{t(h.copyright, lang)}</p>
         </div>
       </footer>
-    </div>
-  );
+    </div>);
+
 }
