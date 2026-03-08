@@ -247,9 +247,7 @@ export default function Course() {
             </p>
           </motion.div>
 
-          {/* Timeline connector */}
           <div className="relative">
-            <div className="hidden md:block absolute right-1/2 top-0 bottom-0 w-0.5 bg-border translate-x-1/2" />
 
             {/* Module 0 – Free Webinar */}
             <motion.div
