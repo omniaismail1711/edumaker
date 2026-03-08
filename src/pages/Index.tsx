@@ -72,7 +72,7 @@ export default function Index() {
                 <Sparkles className="w-3.5 h-3.5 ml-1" />
                 الشبكة المهنية الأولى للمعلمين
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-relaxed md:leading-[1.4] mb-6">
                 ابنِ هويتك المهنية
                 <br />
                 <span className="text-primary">واكتشف مستقبل التعليم</span>
