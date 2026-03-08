@@ -37,6 +37,8 @@ const App = () => (
             <ChatBot />
             <Routes>
               <Route path="/auth" element={<Auth />} />
+              <Route path="/choose-account" element={<ChooseAccountType />} />
+              <Route path="/auth/organization" element={<OrgRegistration />} />
               <Route path="*" element={
                 <>
                   <Navbar />
