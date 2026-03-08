@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BadgeCheck, MapPin, BookOpen, Brain, Star } from "lucide-react";
+import { BadgeCheck, MapPin, BookOpen, Brain, Star, IdCard } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 
@@ -15,6 +15,7 @@ export interface TeacherData {
   verified: boolean;
   avatar: string;
   certCount: number;
+  unionMember?: boolean;
 }
 
 export default function TeacherCard({ teacher, index = 0 }: { teacher: TeacherData; index?: number }) {
