@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
   Award, Search, Globe, ShieldCheck, Monitor, BookOpen, GraduationCap,
-  ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Sparkles, Apple,
+  ArrowLeft, ArrowRight, ExternalLink, ChevronDown, ChevronUp, Sparkles, Apple,
   CheckCircle2, Layers, Cpu, Users, Rocket, Target, Filter,
   ClipboardList, Clock, MapPin, FileText, UserCheck, Lightbulb, Languages, PenTool,
   MessageSquare, Brain, School, ListChecks,
