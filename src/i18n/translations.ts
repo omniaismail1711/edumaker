@@ -5,13 +5,18 @@ export const translations = {
   nav: {
     platformName: { ar: "صُنّاع التعليم", en: "EduMakers" },
     home: { ar: "الرئيسية", en: "Home" },
+    exploreTeachers: { ar: "استكشف المعلمين", en: "Explore Teachers" },
     courses: { ar: "الدورات", en: "Courses" },
     tracks: { ar: "المسارات", en: "Tracks" },
+    jobs: { ar: "الوظائف", en: "Jobs" },
+    dashboard: { ar: "لوحة التحكم", en: "Dashboard" },
     community: { ar: "المجتمع", en: "Community" },
     contact: { ar: "تواصل معنا", en: "Contact Us" },
     login: { ar: "تسجيل الدخول", en: "Login" },
     signup: { ar: "إنشاء حساب", en: "Sign Up" },
     language: { ar: "English", en: "العربية" },
+    myProfile: { ar: "ملفي الشخصي", en: "My Profile" },
+    startNow: { ar: "ابدأ الآن", en: "Start Now" },
   },
 
   // Hero
