@@ -301,6 +301,58 @@ export default function Certifications() {
         />
       )}
 
+      {/* Teaching Certifications (TEFL/TESOL) */}
+      {(filter === "all" || filter === "teaching") && filtered.some((c) => c.category === "teaching") && (
+        <>
+          <CertSection
+            title={lang === "ar" ? "شهادات تدريس اللغة الإنجليزية" : "English Teaching Certifications"}
+            subtitle={lang === "ar"
+              ? "اعتمادات دولية تساعد المعلمين على تدريس اللغة الإنجليزية للطلاب حول العالم."
+              : "International accreditations helping teachers teach English to students worldwide."}
+            icon={<GraduationCap className="w-5 h-5 text-primary" />}
+            certs={filtered.filter((c) => c.category === "teaching")}
+            lang={lang}
+            isRTL={isRTL}
+          />
+
+          {/* Comparison Table */}
+          <section className="container max-w-5xl mx-auto px-4 pb-12">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
+              <h3 className="text-xl font-bold text-foreground mb-4 text-center">
+                {lang === "ar" ? "مقارنة الشهادات والاختبارات" : "Certifications & Tests Comparison"}
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse bg-card rounded-xl border overflow-hidden">
+                  <thead>
+                    <tr className="bg-secondary/50">
+                      <th className="px-5 py-3 text-sm font-semibold text-foreground text-start">{lang === "ar" ? "الشهادة" : "Certification"}</th>
+                      <th className="px-5 py-3 text-sm font-semibold text-foreground text-start">{lang === "ar" ? "التركيز" : "Focus"}</th>
+                      <th className="px-5 py-3 text-sm font-semibold text-foreground text-start">{lang === "ar" ? "النوع" : "Type"}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { name: "TEFL", focus: { ar: "تدريس الإنجليزية في الخارج", en: "Teaching English abroad" }, type: { ar: "شهادة تدريس", en: "Teaching Cert" } },
+                      { name: "TESOL", focus: { ar: "تعليم المتعلمين متعددي اللغات", en: "Teaching multilingual learners" }, type: { ar: "شهادة تدريس", en: "Teaching Cert" } },
+                      { name: "TOEFL", focus: { ar: "اختبار إتقان اللغة الإنجليزية", en: "English language proficiency test" }, type: { ar: "اختبار لغة", en: "Language Test" } },
+                      { name: "IELTS", focus: { ar: "اختبار إتقان اللغة الإنجليزية", en: "English proficiency exam" }, type: { ar: "اختبار لغة", en: "Language Test" } },
+                    ].map((row, i) => (
+                      <tr key={i} className="border-t hover:bg-secondary/30 transition-colors">
+                        <td className="px-5 py-3 text-sm font-semibold text-primary">{row.name}</td>
+                        <td className="px-5 py-3 text-sm text-muted-foreground">{row.focus[lang]}</td>
+                        <td className="px-5 py-3">
+                          <Badge variant="outline" className="text-[10px]">{row.type[lang]}</Badge>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </motion.div>
+          </section>
+        </>
+      )}
+
       {/* Section 3 – Teaching Licenses */}
       {(filter === "all" || filter === "license") && filtered.some((c) => c.category === "license") && (
         <CertSection
