@@ -1,6 +1,11 @@
 import { TeacherData } from "@/components/TeacherCard";
 import { JobData } from "@/components/JobCard";
-
+import avatar1 from "@/assets/avatars/avatar-1.jpg";
+import avatar2 from "@/assets/avatars/avatar-2.jpg";
+import avatar3 from "@/assets/avatars/avatar-3.jpg";
+import avatar4 from "@/assets/avatars/avatar-4.jpg";
+import avatar5 from "@/assets/avatars/avatar-5.jpg";
+import avatar6 from "@/assets/avatars/avatar-6.jpg";
 export const mockTeachers: TeacherData[] = [
   {
     id: 1,
