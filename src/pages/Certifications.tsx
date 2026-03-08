@@ -250,7 +250,7 @@ export default function Certifications() {
             </p>
             <p className="text-base text-muted-foreground max-w-xl mx-auto leading-[1.8]">
               {lang === "ar"
-                ? "تساعد هذه الشهادات المعلمين على إثبات مهاراتهم في اللغة، التكنولوجيا التعليمية، والتدريس الرقمي."
+                ? "تساعد هذه الشهادات المعلمين على إثبات مهاراتهم في اللغة، تكنولوجيا التعليم، والتدريس الرقمي."
                 : "These certifications help teachers prove their skills in language, educational technology, and digital teaching."}
             </p>
           </motion.div>
