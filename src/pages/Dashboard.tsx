@@ -154,9 +154,23 @@ export default function Dashboard() {
                   <Brain className="w-4 h-4 ml-2" />
                   تحديث مهارات AI
                 </Button>
-                <Button variant="outline" className="w-full justify-start" size="sm">
-                  <Briefcase className="w-4 h-4 ml-2" />
-                  تصفح الوظائف
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/jobs">
+                    <Briefcase className="w-4 h-4 ml-2" />
+                    تصفح الوظائف
+                  </Link>
+                </Button>
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/resources">
+                    <Library className="w-4 h-4 ml-2" />
+                    مكتبة الموارد والنماذج
+                  </Link>
+                </Button>
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/projects">
+                    <FolderKanban className="w-4 h-4 ml-2" />
+                    المشاريع التعليمية
+                  </Link>
                 </Button>
               </div>
             </div>
