@@ -1,7 +1,6 @@
 export type Language = "ar" | "en";
 
 export const translations = {
-  // Navigation
   nav: {
     platformName: { ar: "صُنّاع التعليم", en: "EduMakers" },
     home: { ar: "الرئيسية", en: "Home" },
@@ -19,16 +18,9 @@ export const translations = {
     startNow: { ar: "ابدأ الآن", en: "Start Now" },
   },
 
-  // Hero
   hero: {
-    title: {
-      ar: "ابنِ ملفك المهني\nوانضم لأكبر شبكة\nللمعلمين العرب",
-      en: "Build Your Professional\nProfile & Join the Largest\nArab Teachers Network",
-    },
-    subtitle: {
-      ar: "منصة صُنّاع التعليم تجمع المعلمين المتميزين مع المدارس الرائدة. طوّر مهاراتك في الذكاء الاصطناعي واحصل على شهادات معتمدة.",
-      en: "EduMakers platform connects distinguished teachers with leading schools. Develop your AI skills and earn certified credentials.",
-    },
+    title: { ar: "ابنِ ملفك المهني\nوانضم لأكبر شبكة\nللمعلمين العرب", en: "Build Your Professional\nProfile & Join the Largest\nArab Teachers Network" },
+    subtitle: { ar: "منصة صُنّاع التعليم تجمع المعلمين المتميزين مع المدارس الرائدة. طوّر مهاراتك في الذكاء الاصطناعي واحصل على شهادات معتمدة.", en: "EduMakers platform connects distinguished teachers with leading schools. Develop your AI skills and earn certified credentials." },
     exploreTeachers: { ar: "استكشف المعلمين", en: "Explore Teachers" },
     startLearning: { ar: "ابدأ التعلم", en: "Start Learning" },
     statTeachers: { ar: "معلم مسجل", en: "Registered Teachers" },
@@ -37,49 +29,28 @@ export const translations = {
     statCourses: { ar: "دورة تدريبية", en: "Training Courses" },
   },
 
-  // Features section
   features: {
     sectionTitle: { ar: "لماذا صُنّاع التعليم؟", en: "Why EduMakers?" },
-    sectionSubtitle: {
-      ar: "منصة متكاملة صُممت خصيصاً لتمكين المعلمين العرب من بناء مستقبل مهني رقمي متميز",
-      en: "A comprehensive platform designed specifically to empower Arab teachers to build a distinguished digital career",
-    },
+    sectionSubtitle: { ar: "منصة متكاملة صُممت خصيصاً لتمكين المعلمين العرب من بناء مستقبل مهني رقمي متميز", en: "A comprehensive platform designed specifically to empower Arab teachers to build a distinguished digital career" },
     feature1Title: { ar: "ملف مهني ذكي", en: "Smart Professional Profile" },
-    feature1Desc: {
-      ar: "أنشئ ملفاً شخصياً احترافياً يعرض مهاراتك وشهاداتك ومعرض أعمالك بطريقة جذابة",
-      en: "Create a professional profile that showcases your skills, certificates, and portfolio attractively",
-    },
+    feature1Desc: { ar: "أنشئ ملفاً شخصياً احترافياً يعرض مهاراتك وشهاداتك ومعرض أعمالك بطريقة جذابة", en: "Create a professional profile that showcases your skills, certificates, and portfolio attractively" },
     feature2Title: { ar: "شهادات معتمدة", en: "Certified Credentials" },
-    feature2Desc: {
-      ar: "احصل على شهادات موثقة ومعترف بها من مقدمي تدريب معتمدين عبر المنصة",
-      en: "Earn verified and recognized certificates from certified training providers through the platform",
-    },
+    feature2Desc: { ar: "احصل على شهادات موثقة ومعترف بها من مقدمي تدريب معتمدين عبر المنصة", en: "Earn verified and recognized certificates from certified training providers through the platform" },
     feature3Title: { ar: "فرص توظيف", en: "Job Opportunities" },
-    feature3Desc: {
-      ar: "تواصل مع أفضل المدارس والمؤسسات التعليمية واحصل على فرص وظيفية مميزة",
-      en: "Connect with top schools and educational institutions and get distinguished job opportunities",
-    },
+    feature3Desc: { ar: "تواصل مع أفضل المدارس والمؤسسات التعليمية واحصل على فرص وظيفية مميزة", en: "Connect with top schools and educational institutions and get distinguished job opportunities" },
     feature4Title: { ar: "تدريب بالذكاء الاصطناعي", en: "AI-Powered Training" },
-    feature4Desc: {
-      ar: "طوّر مهاراتك في أحدث تقنيات الذكاء الاصطناعي المطبّقة في التعليم",
-      en: "Develop your skills in the latest AI technologies applied in education",
-    },
+    feature4Desc: { ar: "طوّر مهاراتك في أحدث تقنيات الذكاء الاصطناعي المطبّقة في التعليم", en: "Develop your skills in the latest AI technologies applied in education" },
   },
 
-  // CTA section
   cta: {
     title: { ar: "جاهز لبناء مستقبلك المهني؟", en: "Ready to Build Your Professional Future?" },
-    subtitle: {
-      ar: "انضم لآلاف المعلمين الذين بدأوا رحلتهم مع صُنّاع التعليم",
-      en: "Join thousands of teachers who started their journey with EduMakers",
-    },
+    subtitle: { ar: "انضم لآلاف المعلمين الذين بدأوا رحلتهم مع صُنّاع التعليم", en: "Join thousands of teachers who started their journey with EduMakers" },
     button: { ar: "سجّل الآن مجاناً", en: "Register Now for Free" },
   },
 
-  // Course page
   course: {
     pageTitle: { ar: "برنامج الذكاء الاصطناعي للمعلمين", en: "AI for Teachers Program" },
-    pageSubtitle: { ar: "رحلة تعليمية متكاملة لتمكين المعلمين من أدوات الذكاء الاصطناعي الحديثة", en: "A comprehensive learning journey to empower teachers with modern AI tools" },
+    pageSubtitle: { ar: "رحلة تعليمية متكاملة", en: "A comprehensive learning journey" },
     badge: { ar: "برنامج تدريبي متكامل", en: "Comprehensive Training Program" },
     title: { ar: "برنامج الذكاء الاصطناعي\nللمعلمين", en: "AI for Teachers\nProgram" },
     desc: { ar: "رحلة تعليمية متكاملة لتمكين المعلمين من أدوات الذكاء الاصطناعي الحديثة وتطبيقها في الفصول الدراسية", en: "A comprehensive learning journey to empower teachers with modern AI tools and apply them in classrooms" },
@@ -100,7 +71,7 @@ export const translations = {
     verified: { ar: "معتمدة", en: "Verified" },
     toolsTitle: { ar: "الأدوات التقنية المستخدمة", en: "Technical Tools Used" },
     journeyTitle: { ar: "رحلتك المعرفية", en: "Your Learning Journey" },
-    journeySubtitle: { ar: "مسار تعليمي مصمم بعناية ليأخذك من الأساسيات إلى الاحتراف", en: "A carefully designed learning path to take you from basics to mastery" },
+    journeySubtitle: { ar: "مسار تعليمي مصمم بعناية", en: "A carefully designed learning path" },
     chooseTrack: { ar: "اختر مسارك التعليمي", en: "Choose Your Learning Track" },
     exploreFundamental: { ar: "استكشف المستوى التأسيسي", en: "Explore Fundamental Level" },
     exploreAdvanced: { ar: "استكشف المستوى المتقدم", en: "Explore Advanced Level" },
@@ -122,132 +93,149 @@ export const translations = {
     },
   },
 
-  // Fundamental course
   fundamental: {
     title: { ar: "المستوى التأسيسي", en: "Fundamental Level" },
-    subtitle: {
-      ar: "ابدأ رحلتك في عالم الذكاء الاصطناعي للتعليم",
-      en: "Start your journey in the world of AI for Education",
+    subtitle: { ar: "ابدأ رحلتك في عالم الذكاء الاصطناعي للتعليم", en: "Start your journey in the world of AI for Education" },
+    badge: { ar: "المستوى التأسيسي", en: "Fundamental Level" },
+    desc: { ar: "برنامج تدريبي شامل مصمم خصيصاً للمعلمين الراغبين في دمج أدوات الذكاء الاصطناعي في ممارساتهم التعليمية اليومية.", en: "A comprehensive training program designed for teachers who want to integrate AI tools into their daily teaching practices." },
+    duration: { ar: "المدة", en: "Duration" },
+    durationSub: { ar: "12 ساعة تدريبية", en: "12 Training Hours" },
+    units: { ar: "الوحدات", en: "Units" },
+    unitsSub: { ar: "5 وحدات تدريبية", en: "5 Training Units" },
+    certificate: { ar: "الشهادة", en: "Certificate" },
+    certificateSub: { ar: "شهادة إتمام معتمدة", en: "Verified Completion" },
+    level: { ar: "المستوى", en: "Level" },
+    levelSub: { ar: "مبتدئ - متوسط", en: "Beginner - Intermediate" },
+    registerNow: { ar: "سجّل الآن", en: "Register Now" },
+    bookWebinar: { ar: "احجز الجلسة المجانية", en: "Book Free Session" },
+    backToProgram: { ar: "العودة للبرنامج", en: "Back to Program" },
+    programStructure: { ar: "هيكل البرنامج التدريبي", en: "Training Program Structure" },
+    programStructureDesc: { ar: "مسار تعليمي مصمم بعناية يبدأ بجلسة تعريفية مجانية ثم 4 وحدات تدريبية متدرجة", en: "A carefully designed path starting with a free intro session followed by 4 progressive units" },
+    freeWebinar: { ar: "الجلسة التعريفية المجانية", en: "Free Introductory Session" },
+    freeSession: { ar: "مجاني", en: "Free" },
+    module0Title: { ar: "مقدمة في الذكاء الاصطناعي والتعليم", en: "Introduction to AI and Education" },
+    module0Topics: {
+      t1: { ar: "ما هو الذكاء الاصطناعي؟", en: "What is AI?" },
+      t2: { ar: "أنواع أدوات الذكاء الاصطناعي", en: "Types of AI Tools" },
+      t3: { ar: "الفرق بين AI التوليدي والتقليدي", en: "Generative vs Traditional AI" },
+      t4: { ar: "تطبيقات AI في التعليم", en: "AI Applications in Education" },
+      t5: { ar: "مستقبل التعليم مع AI", en: "Future of Education with AI" },
+      t6: { ar: "تجارب عملية مباشرة", en: "Live Practical Demos" },
     },
-    duration: { ar: "12 ساعة تدريبية", en: "12 Training Hours" },
-    levelLabel: { ar: "مبتدئ - متوسط", en: "Beginner - Intermediate" },
-    certLabel: { ar: "شهادة إتمام معتمدة", en: "Verified Completion Certificate" },
-    overviewTitle: { ar: "نظرة عامة على البرنامج", en: "Program Overview" },
-    overviewDesc: {
-      ar: "برنامج تدريبي شامل مصمم خصيصاً للمعلمين الراغبين في دمج أدوات الذكاء الاصطناعي في ممارساتهم التعليمية اليومية. يغطي البرنامج الأساسيات النظرية والتطبيقات العملية.",
-      en: "A comprehensive training program designed specifically for teachers who want to integrate AI tools into their daily teaching practices. The program covers theoretical foundations and practical applications.",
+    unitLabel: { ar: "الوحدة", en: "Unit" },
+    mod1Title: { ar: "ChatGPT للمعلمين", en: "ChatGPT for Teachers" },
+    mod1Subtitle: { ar: "إتقان استخدام ChatGPT في إعداد الدروس والتقييم", en: "Mastering ChatGPT for lesson preparation and assessment" },
+    mod1Topics: {
+      t1: { ar: "إنشاء حساب وإعداد ChatGPT", en: "Setting up ChatGPT" },
+      t2: { ar: "كتابة Prompts فعّالة", en: "Writing Effective Prompts" },
+      t3: { ar: "إعداد خطط الدروس", en: "Preparing Lesson Plans" },
+      t4: { ar: "إنشاء أسئلة تقييم متنوعة", en: "Creating Assessment Questions" },
     },
-    module1Title: { ar: "مقدمة في الذكاء الاصطناعي التعليمي", en: "Introduction to Educational AI" },
-    module1Desc: {
-      ar: "فهم أساسيات الذكاء الاصطناعي وتطبيقاته في المجال التعليمي",
-      en: "Understanding the fundamentals of AI and its applications in education",
+    mod2Title: { ar: "إنتاج المحتوى التعليمي", en: "Educational Content Production" },
+    mod2Subtitle: { ar: "تصميم محتوى تعليمي جذاب باستخدام أدوات AI", en: "Designing engaging content using AI tools" },
+    mod2Topics: {
+      t1: { ar: "إنتاج الصوتيات التعليمية", en: "Educational Audio Production" },
+      t2: { ar: "إنشاء موسيقى تعليمية", en: "Creating Educational Music" },
+      t3: { ar: "تصميم بودكاست تعليمي", en: "Designing Educational Podcasts" },
+      t4: { ar: "أدوات التحرير الصوتي", en: "Audio Editing Tools" },
     },
-    module1Topics: {
-      ar: ["ما هو الذكاء الاصطناعي؟", "تاريخ AI في التعليم", "أنواع أدوات الذكاء الاصطناعي", "الفرق بين AI التوليدي والتقليدي"],
-      en: ["What is AI?", "History of AI in Education", "Types of AI Tools", "Difference between Generative and Traditional AI"],
+    mod3Title: { ar: "الذكاء الاصطناعي في التنظيم", en: "AI in Organization" },
+    mod3Subtitle: { ar: "استخدام AI لتنظيم المحتوى وتلخيص المواد", en: "Using AI to organize content and summarize materials" },
+    mod3Topics: {
+      t1: { ar: "تلخيص المواد التعليمية", en: "Summarizing Educational Materials" },
+      t2: { ar: "تنظيم الملاحظات", en: "Organizing Notes" },
+      t3: { ar: "إنشاء خرائط ذهنية", en: "Creating Mind Maps" },
+      t4: { ar: "البحث الذكي", en: "Smart Search" },
     },
-    module2Title: { ar: "ChatGPT للمعلمين", en: "ChatGPT for Teachers" },
-    module2Desc: {
-      ar: "إتقان استخدام ChatGPT في إعداد الدروس والتقييم",
-      en: "Mastering ChatGPT for lesson preparation and assessment",
+    mod4Title: { ar: "أدوات التقييم التفاعلي", en: "Interactive Assessment Tools" },
+    mod4Subtitle: { ar: "أدوات حديثة للتقييم التفاعلي والمشاركة", en: "Modern tools for interactive assessment and engagement" },
+    mod4Topics: {
+      t1: { ar: "إنشاء اختبارات تفاعلية", en: "Creating Interactive Quizzes" },
+      t2: { ar: "أنشطة تعليمية ممتعة", en: "Fun Educational Activities" },
+      t3: { ar: "التقييم التكويني الذكي", en: "Smart Formative Assessment" },
+      t4: { ar: "تحليل نتائج الطلاب", en: "Analyzing Student Results" },
     },
-    module2Topics: {
-      ar: ["إنشاء حساب وإعداد ChatGPT", "كتابة Prompts فعّالة", "إعداد خطط الدروس", "إنشاء أسئلة تقييم متنوعة"],
-      en: ["Setting up a ChatGPT Account", "Writing Effective Prompts", "Preparing Lesson Plans", "Creating Diverse Assessment Questions"],
-    },
-    module3Title: { ar: "إنتاج المحتوى التعليمي بالذكاء الاصطناعي", en: "AI-Powered Educational Content Production" },
-    module3Desc: {
-      ar: "تصميم محتوى تعليمي جذاب باستخدام أدوات AI",
-      en: "Designing engaging educational content using AI tools",
-    },
-    module3Topics: {
-      ar: ["Canva AI لتصميم العروض", "إنتاج فيديوهات تعليمية", "إنشاء إنفوجرافيك تفاعلي", "تصميم أوراق عمل ذكية"],
-      en: ["Canva AI for Presentation Design", "Producing Educational Videos", "Creating Interactive Infographics", "Designing Smart Worksheets"],
-    },
-    module4Title: { ar: "أدوات التقييم الذكي", en: "Smart Assessment Tools" },
-    module4Desc: {
-      ar: "استخدام الذكاء الاصطناعي في التقييم وتحليل أداء الطلاب",
-      en: "Using AI in assessment and student performance analysis",
-    },
-    module4Topics: {
-      ar: ["أدوات التقييم الآلي", "تحليل نتائج الطلاب", "التقييم التكويني الذكي", "إنشاء Rubrics بالذكاء الاصطناعي"],
-      en: ["Automated Assessment Tools", "Student Results Analysis", "Smart Formative Assessment", "Creating AI-Generated Rubrics"],
-    },
-    module5Title: { ar: "مشروع التخرج", en: "Graduation Project" },
-    module5Desc: {
-      ar: "تطبيق عملي شامل لجميع المهارات المكتسبة",
-      en: "A comprehensive practical application of all acquired skills",
-    },
-    module5Topics: {
-      ar: ["تصميم درس متكامل بأدوات AI", "تقديم العرض أمام لجنة التقييم", "مناقشة وتقييم المشروع", "إصدار الشهادة"],
-      en: ["Designing an Integrated Lesson with AI Tools", "Presenting before the Evaluation Committee", "Project Discussion and Evaluation", "Certificate Issuance"],
-    },
-    outcomesTitle: { ar: "مخرجات البرنامج", en: "Program Outcomes" },
-    outcomes: {
-      ar: [
-        "فهم شامل لمفاهيم الذكاء الاصطناعي في التعليم",
-        "إتقان استخدام ChatGPT في التحضير والتقييم",
-        "القدرة على إنتاج محتوى تعليمي احترافي",
-        "مهارات التقييم الذكي وتحليل البيانات",
-        "شهادة إتمام معتمدة من صُنّاع التعليم",
-      ],
-      en: [
-        "Comprehensive understanding of AI concepts in education",
-        "Mastering ChatGPT for preparation and assessment",
-        "Ability to produce professional educational content",
-        "Smart assessment and data analysis skills",
-        "Verified completion certificate from EduMakers",
-      ],
-    },
+    whatYouGain: { ar: "ماذا ستكسب؟", en: "What You'll Gain" },
+    outcomeCert: { ar: "شهادة معتمدة", en: "Certified Credential" },
+    outcomeCertDesc: { ar: "شهادة إتمام معتمدة من صُنّاع التعليم", en: "Verified completion certificate from EduMakers" },
+    outcomeProjects: { ar: "مشاريع تطبيقية", en: "Applied Projects" },
+    outcomeProjectsDesc: { ar: "مشاريع عملية تضاف لملفك المهني", en: "Practical projects added to your professional portfolio" },
+    outcomeTools: { ar: "أدوات احترافية", en: "Professional Tools" },
+    outcomeToolsDesc: { ar: "إتقان أحدث أدوات الذكاء الاصطناعي", en: "Mastering the latest AI tools" },
+    outcomeCommunity: { ar: "مجتمع مهني", en: "Professional Community" },
+    outcomeCommunityDesc: { ar: "انضم لمجتمع المعلمين المبتكرين", en: "Join the innovative teachers community" },
+    startJourney: { ar: "ابدأ رحلتك الآن", en: "Start Your Journey Now" },
+    startJourneyDesc: { ar: "سجّل في المستوى التأسيسي وابدأ تطوير مهاراتك في الذكاء الاصطناعي", en: "Enroll in the Fundamental Level and start developing your AI skills" },
     enrollNow: { ar: "سجّل في المستوى التأسيسي", en: "Enroll in the Fundamental Level" },
   },
 
-  // Advanced course
+  advanced: {
+    title: { ar: "المستوى المتقدم", en: "Advanced Level" },
+    subtitle: { ar: "تخصص في أدوات Microsoft و Google AI للتعليم", en: "Specialize in Microsoft & Google AI Tools for Education" },
+    badge: { ar: "المستوى المتقدم", en: "Advanced Level" },
+    desc: { ar: "برنامج متقدم يركز على إتقان أدوات الذكاء الاصطناعي من Microsoft و Google المخصصة للتعليم.", en: "An advanced program focused on mastering Microsoft and Google AI tools for education." },
+    duration: { ar: "المدة", en: "Duration" },
+    durationSub: { ar: "20 ساعة تدريبية", en: "20 Training Hours" },
+    tracks: { ar: "المسارات", en: "Tracks" },
+    tracksSub: { ar: "Microsoft + Google", en: "Microsoft + Google" },
+    certificate: { ar: "الشهادة", en: "Certificate" },
+    certificateSub: { ar: "شهادة تخصصية معتمدة", en: "Verified Specialized" },
+    level: { ar: "المستوى", en: "Level" },
+    levelSub: { ar: "متقدم - احترافي", en: "Advanced - Professional" },
+    backToProgram: { ar: "العودة للبرنامج", en: "Back to Program" },
+    benefit1: { ar: "احتراف أدوات Microsoft التعليمية المتقدمة", en: "Master advanced Microsoft educational tools" },
+    benefit2: { ar: "إتقان تقنيات Google AI في التعليم", en: "Master Google AI technologies in education" },
+    benefit3: { ar: "زيادة الإنتاجية وتقليل وقت التحضير", en: "Increase productivity and reduce preparation time" },
+    benefit4: { ar: "تصميم بيئات تعلم رقمية متكاملة", en: "Design integrated digital learning environments" },
+    whatYouGain: { ar: "ماذا ستكسب من المستوى المتقدم؟", en: "What You'll Gain from the Advanced Level" },
+    ctaTitle: { ar: "جاهز للاحتراف؟", en: "Ready to Go Pro?" },
+    ctaDesc: { ar: "سجّل الآن في المستوى المتقدم وأتقن أدوات Microsoft و Google AI", en: "Enroll now in the Advanced Level and master Microsoft & Google AI tools" },
+    ctaButton: { ar: "سجّل في المستوى المتقدم", en: "Enroll in the Advanced Level" },
+  },
+
+  advancedSection: {
+    nextStep: { ar: "الخطوة التالية", en: "Next Step" },
+    sectionTitle: { ar: "مسارات المستوى المتقدم", en: "Advanced Level Tracks" },
+    sectionDesc: { ar: "تعمّق في أدوات Microsoft و Google AI المخصصة للتعليم", en: "Dive deep into Microsoft & Google AI tools for education" },
+    microsoftDesc: { ar: "إتقان أدوات Microsoft التعليمية المدعومة بالذكاء الاصطناعي", en: "Mastering Microsoft educational tools powered by AI" },
+    microsoftTopics: {
+      t1: { ar: "Microsoft Copilot للتعليم", en: "Microsoft Copilot for Education" },
+      t2: { ar: "Teams المتقدم للفصول الافتراضية", en: "Advanced Teams for Virtual Classrooms" },
+      t3: { ar: "OneNote و AI في تنظيم الدروس", en: "OneNote & AI for Lesson Organization" },
+      t4: { ar: "Power BI لتحليل بيانات الطلاب", en: "Power BI for Student Data Analysis" },
+    },
+    googleDesc: { ar: "احتراف أدوات Google التعليمية وتقنيات Gemini", en: "Mastering Google educational tools and Gemini technologies" },
+    googleTopics: {
+      t1: { ar: "Google Gemini في التعليم", en: "Google Gemini in Education" },
+      t2: { ar: "Google Classroom المتقدم", en: "Advanced Google Classroom" },
+      t3: { ar: "Google Workspace AI Features", en: "Google Workspace AI Features" },
+      t4: { ar: "تحليل البيانات مع Google Sheets AI", en: "Data Analysis with Google Sheets AI" },
+    },
+    benefitAdvancedSkills: { ar: "مهارات متقدمة", en: "Advanced Skills" },
+    benefitAdvancedSkillsDesc: { ar: "إتقان أحدث أدوات AI التعليمية", en: "Master the latest educational AI tools" },
+    benefitTools: { ar: "أدوات احترافية", en: "Professional Tools" },
+    benefitToolsDesc: { ar: "Microsoft و Google للتعليم", en: "Microsoft & Google for Education" },
+    benefitProductivity: { ar: "زيادة الإنتاجية", en: "Increased Productivity" },
+    benefitProductivityDesc: { ar: "تقليل الوقت في إعداد الدروس", en: "Reduce lesson preparation time" },
+    benefitDigital: { ar: "تجارب رقمية", en: "Digital Experiences" },
+    benefitDigitalDesc: { ar: "تصميم تجارب تعلم رقمية متقدمة", en: "Design advanced digital learning experiences" },
+    exploreAdvanced: { ar: "استكشف المستوى المتقدم", en: "Explore the Advanced Level" },
+  },
+
   advancedCourse: {
     title: { ar: "المستوى المتقدم", en: "Advanced Level" },
-    subtitle: {
-      ar: "تخصص في أدوات Microsoft و Google AI للتعليم",
-      en: "Specialize in Microsoft & Google AI Tools for Education",
-    },
+    subtitle: { ar: "تخصص في أدوات Microsoft و Google AI للتعليم", en: "Specialize in Microsoft & Google AI Tools for Education" },
     duration: { ar: "20 ساعة تدريبية", en: "20 Training Hours" },
     levelLabel: { ar: "متقدم - احترافي", en: "Advanced - Professional" },
     certLabel: { ar: "شهادة تخصصية معتمدة", en: "Verified Specialized Certificate" },
-    overviewTitle: { ar: "نظرة عامة على المستوى المتقدم", en: "Advanced Level Overview" },
-    overviewDesc: {
-      ar: "برنامج متقدم يركز على إتقان أدوات الذكاء الاصطناعي من Microsoft و Google المخصصة للتعليم. مصمم للمعلمين الذين أتموا المستوى التأسيسي ويرغبون في التخصص والاحتراف.",
-      en: "An advanced program focused on mastering Microsoft and Google AI tools dedicated to education. Designed for teachers who completed the fundamental level and want to specialize and become experts.",
-    },
     microsoftTrack: { ar: "مسار Microsoft للتعليم", en: "Microsoft Education Track" },
-    microsoftDesc: {
-      ar: "إتقان أدوات Microsoft التعليمية المدعومة بالذكاء الاصطناعي",
-      en: "Mastering Microsoft educational tools powered by AI",
-    },
-    microsoftTopics: {
-      ar: ["Microsoft Copilot للتعليم", "Teams المتقدم للفصول الافتراضية", "OneNote و AI في تنظيم الدروس", "Power BI لتحليل بيانات الطلاب"],
-      en: ["Microsoft Copilot for Education", "Advanced Teams for Virtual Classrooms", "OneNote & AI for Lesson Organization", "Power BI for Student Data Analysis"],
-    },
+    microsoftDesc: { ar: "إتقان أدوات Microsoft التعليمية", en: "Mastering Microsoft educational tools" },
+    microsoftTopics: { ar: ["Microsoft Copilot", "Teams المتقدم", "OneNote و AI", "Power BI"], en: ["Microsoft Copilot", "Advanced Teams", "OneNote & AI", "Power BI"] },
     googleTrack: { ar: "مسار Google للتعليم", en: "Google Education Track" },
-    googleDesc: {
-      ar: "احتراف أدوات Google التعليمية وتقنيات Gemini",
-      en: "Mastering Google educational tools and Gemini technologies",
-    },
-    googleTopics: {
-      ar: ["Google Gemini في التعليم", "Google Classroom المتقدم", "Google Workspace AI Features", "تحليل البيانات مع Google Sheets AI"],
-      en: ["Google Gemini in Education", "Advanced Google Classroom", "Google Workspace AI Features", "Data Analysis with Google Sheets AI"],
-    },
+    googleDesc: { ar: "احتراف أدوات Google التعليمية", en: "Mastering Google educational tools" },
+    googleTopics: { ar: ["Google Gemini", "Google Classroom المتقدم", "Workspace AI", "Google Sheets AI"], en: ["Google Gemini", "Advanced Google Classroom", "Workspace AI", "Google Sheets AI"] },
     outcomesTitle: { ar: "مخرجات المستوى المتقدم", en: "Advanced Level Outcomes" },
-    outcomes: {
-      ar: [
-        "احتراف أدوات Microsoft التعليمية المتقدمة",
-        "إتقان تقنيات Google AI في التعليم",
-        "القدرة على تصميم بيئات تعلم رقمية متكاملة",
-      ],
-      en: [
-        "Mastering advanced Microsoft educational tools",
-        "Mastering Google AI technologies in education",
-        "Ability to design integrated digital learning environments",
-      ],
-    },
+    outcomes: { ar: ["احتراف أدوات Microsoft المتقدمة", "إتقان تقنيات Google AI", "تصميم بيئات تعلم رقمية"], en: ["Master advanced Microsoft tools", "Master Google AI technologies", "Design digital learning environments"] },
     benefitProductivity: { ar: "زيادة الإنتاجية", en: "Increased Productivity" },
     benefitProductivityDesc: { ar: "زيادة الإنتاجية وتقليل الوقت في إعداد الدروس", en: "Increased productivity and reduced lesson preparation time" },
     benefitDigital: { ar: "تجارب تعلم رقمية", en: "Digital Learning Experiences" },
@@ -255,13 +243,9 @@ export const translations = {
     exploreAdvanced: { ar: "استكشف المستوى المتقدم", en: "Explore the Advanced Level" },
   },
 
-  // Auth page
   auth: {
     welcomeTitle: { ar: "الشبكة المهنية\nالأولى للمعلمين العرب", en: "The First Professional\nNetwork for Arab Educators" },
-    welcomeDesc: {
-      ar: "ابنِ ملفك المهني الرقمي، اعرض مهاراتك وشهاداتك، وتواصل مع أفضل المؤسسات التعليمية.",
-      en: "Build your digital professional profile, showcase your skills and certifications, and connect with top educational institutions."
-    },
+    welcomeDesc: { ar: "ابنِ ملفك المهني الرقمي، اعرض مهاراتك وشهاداتك، وتواصل مع أفضل المؤسسات التعليمية.", en: "Build your digital professional profile, showcase your skills and certifications, and connect with top educational institutions." },
     welcomeBack: { ar: "مرحبًا بك في صُنّاع التعليم", en: "Welcome to EduMakers" },
     welcomeBackSub: { ar: "ابنِ ملفك المهني وابدأ رحلتك التعليمية", en: "Build your professional profile and start your educational journey" },
     login: { ar: "تسجيل الدخول", en: "Login" },
@@ -311,7 +295,6 @@ export const translations = {
     courseIssuerPlaceholder: { ar: "مثال: Google for Education", en: "e.g., Google for Education" },
     courseYear: { ar: "السنة", en: "Year" },
     removeCourse: { ar: "حذف", en: "Remove" },
-    // Step 4: Photo & Gallery
     profilePhoto: { ar: "الصورة الشخصية", en: "Profile Photo" },
     profilePhotoDesc: { ar: "ارفع صورة احترافية واضحة (JPG, PNG — حتى 2 ميجابايت)", en: "Upload a clear professional photo (JPG, PNG — up to 2MB)" },
     uploadPhoto: { ar: "اختر صورة", en: "Choose Photo" },
@@ -328,7 +311,6 @@ export const translations = {
     galleryItemUrl: { ar: "رابط الفيديو", en: "Video URL" },
     galleryItemUrlPlaceholder: { ar: "https://youtube.com/watch?v=...", en: "https://youtube.com/watch?v=..." },
     removeItem: { ar: "حذف", en: "Remove" },
-    // Step 5: Verification
     verificationTitle: { ar: "توثيق الملف الشخصي", en: "Profile Verification" },
     verificationDesc: { ar: "وثّق ملفك الشخصي لزيادة مصداقيتك أمام المدارس والمؤسسات التعليمية", en: "Verify your profile to increase your credibility with schools and educational institutions" },
     freePlan: { ar: "الخطة المجانية", en: "Free Plan" },
@@ -341,7 +323,6 @@ export const translations = {
     premiumBenefit4: { ar: "أولوية في فرص التوظيف", en: "Priority in Job Opportunities" },
     premiumBenefit5: { ar: "دعم فني مخصص", en: "Dedicated Support" },
     selectPlan: { ar: "اختر الخطة", en: "Select Plan" },
-    // Settings (step 6)
     profileSettings: { ar: "إعدادات الملف الشخصي", en: "Profile Settings" },
     availableForHire: { ar: "متاح للتوظيف", en: "Available for Hire" },
     availableForHireDesc: { ar: "اسمح للمدارس بمشاهدة ملفك والتواصل معك", en: "Allow schools to view your profile and contact you" },
@@ -376,14 +357,12 @@ export const translations = {
     },
   },
 
-  // Chatbot
   chatbot: {
     title: { ar: "مساعد صُنّاع التعليم", en: "EduMakers Assistant" },
     placeholder: { ar: "اكتب سؤالك هنا...", en: "Type your question here..." },
     greeting: { ar: "مرحباً! كيف يمكنني مساعدتك اليوم؟ 👋", en: "Hello! How can I help you today? 👋" },
   },
 
-  // Common
   common: {
     registerNow: { ar: "سجّل الآن", en: "Register Now" },
   },
