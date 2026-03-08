@@ -393,8 +393,7 @@ export default function Course() {
               </Button>
               <Button
                 size="lg"
-                variant="outline"
-                className="text-base px-8 py-6 rounded-xl border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+                className="text-base px-8 py-6 rounded-xl bg-primary-foreground/20 border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/30 backdrop-blur-sm"
               >
                 <Play className="w-5 h-5 ml-2" />
                 احجز مقعدك في الويبنار المجاني
