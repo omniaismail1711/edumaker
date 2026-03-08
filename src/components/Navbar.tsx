@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search, Briefcase, User, LayoutDashboard, GraduationCap, BookOpen, Sun, Moon, Globe } from "lucide-react";
+import { Menu, X, Search, Briefcase, User, LayoutDashboard, GraduationCap, BookOpen, Sun, Moon, Globe, Award } from "lucide-react";
 import { useTheme } from "next-themes";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
