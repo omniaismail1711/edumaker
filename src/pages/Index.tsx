@@ -192,6 +192,7 @@ export default function Index() {
           <div className="flex gap-6 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-foreground transition-colors">الرئيسية</Link>
             <Link to="/explore" className="hover:text-foreground transition-colors">المعلمون</Link>
+            <Link to="/course" className="hover:text-foreground transition-colors">الدورة التدريبية</Link>
             <Link to="/jobs" className="hover:text-foreground transition-colors">الوظائف</Link>
           </div>
           <p className="text-xs text-muted-foreground">© 2026 صِنّاع التعليم. جميع الحقوق محفوظة.</p>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search, Briefcase, User, LayoutDashboard, GraduationCap } from "lucide-react";
+import { Menu, X, Search, Briefcase, User, LayoutDashboard, GraduationCap, BookOpen } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { label: "الرئيسية", path: "/", icon: GraduationCap },
   { label: "استكشاف المعلمين", path: "/explore", icon: Search },
+  { label: "الدورة التدريبية", path: "/course", icon: BookOpen },
   { label: "الوظائف", path: "/jobs", icon: Briefcase },
   { label: "لوحة التحكم", path: "/dashboard", icon: LayoutDashboard },
 ];
