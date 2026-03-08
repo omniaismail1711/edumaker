@@ -17,7 +17,7 @@ const fadeUp = {
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08, duration: 0.5 } }),
 };
 
-type CertCategory = "all" | "language" | "license" | "tech";
+type CertCategory = "all" | "language" | "teaching" | "license" | "tech";
 
 interface CertCard {
   id: string;
@@ -67,6 +67,40 @@ const certifications: CertCard[] = [
       { ar: "الكتابة", en: "Writing" },
     ],
     button: { ar: "تعرف على المزيد", en: "Learn More" },
+  },
+  {
+    id: "tefl",
+    title: { ar: "TEFL", en: "TEFL" },
+    description: {
+      ar: "شهادة دولية تؤهل المعلمين لتدريس اللغة الإنجليزية للطلاب الذين يتعلمونها كلغة أجنبية في المدارس والمعاهد حول العالم.",
+      en: "An international certification qualifying teachers to teach English to students learning it as a foreign language worldwide.",
+    },
+    category: "teaching",
+    color: "from-[hsl(270,55%,55%)] to-[hsl(290,50%,60%)]",
+    icon: <GraduationCap className="w-6 h-6" />,
+    skills: [
+      { ar: "تدريس اللغة الإنجليزية كلغة أجنبية", en: "Teaching English as a Foreign Language" },
+      { ar: "المدارس والمعاهد الدولية", en: "International Schools & Institutes" },
+      { ar: "تدريب حضوري أو عبر الإنترنت", en: "Online or In-Person Training" },
+    ],
+    button: { ar: "تعرف على الشهادة", en: "Learn About TEFL" },
+  },
+  {
+    id: "tesol",
+    title: { ar: "TESOL", en: "TESOL" },
+    description: {
+      ar: "برنامج تدريبي يركز على تدريس اللغة الإنجليزية للطلاب الذين يتحدثون لغات أخرى، ويستخدم بشكل واسع في المدارس والجامعات الدولية.",
+      en: "A training program focused on teaching English to speakers of other languages, widely used in international schools and universities.",
+    },
+    category: "teaching",
+    color: "from-[hsl(35,70%,50%)] to-[hsl(25,65%,55%)]",
+    icon: <GraduationCap className="w-6 h-6" />,
+    skills: [
+      { ar: "استراتيجيات تعليم الفصول متعددة اللغات", en: "Multilingual Classroom Strategies" },
+      { ar: "معترف بها عالمياً", en: "Globally Recognized" },
+      { ar: "مناسبة للتعامل مع طلاب متنوعين", en: "Diverse Student Populations" },
+    ],
+    button: { ar: "استكشف برامج TESOL", en: "Explore TESOL Programs" },
   },
   {
     id: "saudi-license",
@@ -167,6 +201,7 @@ const careerPath = [
 const filterTabs: { key: CertCategory; label: { ar: string; en: string }; icon: React.ReactNode }[] = [
   { key: "all", label: { ar: "الكل", en: "All" }, icon: <Filter className="w-4 h-4" /> },
   { key: "language", label: { ar: "اختبارات اللغة", en: "Language Tests" }, icon: <Globe className="w-4 h-4" /> },
+  { key: "teaching", label: { ar: "شهادات التدريس", en: "Teaching Certs" }, icon: <GraduationCap className="w-4 h-4" /> },
   { key: "license", label: { ar: "الرخص المهنية", en: "Teaching Licenses" }, icon: <ShieldCheck className="w-4 h-4" /> },
   { key: "tech", label: { ar: "شهادات التكنولوجيا", en: "Tech Certifications" }, icon: <Monitor className="w-4 h-4" /> },
 ];
@@ -266,6 +301,58 @@ export default function Certifications() {
         />
       )}
 
+      {/* Teaching Certifications (TEFL/TESOL) */}
+      {(filter === "all" || filter === "teaching") && filtered.some((c) => c.category === "teaching") && (
+        <>
+          <CertSection
+            title={lang === "ar" ? "شهادات تدريس اللغة الإنجليزية" : "English Teaching Certifications"}
+            subtitle={lang === "ar"
+              ? "اعتمادات دولية تساعد المعلمين على تدريس اللغة الإنجليزية للطلاب حول العالم."
+              : "International accreditations helping teachers teach English to students worldwide."}
+            icon={<GraduationCap className="w-5 h-5 text-primary" />}
+            certs={filtered.filter((c) => c.category === "teaching")}
+            lang={lang}
+            isRTL={isRTL}
+          />
+
+          {/* Comparison Table */}
+          <section className="container max-w-5xl mx-auto px-4 pb-12">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
+              <h3 className="text-xl font-bold text-foreground mb-4 text-center">
+                {lang === "ar" ? "مقارنة الشهادات والاختبارات" : "Certifications & Tests Comparison"}
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse bg-card rounded-xl border overflow-hidden">
+                  <thead>
+                    <tr className="bg-secondary/50">
+                      <th className="px-5 py-3 text-sm font-semibold text-foreground text-start">{lang === "ar" ? "الشهادة" : "Certification"}</th>
+                      <th className="px-5 py-3 text-sm font-semibold text-foreground text-start">{lang === "ar" ? "التركيز" : "Focus"}</th>
+                      <th className="px-5 py-3 text-sm font-semibold text-foreground text-start">{lang === "ar" ? "النوع" : "Type"}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      { name: "TEFL", focus: { ar: "تدريس الإنجليزية في الخارج", en: "Teaching English abroad" }, type: { ar: "شهادة تدريس", en: "Teaching Cert" } },
+                      { name: "TESOL", focus: { ar: "تعليم المتعلمين متعددي اللغات", en: "Teaching multilingual learners" }, type: { ar: "شهادة تدريس", en: "Teaching Cert" } },
+                      { name: "TOEFL", focus: { ar: "اختبار إتقان اللغة الإنجليزية", en: "English language proficiency test" }, type: { ar: "اختبار لغة", en: "Language Test" } },
+                      { name: "IELTS", focus: { ar: "اختبار إتقان اللغة الإنجليزية", en: "English proficiency exam" }, type: { ar: "اختبار لغة", en: "Language Test" } },
+                    ].map((row, i) => (
+                      <tr key={i} className="border-t hover:bg-secondary/30 transition-colors">
+                        <td className="px-5 py-3 text-sm font-semibold text-primary">{row.name}</td>
+                        <td className="px-5 py-3 text-sm text-muted-foreground">{row.focus[lang]}</td>
+                        <td className="px-5 py-3">
+                          <Badge variant="outline" className="text-[10px]">{row.type[lang]}</Badge>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </motion.div>
+          </section>
+        </>
+      )}
+
       {/* Section 3 – Teaching Licenses */}
       {(filter === "all" || filter === "license") && filtered.some((c) => c.category === "license") && (
         <CertSection
@@ -352,12 +439,14 @@ export default function Certifications() {
 /* Reusable section component */
 function CertSection({
   title,
+  subtitle,
   icon,
   certs,
   lang,
   isRTL,
 }: {
   title: string;
+  subtitle?: string;
   icon: React.ReactNode;
   certs: CertCard[];
   lang: "ar" | "en";
@@ -368,10 +457,11 @@ function CertSection({
 
   return (
     <section className="container max-w-6xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center gap-2 mb-2">
         {icon}
         <h2 className="text-2xl font-bold text-foreground">{title}</h2>
       </div>
+      {subtitle && <p className="text-sm text-muted-foreground mb-6 leading-[1.8]">{subtitle}</p>}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {certs.map((cert, i) => (
           <motion.div
@@ -395,6 +485,8 @@ function CertSection({
                     <Badge variant="outline" className="mt-1 text-[10px]">
                       {cert.category === "language"
                         ? lang === "ar" ? "اختبار لغة" : "Language Test"
+                        : cert.category === "teaching"
+                        ? lang === "ar" ? "شهادة تدريس" : "Teaching Cert"
                         : cert.category === "license"
                         ? lang === "ar" ? "رخصة مهنية" : "Teaching License"
                         : lang === "ar" ? "شهادة تقنية" : "Tech Certification"}
