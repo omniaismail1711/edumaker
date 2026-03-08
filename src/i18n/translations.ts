@@ -56,15 +56,7 @@ export const translations = {
     copyright: { ar: "© 2025 صُنّاع التعليم. جميع الحقوق محفوظة.", en: "© 2025 EduMakers. All rights reserved." },
   },
 
-    title: { ar: "ابنِ ملفك المهني\nوانضم لأكبر شبكة\nللمعلمين العرب", en: "Build Your Professional\nProfile & Join the Largest\nArab Teachers Network" },
-    subtitle: { ar: "منصة صُنّاع التعليم تجمع المعلمين المتميزين مع المدارس الرائدة. طوّر مهاراتك في الذكاء الاصطناعي واحصل على شهادات معتمدة.", en: "EduMakers platform connects distinguished teachers with leading schools. Develop your AI skills and earn certified credentials." },
-    exploreTeachers: { ar: "استكشف المعلمين", en: "Explore Teachers" },
-    startLearning: { ar: "ابدأ التعلم", en: "Start Learning" },
-    statTeachers: { ar: "معلم مسجل", en: "Registered Teachers" },
-    statSchools: { ar: "مدرسة ومؤسسة", en: "Schools & Institutions" },
-    statCerts: { ar: "شهادة صادرة", en: "Certificates Issued" },
-    statCourses: { ar: "دورة تدريبية", en: "Training Courses" },
-  },
+  hero: {
 
   features: {
     sectionTitle: { ar: "لماذا صُنّاع التعليم؟", en: "Why EduMakers?" },
