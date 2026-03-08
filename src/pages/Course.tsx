@@ -204,7 +204,7 @@ export default function Course() {
 
       {/* Learning Journey Timeline */}
       <section className="py-20">
-        <div className="container max-w-4xl mx-auto px-4">
+        <div className="container max-w-5xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -215,7 +215,7 @@ export default function Course() {
             <p className="text-muted-foreground">تعرّف على مراحل البرنامج التدريبي</p>
           </motion.div>
 
-          <div className="flex flex-col items-center gap-0">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
             {journeySteps.map((step, i) => (
               <motion.div
                 key={i}
@@ -224,15 +224,23 @@ export default function Course() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="flex flex-col items-center"
+                className="flex flex-col md:flex-row items-center"
               >
-                <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center shadow-sm border border-primary/10">
-                  <step.icon className="w-9 h-9 text-primary" />
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center shadow-sm border border-primary/10">
+                    <step.icon className="w-9 h-9 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-foreground mt-4 text-lg">{step.label}</h3>
+                  <p className="text-muted-foreground text-sm">{step.sub}</p>
                 </div>
-                <h3 className="font-bold text-foreground mt-4 text-lg">{step.label}</h3>
-                <p className="text-muted-foreground text-sm mb-2">{step.sub}</p>
                 {i < journeySteps.length - 1 && (
-                  <ChevronDown className="w-6 h-6 text-primary/40 my-2" />
+                  <>
+                    <ChevronDown className="w-6 h-6 text-primary/40 my-2 md:hidden" />
+                    <div className="hidden md:flex items-center mx-6">
+                      <div className="w-16 h-[2px] bg-primary/20 rounded-full" />
+                      <ArrowLeft className="w-5 h-5 text-primary/40 -mr-1" />
+                    </div>
+                  </>
                 )}
               </motion.div>
             ))}
