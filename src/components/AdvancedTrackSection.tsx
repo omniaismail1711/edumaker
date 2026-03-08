@@ -2,64 +2,16 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Sparkles,
-  ChevronLeft,
-  CheckCircle2,
-  Zap,
-  Rocket,
-  Clock,
-  Monitor,
+  Sparkles, ChevronLeft, ChevronRight, CheckCircle2, Zap, Rocket, Clock, Monitor,
 } from "lucide-react";
-
-const microsoftTopics = [
-  "استخدام الذكاء الاصطناعي داخل أدوات Microsoft التعليمية",
-  "إنشاء موارد تعليمية باستخدام AI",
-  "أتمتة مهام المعلم اليومية",
-  "استخدام الذكاء الاصطناعي في تحليل بيانات التعلم",
-  "تصميم أنشطة تعليمية تفاعلية",
-];
-
-const googleTopics = [
-  "استخدام الذكاء الاصطناعي في بيئة Google التعليمية",
-  "إنشاء محتوى تعليمي باستخدام أدوات Google AI",
-  "إدارة المعرفة التعليمية باستخدام AI",
-  "تطوير موارد تعليمية تفاعلية",
-  "تحسين تجربة التعلم الرقمي",
-];
-
-const benefits = [
-  {
-    icon: Zap,
-    title: "مهارات متقدمة",
-    desc: "مهارات متقدمة في استخدام الذكاء الاصطناعي في التعليم",
-  },
-  {
-    icon: Monitor,
-    title: "أدوات احترافية",
-    desc: "أدوات احترافية لإنتاج المحتوى التعليمي",
-  },
-  {
-    icon: Clock,
-    title: "زيادة الإنتاجية",
-    desc: "زيادة الإنتاجية وتقليل الوقت في إعداد الدروس",
-  },
-  {
-    icon: Rocket,
-    title: "تجارب تعلم رقمية",
-    desc: "القدرة على تصميم تجارب تعلم رقمية متقدمة",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations, t } from "@/i18n/translations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.15, duration: 0.6 },
-  }),
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.6 } }),
 };
 
-// Simple SVG logos
 const MicrosoftLogo = () => (
   <svg viewBox="0 0 21 21" className="w-8 h-8">
     <rect x="1" y="1" width="9" height="9" fill="#f25022" />
@@ -79,52 +31,24 @@ const GoogleLogo = () => (
 );
 
 function TrackCard({
-  logo,
-  title,
-  description,
-  topics,
-  glowColor,
-  index,
+  logo, title, description, topics, glowColor, index,
 }: {
-  logo: React.ReactNode;
-  title: string;
-  description: string;
-  topics: string[];
-  glowColor: string;
-  index: number;
+  logo: React.ReactNode; title: string; description: string; topics: string[]; glowColor: string; index: number;
 }) {
   return (
-    <motion.div
-      custom={index}
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className="relative group"
-    >
-      {/* Glow effect */}
-      <div
-        className={`absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${glowColor}`}
-      />
+    <motion.div custom={index} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="relative group">
+      <div className={`absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl ${glowColor}`} />
       <Card className="relative card-elevated border-border/40 bg-card/90 backdrop-blur-sm overflow-hidden h-full">
-        {/* Top gradient bar */}
         <div className={`h-1 bg-gradient-to-l ${glowColor}`} />
         <CardContent className="p-6 md:p-8">
           <div className="flex items-center gap-4 mb-5">
-            <div className="w-14 h-14 rounded-xl bg-secondary/80 flex items-center justify-center shadow-sm">
-              {logo}
-            </div>
+            <div className="w-14 h-14 rounded-xl bg-secondary/80 flex items-center justify-center shadow-sm">{logo}</div>
             <h3 className="text-xl font-bold text-foreground">{title}</h3>
           </div>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-            {description}
-          </p>
+          <p className="text-muted-foreground text-sm leading-relaxed mb-6">{description}</p>
           <div className="space-y-3">
             {topics.map((topic, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-2.5 text-sm text-muted-foreground"
-              >
+              <div key={i} className="flex items-start gap-2.5 text-sm text-muted-foreground">
                 <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                 <span>{topic}</span>
               </div>
@@ -137,42 +61,41 @@ function TrackCard({
 }
 
 export default function AdvancedTrackSection() {
+  const { lang, isRTL } = useLanguage();
+  const s = translations.advancedSection;
+  const ArrowIcon = isRTL ? ChevronLeft : ChevronRight;
+
+  const microsoftTopics = Object.values(s.microsoftTopics).map(v => t(v, lang));
+  const googleTopics = Object.values(s.googleTopics).map(v => t(v, lang));
+
+  const benefits = [
+    { icon: Zap, title: t(s.benefitAdvancedSkills, lang), desc: t(s.benefitAdvancedSkillsDesc, lang) },
+    { icon: Monitor, title: t(s.benefitTools, lang), desc: t(s.benefitToolsDesc, lang) },
+    { icon: Clock, title: t(s.benefitProductivity, lang), desc: t(s.benefitProductivityDesc, lang) },
+    { icon: Rocket, title: t(s.benefitDigital, lang), desc: t(s.benefitDigitalDesc, lang) },
+  ];
+
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* Premium background */}
       <div className="absolute inset-0 bg-gradient-to-bl from-[hsl(260,35%,55%/0.08)] via-[hsl(210,50%,50%/0.06)] to-[hsl(350,40%,70%/0.05)]" />
       <div className="absolute top-20 right-20 w-80 h-80 rounded-full bg-[hsl(260,40%,60%/0.1)] blur-3xl" />
       <div className="absolute bottom-20 left-20 w-96 h-96 rounded-full bg-[hsl(210,55%,50%/0.08)] blur-3xl" />
 
       <div className="container relative z-10 max-w-5xl mx-auto px-4">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/15 text-accent-foreground border border-accent/20 text-sm font-semibold mb-6">
             <Sparkles className="w-4 h-4 text-accent" />
-            الخطوة التالية بعد إتمام البرنامج الأساسي
+            {t(s.nextStep, lang)}
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            المسار المتقدم
-          </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
-            بعد إتقان أساسيات استخدام الذكاء الاصطناعي في التعليم، يمكن للمعلمين
-            الانتقال إلى المستوى المتقدم لاستخدام أدوات احترافية من كبرى شركات
-            التكنولوجيا.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t(s.sectionTitle, lang)}</h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto text-base md:text-lg leading-relaxed">{t(s.sectionDesc, lang)}</p>
         </motion.div>
 
-        {/* Track Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <TrackCard
             logo={<MicrosoftLogo />}
             title="Microsoft AI for Education"
-            description="تعلم استخدام أدوات الذكاء الاصطناعي التعليمية من مايكروسوفت لزيادة إنتاجية المعلم وتصميم تجارب تعلم حديثة."
+            description={t(s.microsoftDesc, lang)}
             topics={microsoftTopics}
             glowColor="from-[hsl(210,70%,55%/0.3)] to-[hsl(190,60%,50%/0.15)]"
             index={0}
@@ -180,54 +103,33 @@ export default function AdvancedTrackSection() {
           <TrackCard
             logo={<GoogleLogo />}
             title="Google AI for Education"
-            description="استخدام أدوات الذكاء الاصطناعي من جوجل لدعم التعلم التفاعلي وإنشاء المحتوى التعليمي الذكي."
+            description={t(s.googleDesc, lang)}
             topics={googleTopics}
             glowColor="from-[hsl(140,50%,45%/0.3)] to-[hsl(45,80%,55%/0.15)]"
             index={1}
           />
         </div>
 
-        {/* Benefits */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
           {benefits.map((b, i) => (
-            <motion.div
-              key={i}
-              custom={i + 2}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
+            <motion.div key={i} custom={i + 2} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <Card className="card-elevated border-border/40 bg-card/70 backdrop-blur-sm h-full">
                 <CardContent className="p-5 text-center">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3">
                     <b.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h4 className="font-bold text-foreground text-sm mb-1">
-                    {b.title}
-                  </h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {b.desc}
-                  </p>
+                  <h4 className="font-bold text-foreground text-sm mb-1">{b.title}</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{b.desc}</p>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <Button
-            size="lg"
-            className="text-base px-10 py-6 rounded-xl shadow-lg"
-          >
-            استكشف المستوى المتقدم
-            <ChevronLeft className="w-5 h-5 mr-1" />
+        <motion.div initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center">
+          <Button size="lg" className="text-base px-10 py-6 rounded-xl shadow-lg">
+            {t(s.exploreAdvanced, lang)}
+            <ArrowIcon className={`w-5 h-5 ${isRTL ? "mr-1" : "ml-1"}`} />
           </Button>
         </motion.div>
       </div>

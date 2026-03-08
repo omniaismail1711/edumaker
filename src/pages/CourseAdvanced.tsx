@@ -4,34 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-  Sparkles,
-  CheckCircle2,
-  Rocket,
-  ArrowRight,
-  Award,
-  Clock,
-  BarChart3,
-  BookOpen,
-  Cpu,
-  Monitor,
-  Zap,
-  Timer,
+  Sparkles, Rocket, ArrowRight, ArrowLeft, Award, Clock, BarChart3, BookOpen, Cpu, Monitor, Zap, Timer,
 } from "lucide-react";
 import AdvancedTrackSection from "@/components/AdvancedTrackSection";
-
-const courseBadges = [
-  { icon: Clock, label: "٦ أسابيع", sub: "مدة المسار" },
-  { icon: BookOpen, label: "مسارين", sub: "Microsoft & Google" },
-  { icon: Award, label: "شهادة متقدمة", sub: "عند الإتمام" },
-  { icon: BarChart3, label: "متوسط ← متقدم", sub: "مستوى الدورة" },
-];
-
-const benefits = [
-  { icon: Cpu, text: "مهارات متقدمة في استخدام الذكاء الاصطناعي في التعليم" },
-  { icon: Monitor, text: "أدوات احترافية لإنتاج المحتوى التعليمي" },
-  { icon: Timer, text: "زيادة الإنتاجية وتقليل الوقت في إعداد الدروس" },
-  { icon: Zap, text: "القدرة على تصميم تجارب تعلم رقمية متقدمة" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { translations, t } from "@/i18n/translations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -39,13 +16,31 @@ const fadeUp = {
 };
 
 export default function CourseAdvanced() {
+  const { lang, isRTL } = useLanguage();
+  const a = translations.advanced;
+  const BackArrow = isRTL ? ArrowRight : ArrowLeft;
+
+  const courseBadges = [
+    { icon: Clock, label: t(a.duration, lang), sub: t(a.durationSub, lang) },
+    { icon: BookOpen, label: t(a.tracks, lang), sub: t(a.tracksSub, lang) },
+    { icon: Award, label: t(a.certificate, lang), sub: t(a.certificateSub, lang) },
+    { icon: BarChart3, label: t(a.level, lang), sub: t(a.levelSub, lang) },
+  ];
+
+  const benefits = [
+    { icon: Cpu, text: t(a.benefit1, lang) },
+    { icon: Monitor, text: t(a.benefit2, lang) },
+    { icon: Timer, text: t(a.benefit3, lang) },
+    { icon: Zap, text: t(a.benefit4, lang) },
+  ];
+
   return (
-    <div dir="rtl" className="min-h-screen bg-background font-cairo">
+    <div className="min-h-screen bg-background">
       {/* Breadcrumb */}
       <div className="container max-w-5xl mx-auto px-4 pt-6">
         <Link to="/course" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-          <ArrowRight className="w-4 h-4" />
-          العودة إلى البرنامج
+          <BackArrow className="w-4 h-4" />
+          {t(a.backToProgram, lang)}
         </Link>
       </div>
 
@@ -58,15 +53,11 @@ export default function CourseAdvanced() {
         <div className="container relative z-10 max-w-5xl mx-auto text-center px-4">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Badge className="mb-6 px-4 py-1.5 text-sm bg-accent/10 text-accent border-accent/20">
-              <Sparkles className="w-4 h-4 ml-1" />
-              المسار المتقدم
+              <Sparkles className={`w-4 h-4 ${isRTL ? "ml-1" : "mr-1"}`} />
+              {t(a.badge, lang)}
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              المسار المتقدم للذكاء الاصطناعي في التعليم
-            </h1>
-            <p className="text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-              بعد إتقان أساسيات استخدام الذكاء الاصطناعي في التعليم، انتقل إلى المستوى المتقدم لاستخدام أدوات احترافية من كبرى شركات التكنولوجيا.
-            </p>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{t(a.title, lang)}</h1>
+            <p className="text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">{t(a.desc, lang)}</p>
 
             <div className="flex flex-wrap justify-center gap-3 mb-12">
               <Badge variant="secondary" className="px-4 py-2 text-sm">Microsoft</Badge>
@@ -97,7 +88,7 @@ export default function CourseAdvanced() {
       <section className="py-20">
         <div className="container max-w-4xl mx-auto px-4">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">ماذا ستكتسب؟</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">{t(a.whatYouGain, lang)}</h2>
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {benefits.map((b, i) => (
@@ -122,10 +113,10 @@ export default function CourseAdvanced() {
         <div className="container relative z-10 max-w-3xl mx-auto text-center px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <Rocket className="w-14 h-14 text-primary-foreground/80 mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">ارتقِ بمهاراتك إلى المستوى التالي</h2>
-            <p className="text-primary-foreground/80 mb-10 text-lg">انضم للمسار المتقدم وتعلّم أدوات AI الاحترافية</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">{t(a.ctaTitle, lang)}</h2>
+            <p className="text-primary-foreground/80 mb-10 text-lg">{t(a.ctaDesc, lang)}</p>
             <Button size="lg" variant="secondary" className="text-base px-8 py-6 rounded-xl font-semibold">
-              سجّل في المسار المتقدم
+              {t(a.ctaButton, lang)}
             </Button>
           </motion.div>
         </div>
