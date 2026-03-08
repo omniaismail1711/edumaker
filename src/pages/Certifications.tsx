@@ -414,17 +414,22 @@ export default function Certifications() {
               {lang === "ar" ? "مسارك المهني" : "Your Career Path"}
             </h2>
           </div>
-          <div className="relative flex flex-col items-center gap-0">
+          <div className="relative flex flex-col sm:flex-row items-center justify-center gap-0">
             {careerPath.map((step, i) => {
               const Icon = step.icon;
               return (
-                <motion.div key={i} variants={fadeUp} custom={i + 1} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
-                    <Icon className="w-7 h-7 text-primary" />
+                <motion.div key={i} variants={fadeUp} custom={i + 1} initial="hidden" whileInView="visible" viewport={{ once: true }} className="flex flex-col sm:flex-row items-center">
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20">
+                      <Icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <p className="mt-2 font-semibold text-foreground text-sm text-center max-w-[120px]">{t(step.label)}</p>
                   </div>
-                  <p className="mt-2 font-semibold text-foreground text-sm">{t(step.label)}</p>
                   {i < careerPath.length - 1 && (
-                    <div className="w-0.5 h-10 bg-gradient-to-b from-primary/40 to-primary/10 my-2" />
+                    <>
+                      <div className="hidden sm:block w-12 h-0.5 bg-gradient-to-r from-primary/40 to-primary/10 mx-2 mt-[-1.25rem]" />
+                      <div className="sm:hidden w-0.5 h-8 bg-gradient-to-b from-primary/40 to-primary/10 my-2" />
+                    </>
                   )}
                 </motion.div>
               );
