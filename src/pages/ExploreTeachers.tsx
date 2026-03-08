@@ -15,6 +15,7 @@ export default function ExploreTeachers() {
   const [activeSubject, setActiveSubject] = useState("الكل");
   const [showFilters, setShowFilters] = useState(false);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [unionOnly, setUnionOnly] = useState(false);
 
   const filtered = mockTeachers.filter((t) => {
     const matchSearch = !search || t.name.includes(search) || t.title.includes(search) || t.skills.some((s) => s.includes(search));
