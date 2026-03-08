@@ -20,6 +20,9 @@ import CourseAdvanced from "./pages/CourseAdvanced";
 import Certifications from "./pages/Certifications";
 import CourseLibrary from "./pages/CourseLibrary";
 import ProjectManagement from "./pages/ProjectManagement";
+import ChooseAccountType from "./pages/ChooseAccountType";
+import OrgRegistration from "./pages/OrgRegistration";
+import OrgDashboard from "./pages/OrgDashboard";
 
 const queryClient = new QueryClient();
 
