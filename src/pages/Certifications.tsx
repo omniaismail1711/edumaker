@@ -213,6 +213,7 @@ export default function Certifications() {
   const { lang, isRTL } = useLanguage();
   const [filter, setFilter] = useState<CertCategory>("all");
   const [search, setSearch] = useState("");
+  const [showExamDetails, setShowExamDetails] = useState(false);
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
   const filtered = certifications.filter((c) => {
