@@ -457,10 +457,11 @@ function CertSection({
 
   return (
     <section className="container max-w-6xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-2 mb-6">
+      <div className="flex items-center gap-2 mb-2">
         {icon}
         <h2 className="text-2xl font-bold text-foreground">{title}</h2>
       </div>
+      {subtitle && <p className="text-sm text-muted-foreground mb-6 leading-[1.8]">{subtitle}</p>}
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {certs.map((cert, i) => (
           <motion.div
