@@ -12,6 +12,8 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import Course from "./pages/Course";
+import CourseFundamental from "./pages/CourseFundamental";
+import CourseAdvanced from "./pages/CourseAdvanced";
 
 const queryClient = new QueryClient();
 
