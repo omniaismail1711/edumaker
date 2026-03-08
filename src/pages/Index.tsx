@@ -212,7 +212,7 @@ export default function Index() {
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{t(h.joinNetwork, lang)}</h2>
           <p className="text-white/80 mb-6 max-w-xl mx-auto">{t(h.joinNetworkDesc, lang)}</p>
           <Button size="lg" variant="secondary" className="font-semibold" asChild>
-            <Link to="/auth">{t(h.createFreeAccount, lang)}</Link>
+            <Link to="/choose-account">{t(h.createFreeAccount, lang)}</Link>
           </Button>
         </div>
       </section>

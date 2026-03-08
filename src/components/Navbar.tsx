@@ -124,7 +124,7 @@ export default function Navbar() {
                   <Link to="/profile/1" onClick={() => setMobileOpen(false)}>{t(translations.nav.myProfile, lang)}</Link>
                 </Button>
                 <Button size="sm" className="flex-1" asChild>
-                  <Link to="/auth" onClick={() => setMobileOpen(false)}>{t(translations.nav.startNow, lang)}</Link>
+                  <Link to="/choose-account" onClick={() => setMobileOpen(false)}>{t(translations.nav.startNow, lang)}</Link>
                 </Button>
               </div>
             </div>
