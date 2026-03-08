@@ -35,7 +35,7 @@ export default function TeacherProfile() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/30" />
       </div>
 
-      <div className="container -mt-10 pb-12">
+      <div className="container mt-4 pb-12">
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Column */}
           <div className="lg:col-span-2 space-y-6">
