@@ -412,20 +412,47 @@ function SignupForm() {
               </div>
             </div>
 
-            {/* Premium Plan */}
-            <div className={`border rounded-xl p-4 cursor-pointer transition-all relative overflow-hidden ${selectedPlan === "premium" ? "border-badge-gold bg-badge-gold/5" : "hover:bg-secondary/50"}`}
-              onClick={() => setSelectedPlan("premium")}>
+            {/* Premium Plan - Monthly */}
+            <div className={`border rounded-xl p-4 cursor-pointer transition-all relative overflow-hidden ${selectedPlan === "premium-monthly" ? "border-badge-gold bg-badge-gold/5" : "hover:bg-secondary/50"}`}
+              onClick={() => setSelectedPlan("premium-monthly")}>
               <div className="absolute top-0 right-0 bg-badge-gold text-primary-foreground text-[10px] font-bold px-3 py-0.5 rounded-bl-lg">PRO</div>
               <div className="flex items-center gap-3 mb-3">
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === "premium" ? "border-badge-gold" : "border-muted-foreground"}`}>
-                  {selectedPlan === "premium" && <div className="w-2.5 h-2.5 rounded-full bg-badge-gold" />}
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === "premium-monthly" ? "border-badge-gold" : "border-muted-foreground"}`}>
+                  {selectedPlan === "premium-monthly" && <div className="w-2.5 h-2.5 rounded-full bg-badge-gold" />}
                 </div>
                 <div>
                   <p className="font-semibold text-foreground flex items-center gap-1.5">
                     <Crown className="w-4 h-4 text-badge-gold" />
-                    {t(a.premiumPlan, lang)}
+                    {t(a.premiumPlan, lang)} — {t(a.monthly, lang)}
                   </p>
-                  <p className="text-xs font-bold text-badge-gold">{t(a.premiumPlanPrice, lang)}</p>
+                  <p className="text-xs font-bold text-badge-gold">{t(a.premiumPlanPriceMonthly, lang)}</p>
+                </div>
+              </div>
+              <ul className="space-y-1.5 mr-8">
+                {premiumBenefits.map((b, i) => (
+                  <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <CheckCircle2 className="w-3 h-3 text-badge-gold shrink-0" />
+                    {t(b, lang)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Premium Plan - Yearly */}
+            <div className={`border rounded-xl p-4 cursor-pointer transition-all relative overflow-hidden ${selectedPlan === "premium-yearly" ? "border-badge-gold bg-badge-gold/5" : "hover:bg-secondary/50"}`}
+              onClick={() => setSelectedPlan("premium-yearly")}>
+              <div className="absolute top-0 right-0 bg-badge-gold text-primary-foreground text-[10px] font-bold px-3 py-0.5 rounded-bl-lg">PRO</div>
+              <div className="absolute top-0 left-0 bg-green-600 text-primary-foreground text-[10px] font-bold px-3 py-0.5 rounded-br-lg">{t(a.premiumPlanYearlySave, lang)}</div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === "premium-yearly" ? "border-badge-gold" : "border-muted-foreground"}`}>
+                  {selectedPlan === "premium-yearly" && <div className="w-2.5 h-2.5 rounded-full bg-badge-gold" />}
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground flex items-center gap-1.5">
+                    <Crown className="w-4 h-4 text-badge-gold" />
+                    {t(a.premiumPlan, lang)} — {t(a.yearly, lang)}
+                  </p>
+                  <p className="text-xs font-bold text-badge-gold">{t(a.premiumPlanPriceYearly, lang)}</p>
                 </div>
               </div>
               <ul className="space-y-1.5 mr-8">
