@@ -17,6 +17,7 @@ import Auth from "./pages/Auth";
 import Course from "./pages/Course";
 import CourseFundamental from "./pages/CourseFundamental";
 import CourseAdvanced from "./pages/CourseAdvanced";
+import Certifications from "./pages/Certifications";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const App = () => (
                     <Route path="/course" element={<Course />} />
                     <Route path="/course/fundamental" element={<CourseFundamental />} />
                     <Route path="/course/advanced" element={<CourseAdvanced />} />
+                    <Route path="/certifications" element={<Certifications />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
