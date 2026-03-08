@@ -12,6 +12,8 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import Auth from "./pages/Auth";
 import Course from "./pages/Course";
+import CourseFundamental from "./pages/CourseFundamental";
+import CourseAdvanced from "./pages/CourseAdvanced";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,8 @@ const App = () => (
                 <Route path="/profile/:id" element={<TeacherProfile />} />
                 <Route path="/jobs" element={<Jobs />} />
                 <Route path="/course" element={<Course />} />
+                <Route path="/course/fundamental" element={<CourseFundamental />} />
+                <Route path="/course/advanced" element={<CourseAdvanced />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
