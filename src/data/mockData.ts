@@ -19,6 +19,7 @@ export const mockTeachers: TeacherData[] = [
     verified: true,
     avatar: avatar1,
     certCount: 8,
+    unionMember: true,
   },
   {
     id: 2,
@@ -32,6 +33,7 @@ export const mockTeachers: TeacherData[] = [
     verified: true,
     avatar: avatar2,
     certCount: 12,
+    unionMember: false,
   },
   {
     id: 3,
@@ -45,6 +47,7 @@ export const mockTeachers: TeacherData[] = [
     verified: false,
     avatar: avatar3,
     certCount: 5,
+    unionMember: false,
   },
   {
     id: 4,
@@ -58,6 +61,7 @@ export const mockTeachers: TeacherData[] = [
     verified: true,
     avatar: avatar4,
     certCount: 15,
+    unionMember: true,
   },
   {
     id: 5,
@@ -71,6 +75,7 @@ export const mockTeachers: TeacherData[] = [
     verified: true,
     avatar: avatar5,
     certCount: 7,
+    unionMember: false,
   },
   {
     id: 6,
@@ -84,6 +89,7 @@ export const mockTeachers: TeacherData[] = [
     verified: false,
     avatar: avatar6,
     certCount: 6,
+    unionMember: true,
   },
 ];
 
