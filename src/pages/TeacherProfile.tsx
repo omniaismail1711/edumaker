@@ -47,8 +47,12 @@ export default function TeacherProfile() {
             >
               <div className="flex flex-col sm:flex-row items-start gap-5">
                 <div className="relative shrink-0">
-                  <div className="w-24 h-24 rounded-2xl bg-secondary flex items-center justify-center border-4 border-card">
-                    <span className="text-4xl font-bold text-primary">{teacher.name[0]}</span>
+                  <div className="w-24 h-24 rounded-2xl bg-secondary flex items-center justify-center border-4 border-card overflow-hidden">
+                    {teacher.avatar ? (
+                      <img src={teacher.avatar} alt={teacher.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="text-4xl font-bold text-primary">{teacher.name[0]}</span>
+                    )}
                   </div>
                   {teacher.verified && (
                     <div className="absolute -bottom-1 -left-1 w-7 h-7 rounded-full bg-badge-verified flex items-center justify-center">
