@@ -79,20 +79,17 @@ export const translations = {
   // Course page
   course: {
     pageTitle: { ar: "برنامج الذكاء الاصطناعي للمعلمين", en: "AI for Teachers Program" },
-    pageSubtitle: {
-      ar: "رحلة تعليمية متكاملة لتمكين المعلمين من أدوات الذكاء الاصطناعي الحديثة",
-      en: "A comprehensive learning journey to empower teachers with modern AI tools",
-    },
+    pageSubtitle: { ar: "رحلة تعليمية متكاملة لتمكين المعلمين من أدوات الذكاء الاصطناعي الحديثة", en: "A comprehensive learning journey to empower teachers with modern AI tools" },
+    badge: { ar: "برنامج تدريبي متكامل", en: "Comprehensive Training Program" },
+    title: { ar: "برنامج الذكاء الاصطناعي\nللمعلمين", en: "AI for Teachers\nProgram" },
+    desc: { ar: "رحلة تعليمية متكاملة لتمكين المعلمين من أدوات الذكاء الاصطناعي الحديثة وتطبيقها في الفصول الدراسية", en: "A comprehensive learning journey to empower teachers with modern AI tools and apply them in classrooms" },
+    twoTracks: { ar: "البرنامج يتكون من مستويين: تأسيسي ومتقدم، مع شهادات معتمدة عند إتمام كل مستوى", en: "The program consists of two levels: Fundamental and Advanced, with certified credentials upon completion" },
     fundamentalTitle: { ar: "المستوى التأسيسي", en: "Fundamental Level" },
-    fundamentalDesc: {
-      ar: "ابدأ رحلتك في عالم الذكاء الاصطناعي مع أساسيات قوية",
-      en: "Start your journey in the world of AI with strong fundamentals",
-    },
+    fundamentalDesc: { ar: "ابدأ رحلتك في عالم الذكاء الاصطناعي مع أساسيات قوية", en: "Start your journey in the world of AI with strong fundamentals" },
+    fundamentalSub: { ar: "الأساسيات والأدوات الرئيسية", en: "Basics and core tools" },
     advancedTitle: { ar: "المستوى المتقدم", en: "Advanced Level" },
-    advancedDesc: {
-      ar: "أتقن أدوات متقدمة وتخصص في مجالك",
-      en: "Master advanced tools and specialize in your field",
-    },
+    advancedDesc: { ar: "أتقن أدوات متقدمة وتخصص في مجالك", en: "Master advanced tools and specialize in your field" },
+    advancedSub: { ar: "تخصص واحتراف", en: "Specialization and mastery" },
     explore: { ar: "استكشف المستوى", en: "Explore Level" },
     modules: { ar: "وحدة", en: "Modules" },
     hours: { ar: "ساعة", en: "Hours" },
@@ -103,9 +100,25 @@ export const translations = {
     verified: { ar: "معتمدة", en: "Verified" },
     toolsTitle: { ar: "الأدوات التقنية المستخدمة", en: "Technical Tools Used" },
     journeyTitle: { ar: "رحلتك المعرفية", en: "Your Learning Journey" },
-    journeySubtitle: {
-      ar: "مسار تعليمي مصمم بعناية ليأخذك من الأساسيات إلى الاحتراف",
-      en: "A carefully designed learning path to take you from basics to mastery",
+    journeySubtitle: { ar: "مسار تعليمي مصمم بعناية ليأخذك من الأساسيات إلى الاحتراف", en: "A carefully designed learning path to take you from basics to mastery" },
+    chooseTrack: { ar: "اختر مسارك التعليمي", en: "Choose Your Learning Track" },
+    exploreFundamental: { ar: "استكشف المستوى التأسيسي", en: "Explore Fundamental Level" },
+    exploreAdvanced: { ar: "استكشف المستوى المتقدم", en: "Explore Advanced Level" },
+    introduction: { ar: "المقدمة", en: "Introduction" },
+    introSub: { ar: "تعرف على البرنامج", en: "Get to know the program" },
+    learningJourney: { ar: "رحلتك المعرفية", en: "Your Learning Journey" },
+    journeyDesc: { ar: "مسار تعليمي مصمم بعناية ليأخذك من الأساسيات إلى الاحتراف", en: "A carefully designed learning path from basics to mastery" },
+    fundamentalTopics: {
+      intro: { ar: "مقدمة في الذكاء الاصطناعي", en: "Introduction to AI" },
+      prompting: { ar: "هندسة الأوامر (Prompting)", en: "Prompt Engineering" },
+      content: { ar: "إنتاج المحتوى التعليمي", en: "Educational Content Production" },
+      assessment: { ar: "التقييم الذكي", en: "Smart Assessment" },
+    },
+    advancedTopics: {
+      tools: { ar: "أدوات متقدمة", en: "Advanced Tools" },
+      design: { ar: "التصميم التعليمي", en: "Instructional Design" },
+      analytics: { ar: "تحليل البيانات", en: "Data Analytics" },
+      projects: { ar: "مشاريع تطبيقية", en: "Applied Projects" },
     },
   },
 
