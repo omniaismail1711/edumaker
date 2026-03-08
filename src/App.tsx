@@ -17,6 +17,7 @@ import Auth from "./pages/Auth";
 import Course from "./pages/Course";
 import CourseFundamental from "./pages/CourseFundamental";
 import CourseAdvanced from "./pages/CourseAdvanced";
+import Certifications from "./pages/Certifications";
 
 const queryClient = new QueryClient();
 
