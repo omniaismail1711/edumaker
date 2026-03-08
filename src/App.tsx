@@ -20,6 +20,9 @@ import CourseAdvanced from "./pages/CourseAdvanced";
 import Certifications from "./pages/Certifications";
 import CourseLibrary from "./pages/CourseLibrary";
 import ProjectManagement from "./pages/ProjectManagement";
+import ChooseAccountType from "./pages/ChooseAccountType";
+import OrgRegistration from "./pages/OrgRegistration";
+import OrgDashboard from "./pages/OrgDashboard";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +37,8 @@ const App = () => (
             <ChatBot />
             <Routes>
               <Route path="/auth" element={<Auth />} />
+              <Route path="/choose-account" element={<ChooseAccountType />} />
+              <Route path="/auth/organization" element={<OrgRegistration />} />
               <Route path="*" element={
                 <>
                   <Navbar />
@@ -49,6 +54,7 @@ const App = () => (
                     <Route path="/library" element={<CourseLibrary />} />
                     <Route path="/projects" element={<ProjectManagement />} />
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/org-dashboard" element={<OrgDashboard />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </>
