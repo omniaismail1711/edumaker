@@ -115,6 +115,8 @@ export default function TeacherProfile() {
             />
 
             <GalleryProjects items={galleryItems} />
+
+            <ProfileProjects />
           </div>
 
           {/* Sidebar */}
