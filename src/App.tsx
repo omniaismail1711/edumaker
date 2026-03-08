@@ -28,6 +28,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ChatBot />
             <Routes>
               <Route path="/auth" element={<Auth />} />
               <Route path="*" element={
