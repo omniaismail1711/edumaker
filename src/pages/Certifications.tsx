@@ -206,6 +206,7 @@ const filterTabs: { key: CertCategory; label: { ar: string; en: string }; icon: 
   { key: "teaching", label: { ar: "شهادات التدريس", en: "Teaching Certs" }, icon: <GraduationCap className="w-4 h-4" /> },
   { key: "license", label: { ar: "الرخص المهنية", en: "Teaching Licenses" }, icon: <ShieldCheck className="w-4 h-4" /> },
   { key: "tech", label: { ar: "شهادات التكنولوجيا", en: "Tech Certifications" }, icon: <Monitor className="w-4 h-4" /> },
+  { key: "recruitment", label: { ar: "اختبارات التوظيف", en: "Recruitment Exams" }, icon: <ClipboardList className="w-4 h-4" /> },
 ];
 
 export default function Certifications() {
