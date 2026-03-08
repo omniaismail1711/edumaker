@@ -201,6 +201,7 @@ const careerPath = [
 const filterTabs: { key: CertCategory; label: { ar: string; en: string }; icon: React.ReactNode }[] = [
   { key: "all", label: { ar: "الكل", en: "All" }, icon: <Filter className="w-4 h-4" /> },
   { key: "language", label: { ar: "اختبارات اللغة", en: "Language Tests" }, icon: <Globe className="w-4 h-4" /> },
+  { key: "teaching", label: { ar: "شهادات التدريس", en: "Teaching Certs" }, icon: <GraduationCap className="w-4 h-4" /> },
   { key: "license", label: { ar: "الرخص المهنية", en: "Teaching Licenses" }, icon: <ShieldCheck className="w-4 h-4" /> },
   { key: "tech", label: { ar: "شهادات التكنولوجيا", en: "Tech Certifications" }, icon: <Monitor className="w-4 h-4" /> },
 ];
