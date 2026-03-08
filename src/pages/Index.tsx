@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import {
   GraduationCap, Search, Award, Brain, Briefcase, Users, CheckCircle2,
-  ArrowLeft, ArrowRight, Sparkles, TrendingUp, BookOpen, Shield } from
+  ArrowLeft, ArrowRight, Sparkles, TrendingUp, BookOpen, Shield, Crown, IdCard, Gift, Clock } from
 "lucide-react";
 import TeacherCard from "@/components/TeacherCard";
 import { mockTeachers } from "@/data/mockData";
