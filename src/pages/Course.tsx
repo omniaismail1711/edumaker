@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations, t } from "@/i18n/translations";
+import RecommendedCourses from "@/components/RecommendedCourses";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -194,6 +195,9 @@ export default function Course() {
           </div>
         </div>
       </section>
+
+      {/* Recommended Courses & Explore All */}
+      <RecommendedCourses />
     </div>
   );
 }
