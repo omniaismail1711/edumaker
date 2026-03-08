@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
 import {
   GraduationCap, Mail, Lock, User, Globe, MapPin, BookOpen, Building2,
   Award, Brain, Upload, Link2, Briefcase, Sparkles, Shield, Star,
-  CheckCircle2, ChevronLeft, ChevronRight, Sun, Moon,
+  CheckCircle2, ChevronLeft, ChevronRight, Sun, Moon, Phone,
+  Plus, Trash2, Crown, Image, Video, Camera,
 } from "lucide-react";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
@@ -43,7 +45,6 @@ function FloatingElements() {
           ))}
         </div>
       </motion.div>
-
       <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.9, duration: 0.6 }}
         className="absolute top-[40%] left-[5%] bg-white/10 backdrop-blur-xl rounded-xl p-3 border border-white/20 hidden lg:block">
         <div className="flex items-center gap-2">
@@ -51,12 +52,10 @@ function FloatingElements() {
           <span className="text-xs text-white font-semibold">{t(a.verifiedCert, lang)}</span>
         </div>
       </motion.div>
-
       <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.2, duration: 0.6 }}
         className="absolute bottom-[30%] left-[10%] bg-white/10 backdrop-blur-xl rounded-full p-3 border border-white/20 hidden lg:block">
         <Brain className="w-6 h-6 text-purple-300" />
       </motion.div>
-
       <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4, duration: 0.6 }}
         className="absolute top-[60%] left-[18%] bg-white/10 backdrop-blur-xl rounded-lg p-2 px-3 border border-white/20 hidden lg:block">
         <div className="flex items-center gap-1.5">
@@ -64,7 +63,6 @@ function FloatingElements() {
           <span className="text-xs text-white/90">{t(a.digitalEd, lang)}</span>
         </div>
       </motion.div>
-
       {[
         { top: "20%", left: "25%", delay: 0.8 },
         { top: "50%", left: "22%", delay: 1.0 },
@@ -140,9 +138,13 @@ function SignupForm() {
   const { lang, isRTL } = useLanguage();
   const a = translations.auth;
   const [step, setStep] = useState(0);
-  const totalSteps = 4;
+  const totalSteps = 6;
+  const [courses, setCourses] = useState([{ name: "", issuer: "", year: "" }]);
+  const [galleryItems, setGalleryItems] = useState<{ title: string; caption: string; type: "image" | "youtube"; url: string }[]>([]);
+  const [selectedPlan, setSelectedPlan] = useState<"free" | "premium">("free");
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
-  const stepTitles = [t(a.step1, lang), t(a.step2, lang), t(a.step3, lang), t(a.step4, lang)];
+  const stepTitles = [t(a.step1, lang), t(a.step2, lang), t(a.step3, lang), t(a.step4, lang), t(a.step5, lang), t(a.step6, lang)];
 
   const educationalStages = Object.values(a.stages).map(v => t(v, lang));
   const subjects = ["الرياضيات", "العلوم", "اللغة العربية", "اللغة الإنجليزية", "الحاسب الآلي", "التربية الإسلامية", "الفيزياء", "الكيمياء", "الأحياء", "التاريخ", "الجغرافيا", "أخرى"];
@@ -153,12 +155,19 @@ function SignupForm() {
   const PrevIcon = isRTL ? ChevronRight : ChevronLeft;
   const NextIcon = isRTL ? ChevronLeft : ChevronRight;
 
+  const toggleSkill = (skill: string) => {
+    setSelectedSkills(prev => prev.includes(skill) ? prev.filter(s => s !== skill) : [...prev, skill]);
+  };
+
+  const premiumBenefits = [a.premiumBenefit1, a.premiumBenefit2, a.premiumBenefit3, a.premiumBenefit4, a.premiumBenefit5];
+
   return (
     <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }} className="space-y-4">
       <StepIndicator current={step} total={totalSteps} />
       <p className="text-center text-sm font-semibold text-primary mb-4">{stepTitles[step]}</p>
 
       <AnimatePresence mode="wait">
+        {/* Step 0: Basic Info */}
         {step === 0 && (
           <motion.div key="step0" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
             <div className="space-y-2">
@@ -182,6 +191,13 @@ function SignupForm() {
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               </div>
             </div>
+            <div className="space-y-2">
+              <Label>{t(a.phone, lang)}</Label>
+              <div className="relative">
+                <Input placeholder={t(a.phonePlaceholder, lang)} className="pl-10 text-left" dir="ltr" />
+                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              </div>
+            </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-2">
                 <Label>{t(a.country, lang)}</Label>
@@ -201,8 +217,27 @@ function SignupForm() {
           </motion.div>
         )}
 
+        {/* Step 1: Professional Info */}
         {step === 1 && (
           <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
+            <div className="space-y-2">
+              <Label>{t(a.currentJob, lang)}</Label>
+              <div className="relative">
+                <Input placeholder={t(a.currentJobPlaceholder, lang)} className={isRTL ? "pr-10" : "pl-10"} />
+                <Briefcase className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <Label>{t(a.institution, lang)}</Label>
+              <div className="relative">
+                <Input placeholder={t(a.institutionPlaceholder, lang)} className={isRTL ? "pr-10" : "pl-10"} />
+                <Building2 className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
+              </div>
+            </div>
+            <div className="space-y-2">
+              <Label>{t(a.jobDescription, lang)}</Label>
+              <Textarea placeholder={t(a.jobDescriptionPlaceholder, lang)} rows={3} />
+            </div>
             <div className="space-y-2">
               <Label>{t(a.subject, lang)}</Label>
               <Select>
@@ -228,33 +263,48 @@ function SignupForm() {
                 <SelectContent>{experienceOptions.map(y => <SelectItem key={y} value={y}>{y}</SelectItem>)}</SelectContent>
               </Select>
             </div>
-            <div className="space-y-2">
-              <Label>{t(a.institution, lang)}</Label>
-              <div className="relative">
-                <Input placeholder={t(a.institutionPlaceholder, lang)} className={isRTL ? "pr-10" : "pl-10"} />
-                <Building2 className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label>{t(a.currentJob, lang)}</Label>
-              <div className="relative">
-                <Input placeholder={t(a.currentJobPlaceholder, lang)} className={isRTL ? "pr-10" : "pl-10"} />
-                <Briefcase className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
-              </div>
-            </div>
           </motion.div>
         )}
 
+        {/* Step 2: Skills & Certificates */}
         {step === 2 && (
           <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
             <div className="space-y-3">
               <Label>{t(a.skills, lang)}</Label>
               <div className="flex flex-wrap gap-2">
                 {skills.map(skill => (
-                  <Badge key={skill} variant="outline" className="cursor-pointer hover:bg-primary/10 transition-colors px-3 py-1.5 text-xs">{skill}</Badge>
+                  <Badge key={skill} variant={selectedSkills.includes(skill) ? "default" : "outline"}
+                    className="cursor-pointer hover:bg-primary/10 transition-colors px-3 py-1.5 text-xs"
+                    onClick={() => toggleSkill(skill)}>{skill}</Badge>
                 ))}
               </div>
             </div>
+
+            {/* Dynamic courses */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <Label>{t(a.addCourse, lang)}</Label>
+                <Button type="button" variant="ghost" size="sm" onClick={() => setCourses(prev => [...prev, { name: "", issuer: "", year: "" }])}>
+                  <Plus className="w-4 h-4" />
+                </Button>
+              </div>
+              {courses.map((_, i) => (
+                <div key={i} className="border rounded-lg p-3 space-y-2 relative">
+                  {courses.length > 1 && (
+                    <Button type="button" variant="ghost" size="icon" className="absolute top-1 left-1 w-6 h-6"
+                      onClick={() => setCourses(prev => prev.filter((_, j) => j !== i))}>
+                      <Trash2 className="w-3 h-3 text-destructive" />
+                    </Button>
+                  )}
+                  <Input placeholder={t(a.courseNamePlaceholder, lang)} />
+                  <div className="grid grid-cols-2 gap-2">
+                    <Input placeholder={t(a.courseIssuerPlaceholder, lang)} />
+                    <Input placeholder={t(a.courseYear, lang)} type="number" min="2000" max="2026" />
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <div className="space-y-2">
               <Label>{t(a.uploadCerts, lang)}</Label>
               <div className="border-2 border-dashed border-border rounded-xl p-6 text-center hover:border-primary/40 transition-colors cursor-pointer">
@@ -273,8 +323,126 @@ function SignupForm() {
           </motion.div>
         )}
 
+        {/* Step 3: Photo & Gallery */}
         {step === 3 && (
           <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
+            {/* Profile Photo */}
+            <div className="space-y-3">
+              <Label>{t(a.profilePhoto, lang)}</Label>
+              <div className="flex items-center gap-4">
+                <div className="w-20 h-20 rounded-2xl bg-secondary border-2 border-dashed border-border flex items-center justify-center">
+                  <Camera className="w-8 h-8 text-muted-foreground" />
+                </div>
+                <div className="flex-1">
+                  <Button type="button" variant="outline" size="sm"><Upload className="w-4 h-4 ml-1" />{t(a.uploadPhoto, lang)}</Button>
+                  <p className="text-xs text-muted-foreground mt-1">{t(a.profilePhotoDesc, lang)}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Gallery */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <Label>{t(a.galleryTitle, lang)}</Label>
+                <Button type="button" variant="ghost" size="sm"
+                  onClick={() => setGalleryItems(prev => [...prev, { title: "", caption: "", type: "youtube", url: "" }])}>
+                  <Plus className="w-4 h-4 ml-1" />{t(a.addGalleryItem, lang)}
+                </Button>
+              </div>
+              <p className="text-xs text-muted-foreground">{t(a.galleryDesc, lang)}</p>
+
+              {galleryItems.map((item, i) => (
+                <div key={i} className="border rounded-lg p-3 space-y-2 relative">
+                  <Button type="button" variant="ghost" size="icon" className="absolute top-1 left-1 w-6 h-6"
+                    onClick={() => setGalleryItems(prev => prev.filter((_, j) => j !== i))}>
+                    <Trash2 className="w-3 h-3 text-destructive" />
+                  </Button>
+                  <Input placeholder={t(a.galleryItemTitlePlaceholder, lang)} />
+                  <Input placeholder={t(a.galleryItemCaptionPlaceholder, lang)} />
+                  <div className="flex gap-2">
+                    <Button type="button" variant={item.type === "youtube" ? "default" : "outline"} size="sm"
+                      onClick={() => { const n = [...galleryItems]; n[i].type = "youtube"; setGalleryItems(n); }}>
+                      <Video className="w-3 h-3 ml-1" />{t(a.galleryItemYoutube, lang)}
+                    </Button>
+                    <Button type="button" variant={item.type === "image" ? "default" : "outline"} size="sm"
+                      onClick={() => { const n = [...galleryItems]; n[i].type = "image"; setGalleryItems(n); }}>
+                      <Image className="w-3 h-3 ml-1" />{t(a.galleryItemImage, lang)}
+                    </Button>
+                  </div>
+                  {item.type === "youtube" ? (
+                    <Input placeholder={t(a.galleryItemUrlPlaceholder, lang)} className="text-left" dir="ltr" />
+                  ) : (
+                    <div className="border-2 border-dashed border-border rounded-lg p-4 text-center cursor-pointer hover:border-primary/40 transition-colors">
+                      <Upload className="w-6 h-6 text-muted-foreground mx-auto mb-1" />
+                      <p className="text-xs text-muted-foreground">{t(a.uploadDragDrop, lang)}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {galleryItems.length === 0 && (
+                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center">
+                  <Image className="w-10 h-10 text-muted-foreground mx-auto mb-2" />
+                  <p className="text-sm text-muted-foreground">{t(a.galleryDesc, lang)}</p>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+
+        {/* Step 4: Verification & Subscription */}
+        {step === 4 && (
+          <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
+            <div className="text-center mb-2">
+              <h3 className="font-semibold text-foreground">{t(a.verificationTitle, lang)}</h3>
+              <p className="text-xs text-muted-foreground">{t(a.verificationDesc, lang)}</p>
+            </div>
+
+            {/* Free Plan */}
+            <div className={`border rounded-xl p-4 cursor-pointer transition-all ${selectedPlan === "free" ? "border-primary bg-primary/5" : "hover:bg-secondary/50"}`}
+              onClick={() => setSelectedPlan("free")}>
+              <div className="flex items-center gap-3">
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === "free" ? "border-primary" : "border-muted-foreground"}`}>
+                  {selectedPlan === "free" && <div className="w-2.5 h-2.5 rounded-full bg-primary" />}
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground">{t(a.freePlan, lang)}</p>
+                  <p className="text-xs text-muted-foreground">{t(a.freePlanDesc, lang)}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Premium Plan */}
+            <div className={`border rounded-xl p-4 cursor-pointer transition-all relative overflow-hidden ${selectedPlan === "premium" ? "border-badge-gold bg-badge-gold/5" : "hover:bg-secondary/50"}`}
+              onClick={() => setSelectedPlan("premium")}>
+              <div className="absolute top-0 right-0 bg-badge-gold text-primary-foreground text-[10px] font-bold px-3 py-0.5 rounded-bl-lg">PRO</div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === "premium" ? "border-badge-gold" : "border-muted-foreground"}`}>
+                  {selectedPlan === "premium" && <div className="w-2.5 h-2.5 rounded-full bg-badge-gold" />}
+                </div>
+                <div>
+                  <p className="font-semibold text-foreground flex items-center gap-1.5">
+                    <Crown className="w-4 h-4 text-badge-gold" />
+                    {t(a.premiumPlan, lang)}
+                  </p>
+                  <p className="text-xs font-bold text-badge-gold">{t(a.premiumPlanPrice, lang)}</p>
+                </div>
+              </div>
+              <ul className="space-y-1.5 mr-8">
+                {premiumBenefits.map((b, i) => (
+                  <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <CheckCircle2 className="w-3 h-3 text-badge-gold shrink-0" />
+                    {t(b, lang)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Step 5: Account Settings */}
+        {step === 5 && (
+          <motion.div key="step5" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
             <div className="space-y-4">
               <Label className="text-foreground text-base">{t(a.profileSettings, lang)}</Label>
               <div className="space-y-3">
@@ -332,12 +500,10 @@ export default function Auth() {
 
   return (
     <div className={`min-h-screen flex ${isRTL ? "" : "flex-row-reverse"}`} dir={isRTL ? "rtl" : "ltr"}>
-      {/* Left - gradient side */}
       <div className="hidden lg:flex lg:w-[55%] relative overflow-hidden">
         <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-br from-[hsl(210_55%_35%/0.6)] via-[hsl(260_40%_50%/0.4)] to-[hsl(350_45%_72%/0.3)]" />
         <FloatingElements />
-
         <div className={`relative z-10 flex flex-col justify-center ${isRTL ? "px-12 xl:px-16" : "px-12 xl:px-16"}`}>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="flex items-center gap-3 mb-8">
@@ -366,10 +532,8 @@ export default function Auth() {
         </div>
       </div>
 
-      {/* Right - form side */}
       <div className="flex-1 flex items-center justify-center bg-background p-4 sm:p-8 overflow-y-auto">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="w-full max-w-md">
-          {/* Mobile logo + theme toggle */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2 lg:hidden">
               <div className="w-10 h-10 rounded-xl hero-gradient flex items-center justify-center">

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
+import ChatBot from "@/components/ChatBot";
 import Index from "./pages/Index";
 import ExploreTeachers from "./pages/ExploreTeachers";
 import TeacherProfile from "./pages/TeacherProfile";
@@ -27,6 +28,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
+            <ChatBot />
             <Routes>
               <Route path="/auth" element={<Auth />} />
               <Route path="*" element={
