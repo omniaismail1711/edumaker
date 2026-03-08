@@ -141,7 +141,7 @@ function SignupForm() {
   const totalSteps = 6;
   const [courses, setCourses] = useState([{ name: "", issuer: "", year: "" }]);
   const [galleryItems, setGalleryItems] = useState<{ title: string; caption: string; type: "image" | "youtube"; url: string }[]>([]);
-  const [selectedPlan, setSelectedPlan] = useState<"free" | "premium">("free");
+  const [selectedPlan, setSelectedPlan] = useState<"free" | "premium-monthly" | "premium-yearly">("free");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
   const stepTitles = [t(a.step1, lang), t(a.step2, lang), t(a.step3, lang), t(a.step4, lang), t(a.step5, lang), t(a.step6, lang)];
