@@ -125,6 +125,87 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Union Promo */}
+      <section className="container py-16 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-2xl border overflow-hidden"
+        >
+          {/* Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent" />
+          <div className="absolute top-0 left-0 w-72 h-72 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-56 h-56 bg-badge-gold/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+
+          <div className="relative p-8 md:p-12 flex flex-col lg:flex-row items-center gap-8">
+            {/* Content */}
+            <div className="flex-1 text-center lg:text-right">
+              <Badge className="mb-4 bg-badge-gold/10 text-badge-gold border-badge-gold/20 hover:bg-badge-gold/20">
+                <Gift className="w-3.5 h-3.5 ml-1" />
+                عرض حصري
+              </Badge>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3 leading-relaxed">
+                عرض خاص لمعلمي نقابة المهن التعليمية
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6 max-w-xl">
+                إذا كنت معلمًا مقيدًا في نقابة المهن التعليمية يمكنك توثيق حسابك والحصول على اشتراك مميز مجاني لمدة 6 أشهر.
+              </p>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
+                {[
+                  { icon: Shield, text: "تحقق آمن ومشفر" },
+                  { icon: IdCard, text: "ربط مباشر مع النقابة" },
+                  { icon: CheckCircle2, text: "توثيق فوري للحساب" },
+                ].map((badge) => (
+                  <div key={badge.text} className="flex items-center gap-1.5 text-xs text-muted-foreground bg-card rounded-full px-3 py-1.5 border">
+                    <badge.icon className="w-3.5 h-3.5 text-primary" />
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+
+              <Button size="lg" className="font-semibold text-base" asChild>
+                <Link to="/auth">
+                  <IdCard className="w-5 h-5 ml-2" />
+                  توثيق عضوية النقابة
+                </Link>
+              </Button>
+            </div>
+
+            {/* Highlight Card */}
+            <div className="shrink-0">
+              <div className="w-64 bg-card rounded-2xl border shadow-lg p-6 text-center relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <Badge className="bg-badge-gold text-primary-foreground border-0 shadow-md text-xs font-bold px-4">
+                    <Crown className="w-3 h-3 ml-1" /> PREMIUM
+                  </Badge>
+                </div>
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mt-4 mb-4">
+                  <Gift className="w-8 h-8 text-primary" />
+                </div>
+                <p className="text-4xl font-extrabold text-primary mb-1">6</p>
+                <p className="text-lg font-bold text-foreground mb-1">أشهر مجانًا</p>
+                <p className="text-xs text-muted-foreground mb-4">اشتراك مميز كامل</p>
+                <div className="space-y-2 text-right">
+                  {[
+                    "شارة التوثيق الذهبية",
+                    "ظهور مميز في البحث",
+                    "الوصول للدورات الحصرية",
+                    "أولوية في التوظيف",
+                  ].map((b) => (
+                    <div key={b} className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-badge-gold shrink-0" />
+                      {b}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
       {/* CTA */}
       <section className="container py-16 md:py-20">
         <div className="rounded-2xl p-8 md:p-12 text-center relative overflow-hidden" style={{ background: 'var(--hero-gradient)' }}>
