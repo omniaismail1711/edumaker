@@ -88,6 +88,16 @@ export default function ExploreTeachers() {
                     </button>
                   )}
                 </div>
+
+                {/* Union filter */}
+                <div className="flex items-center gap-2 mb-4 p-3 rounded-lg border bg-primary/5">
+                  <Checkbox id="union-filter" checked={unionOnly} onCheckedChange={(v) => setUnionOnly(!!v)} />
+                  <Label htmlFor="union-filter" className="text-xs font-semibold cursor-pointer flex items-center gap-1.5">
+                    <IdCard className="w-3.5 h-3.5 text-primary" />
+                    عرض أعضاء نقابة المعلمين فقط
+                  </Label>
+                </div>
+
                 {skillCategories.map((cat) => (
                   <div key={cat.title} className="mb-4">
                     <p className="text-xs font-semibold text-muted-foreground mb-2">{cat.title}</p>
