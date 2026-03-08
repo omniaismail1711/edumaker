@@ -359,131 +359,140 @@ export default function Certifications() {
                 : "A professional exam used to evaluate the competency of teachers applying for teaching positions in public schools. It measures pedagogical knowledge, academic specialization, and the professional skills needed for teaching."}
             </p>
 
-            {/* Main Exam Card */}
-            <div className="grid lg:grid-cols-3 gap-5 mb-8">
-              {/* Card 1 – Exam Overview */}
-              <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                <div className="h-2 bg-gradient-to-r from-[hsl(145,50%,45%)] to-[hsl(210,55%,50%)]" />
-                <CardContent className="p-6 flex flex-col flex-1">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[hsl(145,50%,45%)] to-[hsl(210,55%,50%)] flex items-center justify-center text-white shrink-0 shadow-sm">
-                      <School className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-base font-bold text-foreground leading-snug">
-                        {lang === "ar" ? "امتحان تعيين المعلمين" : "Teacher Recruitment Exam"}
-                      </h3>
-                      <Badge variant="outline" className="mt-1.5 text-[11px] px-2 py-0.5">
-                        {lang === "ar" ? "اختبار توظيف" : "Recruitment Exam"}
-                      </Badge>
-                    </div>
+            {/* Exam Card */}
+            <Card className="overflow-hidden border max-w-2xl">
+              <div className="h-2 bg-gradient-to-r from-[hsl(145,50%,45%)] to-[hsl(210,55%,50%)]" />
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[hsl(145,50%,45%)] to-[hsl(210,55%,50%)] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    <School className="w-6 h-6" />
                   </div>
-                  <p className="text-sm text-muted-foreground leading-[1.9] mb-4">
-                    {lang === "ar" ? "تقييم الكفاءة التربوية والتخصصية للمعلمين" : "Assessing pedagogical and specialization competency"}
-                  </p>
-                  <div className="space-y-2 mb-5">
-                    {[
-                      { ar: "أسئلة اختيار من متعدد (MCQ)", en: "Multiple Choice Questions (MCQ)" },
-                      { ar: "حوالي ساعة واحدة", en: "Approx. 1 hour" },
-                      { ar: "مراكز اختبار معتمدة", en: "Certified test centers" },
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2.5 text-sm font-medium text-foreground">
-                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                        {item[lang]}
-                      </div>
-                    ))}
+                  <div>
+                    <h3 className="text-base font-bold text-foreground leading-snug">
+                      {lang === "ar" ? "امتحان تعيين المعلمين" : "Teacher Recruitment Exam"}
+                    </h3>
+                    <Badge variant="outline" className="mt-1.5 text-[11px] px-2 py-0.5">
+                      {lang === "ar" ? "اختبار توظيف" : "Recruitment Exam"}
+                    </Badge>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-1">
-                    {lang === "ar" ? "الجهة المنظمة:" : "Organized by:"}
-                  </p>
-                  <p className="text-sm font-semibold text-foreground mb-5">
-                    {lang === "ar" ? "الأكاديمية المهنية للمعلمين" : "Professional Academy for Teachers"}
-                  </p>
-                  <Button className="w-full gap-2 mt-auto h-11 text-sm font-semibold">
-                    {lang === "ar" ? "تعرف على الاختبار" : "Learn About the Exam"}
-                    <ArrowIcon className="w-4 h-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                </div>
+                <p className="text-sm text-muted-foreground leading-[1.9] mb-4">
+                  {lang === "ar" ? "تقييم الكفاءة التربوية والتخصصية للمعلمين" : "Assessing pedagogical and specialization competency"}
+                </p>
+                <div className="space-y-2 mb-5">
+                  {[
+                    { ar: "أسئلة اختيار من متعدد (MCQ)", en: "Multiple Choice Questions (MCQ)" },
+                    { ar: "حوالي ساعة واحدة", en: "Approx. 1 hour" },
+                    { ar: "مراكز اختبار معتمدة", en: "Certified test centers" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2.5 text-sm font-medium text-foreground">
+                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                      {item[lang]}
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground mb-1">
+                  {lang === "ar" ? "الجهة المنظمة:" : "Organized by:"}
+                </p>
+                <p className="text-sm font-semibold text-foreground mb-5">
+                  {lang === "ar" ? "الأكاديمية المهنية للمعلمين" : "Professional Academy for Teachers"}
+                </p>
 
-              {/* Card 2 – Knowledge Areas */}
-              <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                <div className="h-2 bg-gradient-to-r from-[hsl(210,55%,50%)] to-[hsl(260,45%,55%)]" />
-                <CardContent className="p-6 flex flex-col flex-1">
-                  <h4 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                    <Brain className="w-5 h-5 text-primary" />
-                    {lang === "ar" ? "المجالات المعرفية" : "Knowledge Areas"}
-                  </h4>
-                  <div className="space-y-2.5 flex-1">
-                    {[
-                      { icon: Users, label: { ar: "إدارة الصف", en: "Classroom Management" } },
-                      { icon: Lightbulb, label: { ar: "طرق التدريس الحديثة", en: "Modern Teaching Methods" } },
-                      { icon: Brain, label: { ar: "صعوبات التعلم", en: "Learning Difficulties" } },
-                      { icon: BookOpen, label: { ar: "التخصص الأكاديمي", en: "Academic Specialization" } },
-                      { icon: Languages, label: { ar: "اللغة العربية", en: "Arabic Language" } },
-                      { icon: Globe, label: { ar: "اللغة الإنجليزية", en: "English Language" } },
-                      { icon: Monitor, label: { ar: "الحاسب الآلي", en: "Computer Skills" } },
-                      { icon: FileText, label: { ar: "المعلومات العامة", en: "General Knowledge" } },
-                      { icon: MessageSquare, label: { ar: "مهارات التواصل والإلقاء", en: "Communication" } },
-                    ].map((area, i) => {
-                      const Icon = area.icon;
-                      return (
-                        <div key={i} className="flex items-center gap-2.5 bg-secondary/30 rounded-lg px-3 py-2">
-                          <Icon className="w-4 h-4 text-primary shrink-0" />
-                          <span className="text-xs font-medium text-foreground">{area.label[lang]}</span>
+                <Button
+                  className="w-full gap-2 h-11 text-sm font-semibold"
+                  onClick={() => setShowExamDetails(!showExamDetails)}
+                >
+                  {lang === "ar" ? "تعرف على الاختبار" : "Learn About the Exam"}
+                  {showExamDetails ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </Button>
+
+                {/* Expandable Details */}
+                <AnimatePresence>
+                  {showExamDetails && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-6 space-y-6">
+                        {/* Knowledge Areas */}
+                        <div>
+                          <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                            <Brain className="w-5 h-5 text-primary" />
+                            {lang === "ar" ? "المجالات المعرفية" : "Knowledge Areas"}
+                          </h4>
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                            {[
+                              { icon: Users, label: { ar: "إدارة الصف", en: "Classroom Management" } },
+                              { icon: Lightbulb, label: { ar: "طرق التدريس الحديثة", en: "Modern Teaching Methods" } },
+                              { icon: Brain, label: { ar: "صعوبات التعلم", en: "Learning Difficulties" } },
+                              { icon: BookOpen, label: { ar: "التخصص الأكاديمي", en: "Academic Specialization" } },
+                              { icon: Languages, label: { ar: "اللغة العربية", en: "Arabic Language" } },
+                              { icon: Globe, label: { ar: "اللغة الإنجليزية", en: "English Language" } },
+                              { icon: Monitor, label: { ar: "الحاسب الآلي", en: "Computer Skills" } },
+                              { icon: FileText, label: { ar: "المعلومات العامة", en: "General Knowledge" } },
+                              { icon: MessageSquare, label: { ar: "مهارات التواصل والإلقاء", en: "Communication" } },
+                            ].map((area, i) => {
+                              const Icon = area.icon;
+                              return (
+                                <div key={i} className="flex items-center gap-2.5 bg-secondary/30 rounded-lg px-3 py-2">
+                                  <Icon className="w-4 h-4 text-primary shrink-0" />
+                                  <span className="text-xs font-medium text-foreground">{area.label[lang]}</span>
+                                </div>
+                              );
+                            })}
+                          </div>
                         </div>
-                      );
-                    })}
-                  </div>
-                </CardContent>
-              </Card>
 
-              {/* Card 3 – Requirements & Preparation */}
-              <Card className="overflow-hidden border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                <div className="h-2 bg-gradient-to-r from-[hsl(35,70%,50%)] to-[hsl(350,50%,55%)]" />
-                <CardContent className="p-6 flex flex-col flex-1">
-                  {/* Requirements */}
-                  <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
-                    <UserCheck className="w-5 h-5 text-primary" />
-                    {lang === "ar" ? "شروط التقديم" : "Requirements"}
-                  </h4>
-                  <div className="space-y-2 mb-5">
-                    {[
-                      { ar: "المؤهل التربوي المناسب", en: "Appropriate educational qualification" },
-                      { ar: "تقدير جامعي لا يقل عن مقبول", en: "University grade not less than Pass" },
-                      { ar: "ألا يزيد العمر عن 40 سنة", en: "Age not exceeding 40 years" },
-                      { ar: "بطاقة رقم قومي سارية", en: "Valid national ID card" },
-                    ].map((req, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                        <span className="text-sm text-foreground">{req[lang]}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Preparation */}
-                  <div className="bg-primary/5 rounded-xl p-4 border border-primary/10 mt-auto">
-                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2 text-sm">
-                      <PenTool className="w-4 h-4 text-primary" />
-                      {lang === "ar" ? "كيف تستعد" : "How to Prepare"}
-                    </h4>
-                    <div className="space-y-1.5">
-                      {[
-                        { ar: "مراجعة أساسيات التربية", en: "Review pedagogy fundamentals" },
-                        { ar: "دراسة مهارات إدارة الصف", en: "Study classroom management" },
-                        { ar: "التدرب على أسئلة MCQ", en: "Practice MCQ questions" },
-                        { ar: "مراجعة اللغة العربية والإنجليزية", en: "Review Arabic & English" },
-                      ].map((tip, i) => (
-                        <div key={i} className="flex items-start gap-1.5">
-                          <Lightbulb className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                          <span className="text-xs text-foreground">{tip[lang]}</span>
+                        {/* Requirements */}
+                        <div>
+                          <h4 className="font-bold text-foreground mb-3 flex items-center gap-2">
+                            <UserCheck className="w-5 h-5 text-primary" />
+                            {lang === "ar" ? "شروط التقديم" : "Requirements"}
+                          </h4>
+                          <div className="space-y-2">
+                            {[
+                              { ar: "المؤهل التربوي المناسب", en: "Appropriate educational qualification" },
+                              { ar: "تقدير جامعي لا يقل عن مقبول", en: "University grade not less than Pass" },
+                              { ar: "ألا يزيد العمر عن 40 سنة", en: "Age not exceeding 40 years" },
+                              { ar: "بطاقة رقم قومي سارية", en: "Valid national ID card" },
+                            ].map((req, i) => (
+                              <div key={i} className="flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                                <span className="text-sm text-foreground">{req[lang]}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+
+                        {/* Preparation */}
+                        <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
+                          <h4 className="font-bold text-foreground mb-2 flex items-center gap-2 text-sm">
+                            <PenTool className="w-4 h-4 text-primary" />
+                            {lang === "ar" ? "كيف تستعد" : "How to Prepare"}
+                          </h4>
+                          <div className="space-y-1.5">
+                            {[
+                              { ar: "مراجعة أساسيات التربية", en: "Review pedagogy fundamentals" },
+                              { ar: "دراسة مهارات إدارة الصف", en: "Study classroom management" },
+                              { ar: "التدرب على أسئلة MCQ", en: "Practice MCQ questions" },
+                              { ar: "مراجعة اللغة العربية والإنجليزية", en: "Review Arabic & English" },
+                            ].map((tip, i) => (
+                              <div key={i} className="flex items-start gap-1.5">
+                                <Lightbulb className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
+                                <span className="text-xs text-foreground">{tip[lang]}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </CardContent>
+            </Card>
           </motion.div>
         </section>
       )}
