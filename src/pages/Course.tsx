@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import AdvancedTrackSection from "@/components/AdvancedTrackSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -372,6 +372,9 @@ export default function Course() {
           </div>
         </div>
       </section>
+
+      {/* Advanced Track */}
+      <AdvancedTrackSection />
 
       {/* Final CTA */}
       <section className="py-20 relative overflow-hidden">
