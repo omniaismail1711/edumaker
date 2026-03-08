@@ -23,6 +23,7 @@ import ProjectManagement from "./pages/ProjectManagement";
 import ChooseAccountType from "./pages/ChooseAccountType";
 import OrgRegistration from "./pages/OrgRegistration";
 import OrgDashboard from "./pages/OrgDashboard";
+import ResourceLibrary from "./pages/ResourceLibrary";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
                     <Route path="/projects" element={<ProjectManagement />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/org-dashboard" element={<OrgDashboard />} />
+                    <Route path="/resources" element={<ResourceLibrary />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </>
