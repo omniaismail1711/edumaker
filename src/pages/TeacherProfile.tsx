@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import ImpactScore from "@/components/ImpactScore";
 import { mockTeachers } from "@/data/mockData";
+import profileCover from "@/assets/profile-cover.jpg";
 
 const certificates = [
   { title: "شهادة Google للمعلمين - المستوى 2", issuer: "Google for Education", verified: true, date: "2025" },
@@ -29,10 +30,9 @@ export default function TeacherProfile() {
   return (
     <div className="min-h-screen">
       {/* Cover */}
-      <div className="hero-gradient h-28 md:h-36 relative">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-20 w-60 h-60 rounded-full bg-primary-foreground/20 blur-3xl" />
-        </div>
+      <div className="h-28 md:h-36 relative overflow-hidden">
+        <img src={profileCover} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/30" />
       </div>
 
       <div className="container -mt-12 pb-12">
@@ -47,8 +47,12 @@ export default function TeacherProfile() {
             >
               <div className="flex flex-col sm:flex-row items-start gap-5">
                 <div className="relative shrink-0">
-                  <div className="w-24 h-24 rounded-2xl bg-secondary flex items-center justify-center border-4 border-card">
-                    <span className="text-4xl font-bold text-primary">{teacher.name[0]}</span>
+                  <div className="w-24 h-24 rounded-2xl bg-secondary flex items-center justify-center border-4 border-card overflow-hidden">
+                    {teacher.avatar ? (
+                      <img src={teacher.avatar} alt={teacher.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <span className="text-4xl font-bold text-primary">{teacher.name[0]}</span>
+                    )}
                   </div>
                   {teacher.verified && (
                     <div className="absolute -bottom-1 -left-1 w-7 h-7 rounded-full bg-badge-verified flex items-center justify-center">

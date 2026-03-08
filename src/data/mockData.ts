@@ -1,6 +1,11 @@
 import { TeacherData } from "@/components/TeacherCard";
 import { JobData } from "@/components/JobCard";
-
+import avatar1 from "@/assets/avatars/avatar-1.jpg";
+import avatar2 from "@/assets/avatars/avatar-2.jpg";
+import avatar3 from "@/assets/avatars/avatar-3.jpg";
+import avatar4 from "@/assets/avatars/avatar-4.jpg";
+import avatar5 from "@/assets/avatars/avatar-5.jpg";
+import avatar6 from "@/assets/avatars/avatar-6.jpg";
 export const mockTeachers: TeacherData[] = [
   {
     id: 1,
@@ -12,7 +17,7 @@ export const mockTeachers: TeacherData[] = [
     experience: 12,
     impactScore: 92,
     verified: true,
-    avatar: "",
+    avatar: avatar1,
     certCount: 8,
   },
   {
@@ -25,7 +30,7 @@ export const mockTeachers: TeacherData[] = [
     experience: 8,
     impactScore: 87,
     verified: true,
-    avatar: "",
+    avatar: avatar2,
     certCount: 12,
   },
   {
@@ -38,7 +43,7 @@ export const mockTeachers: TeacherData[] = [
     experience: 6,
     impactScore: 78,
     verified: false,
-    avatar: "",
+    avatar: avatar3,
     certCount: 5,
   },
   {
@@ -51,7 +56,7 @@ export const mockTeachers: TeacherData[] = [
     experience: 10,
     impactScore: 95,
     verified: true,
-    avatar: "",
+    avatar: avatar4,
     certCount: 15,
   },
   {
@@ -64,7 +69,7 @@ export const mockTeachers: TeacherData[] = [
     experience: 15,
     impactScore: 83,
     verified: true,
-    avatar: "",
+    avatar: avatar5,
     certCount: 7,
   },
   {
@@ -77,7 +82,7 @@ export const mockTeachers: TeacherData[] = [
     experience: 9,
     impactScore: 74,
     verified: false,
-    avatar: "",
+    avatar: avatar6,
     certCount: 6,
   },
 ];

@@ -30,7 +30,11 @@ export default function TeacherCard({ teacher, index = 0 }: { teacher: TeacherDa
             {/* Avatar */}
             <div className="relative shrink-0">
               <div className="w-16 h-16 rounded-xl bg-secondary flex items-center justify-center overflow-hidden">
-                <span className="text-2xl font-bold text-primary">{teacher.name[0]}</span>
+                {teacher.avatar ? (
+                  <img src={teacher.avatar} alt={teacher.name} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-2xl font-bold text-primary">{teacher.name[0]}</span>
+                )}
               </div>
               {teacher.verified && (
                 <div className="absolute -bottom-1 -left-1 w-5 h-5 rounded-full bg-badge-verified flex items-center justify-center">
