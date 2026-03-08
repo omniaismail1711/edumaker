@@ -20,7 +20,6 @@ export default function ExploreTeachers() {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [unionOnly, setUnionOnly] = useState(false);
   const [activeTab, setActiveTab] = useState<"explore" | "leaderboard">("explore");
-  const [unionOnly, setUnionOnly] = useState(false);
 
   const filtered = mockTeachers.filter((t) => {
     const matchSearch = !search || t.name.includes(search) || t.title.includes(search) || t.skills.some((s) => s.includes(search));
