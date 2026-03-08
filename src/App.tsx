@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "next-themes";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Index from "./pages/Index";
 import ExploreTeachers from "./pages/ExploreTeachers";
@@ -19,33 +21,35 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          {/* Auth page without navbar */}
-          <Route path="/auth" element={<Auth />} />
-          {/* All other pages with navbar */}
-          <Route path="*" element={
-            <>
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/explore" element={<ExploreTeachers />} />
-                <Route path="/profile/:id" element={<TeacherProfile />} />
-                <Route path="/jobs" element={<Jobs />} />
-                <Route path="/course" element={<Course />} />
-                <Route path="/course/fundamental" element={<CourseFundamental />} />
-                <Route path="/course/advanced" element={<CourseAdvanced />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </>
-          } />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/auth" element={<Auth />} />
+              <Route path="*" element={
+                <>
+                  <Navbar />
+                  <Routes>
+                    <Route path="/" element={<Index />} />
+                    <Route path="/explore" element={<ExploreTeachers />} />
+                    <Route path="/profile/:id" element={<TeacherProfile />} />
+                    <Route path="/jobs" element={<Jobs />} />
+                    <Route path="/course" element={<Course />} />
+                    <Route path="/course/fundamental" element={<CourseFundamental />} />
+                    <Route path="/course/advanced" element={<CourseAdvanced />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </>
+              } />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   </QueryClientProvider>
 );
 
