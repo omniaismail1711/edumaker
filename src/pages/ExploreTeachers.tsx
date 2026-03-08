@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Search, SlidersHorizontal, X, IdCard } from "lucide-react";
+import { Search, SlidersHorizontal, X, IdCard, Trophy, Users } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import TeacherCard from "@/components/TeacherCard";
+import Leaderboard from "@/components/Leaderboard";
 import { mockTeachers, skillCategories } from "@/data/mockData";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const subjectFilters = ["الكل", "الرياضيات", "العلوم", "اللغة الإنجليزية", "اللغة العربية", "الحاسب الآلي", "رياض الأطفال"];
 
