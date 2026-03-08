@@ -21,7 +21,8 @@ export default function ExploreTeachers() {
     const matchSearch = !search || t.name.includes(search) || t.title.includes(search) || t.skills.some((s) => s.includes(search));
     const matchSubject = activeSubject === "الكل" || t.subjects.some((s) => s.includes(activeSubject));
     const matchSkills = selectedSkills.length === 0 || selectedSkills.some((sk) => t.skills.includes(sk));
-    return matchSearch && matchSubject && matchSkills;
+    const matchUnion = !unionOnly || t.unionMember;
+    return matchSearch && matchSubject && matchSkills && matchUnion;
   });
 
   const toggleSkill = (skill: string) => {

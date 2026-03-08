@@ -87,9 +87,16 @@ export default function TeacherCard({ teacher, index = 0 }: { teacher: TeacherDa
 
           {/* Bottom row */}
           <div className="flex items-center justify-between mt-3 pt-3 border-t">
-            <div className="flex items-center gap-1 text-xs text-muted-foreground">
-              <Brain className="w-3.5 h-3.5 text-primary" />
-              <span>{teacher.certCount} شهادة</span>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <div className="flex items-center gap-1">
+                <Brain className="w-3.5 h-3.5 text-primary" />
+                <span>{teacher.certCount} شهادة</span>
+              </div>
+              {teacher.unionMember && (
+                <Badge variant="outline" className="text-[10px] border-primary/30 text-primary gap-1 px-1.5 py-0">
+                  <IdCard className="w-3 h-3" /> عضو نقابة
+                </Badge>
+              )}
             </div>
             <div className="flex items-center gap-1">
               {teacher.subjects.slice(0, 2).map((s) => (
