@@ -410,7 +410,7 @@ export default function RecommendedCourses() {
                 : "Browse the full course library and discover more learning opportunities"}
             </p>
             <Button asChild size="lg" className="text-base px-10 py-6 rounded-xl">
-              <Link to="/courses-library">
+              <Link to="/library">
                 {lang === "ar" ? "استكشف جميع الدورات" : "Explore All Courses"}
                 <ArrowIcon className={`w-5 h-5 ${isRTL ? "mr-2" : "ml-2"}`} />
               </Link>
