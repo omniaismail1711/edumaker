@@ -319,6 +319,8 @@ export const translations = {
     selectExperience: { ar: "اختر سنوات الخبرة", en: "Select experience" },
     institution: { ar: "المؤسسة التعليمية الحالية", en: "Current Educational Institution" },
     institutionPlaceholder: { ar: "اسم المدرسة أو الجامعة", en: "School or university name" },
+    currentJob: { ar: "الوظيفة الحالية", en: "Current Job Title" },
+    currentJobPlaceholder: { ar: "مثال: معلم رياضيات أول", en: "e.g., Senior Math Teacher" },
     skills: { ar: "المهارات", en: "Skills" },
     uploadCerts: { ar: "رفع الشهادات", en: "Upload Certificates" },
     uploadDragDrop: { ar: "اسحب الملفات هنا أو اضغط للرفع", en: "Drag files here or click to upload" },
