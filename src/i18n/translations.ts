@@ -67,6 +67,7 @@ export const translations = {
     statCourses: { ar: "دورة تدريبية", en: "Training Courses" },
   },
 
+  features: {
     sectionTitle: { ar: "لماذا صُنّاع التعليم؟", en: "Why EduMakers?" },
     sectionSubtitle: { ar: "منصة متكاملة صُممت خصيصاً لتمكين المعلمين العرب من بناء مستقبل مهني رقمي متميز", en: "A comprehensive platform designed specifically to empower Arab teachers to build a distinguished digital career" },
     feature1Title: { ar: "ملف مهني ذكي", en: "Smart Professional Profile" },
