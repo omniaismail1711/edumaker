@@ -43,7 +43,7 @@ export const mockTeachers: TeacherData[] = [
     experience: 6,
     impactScore: 78,
     verified: false,
-    avatar: "",
+    avatar: avatar3,
     certCount: 5,
   },
   {
