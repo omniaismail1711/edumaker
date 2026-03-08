@@ -634,17 +634,17 @@ function CertSection({
             variants={fadeUp}
             custom={i}
           >
-            <Card className="group overflow-hidden border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
+            <Card className="group overflow-hidden border hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
               {/* Gradient header */}
               <div className={`h-2 bg-gradient-to-r ${cert.color}`} />
-              <CardContent className="p-5 flex flex-col h-full">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${cert.color} flex items-center justify-center text-white shrink-0`}>
+              <CardContent className="p-6 flex flex-col flex-1">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${cert.color} flex items-center justify-center text-white shrink-0 shadow-sm`}>
                     {cert.icon}
                   </div>
                   <div>
-                    <h3 className="font-bold text-foreground">{t(cert.title)}</h3>
-                    <Badge variant="outline" className="mt-1 text-[10px]">
+                    <h3 className="text-base font-bold text-foreground leading-snug">{t(cert.title)}</h3>
+                    <Badge variant="outline" className="mt-1.5 text-[11px] px-2 py-0.5">
                       {cert.category === "language"
                         ? lang === "ar" ? "اختبار لغة" : "Language Test"
                         : cert.category === "teaching"
@@ -658,13 +658,13 @@ function CertSection({
                   </div>
                 </div>
 
-                <p className="text-sm text-muted-foreground leading-[1.8] mb-4 flex-1">{t(cert.description)}</p>
+                <p className="text-sm text-muted-foreground leading-[1.9] mb-5 flex-1">{t(cert.description)}</p>
 
                 {/* Skills */}
                 {cert.skills && (
-                  <div className="flex flex-wrap gap-1.5 mb-3">
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {cert.skills.map((s, j) => (
-                      <span key={j} className="text-[11px] px-2 py-0.5 rounded-full bg-secondary text-secondary-foreground">
+                      <span key={j} className="text-[11px] px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground">
                         {t(s)}
                       </span>
                     ))}
@@ -673,19 +673,19 @@ function CertSection({
 
                 {/* Levels */}
                 {cert.levels && (
-                  <div className="space-y-1.5 mb-4">
+                  <div className="space-y-2 mb-5">
                     {cert.levels.map((l, j) => (
-                      <div key={j} className="flex items-center gap-2 text-sm text-foreground">
-                        <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                      <div key={j} className="flex items-center gap-2.5 text-sm font-medium text-foreground">
+                        <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
                         {t(l)}
                       </div>
                     ))}
                   </div>
                 )}
 
-                <Button size="sm" className="w-full gap-1.5 mt-auto">
+                <Button className="w-full gap-2 mt-auto h-11 text-sm font-semibold">
                   {t(cert.button)}
-                  <ArrowIcon className="w-3.5 h-3.5" />
+                  <ArrowIcon className="w-4 h-4" />
                 </Button>
               </CardContent>
             </Card>
