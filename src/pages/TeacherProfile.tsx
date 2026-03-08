@@ -29,13 +29,13 @@ export default function TeacherProfile() {
   return (
     <div className="min-h-screen">
       {/* Cover */}
-      <div className="hero-gradient h-36 md:h-44 relative">
+      <div className="hero-gradient h-28 md:h-36 relative">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-20 w-60 h-60 rounded-full bg-primary-foreground/20 blur-3xl" />
         </div>
       </div>
 
-      <div className="container -mt-16 pb-12">
+      <div className="container -mt-12 pb-12">
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Column */}
           <div className="lg:col-span-2 space-y-6">
