@@ -19,6 +19,7 @@ export default function Navbar() {
     { label: t(translations.nav.exploreTeachers, lang), path: "/explore", icon: Search },
     { label: t(translations.nav.courses, lang), path: "/course", icon: BookOpen },
     { label: t(translations.nav.jobs, lang), path: "/jobs", icon: Briefcase },
+    { label: lang === "ar" ? "المكتبة" : "Library", path: "/library", icon: Library },
     { label: lang === "ar" ? "الشهادات" : "Certifications", path: "/certifications", icon: Award },
     { label: t(translations.nav.dashboard, lang), path: "/dashboard", icon: LayoutDashboard },
   ];
