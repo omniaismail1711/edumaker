@@ -57,8 +57,16 @@ export const translations = {
   },
 
   hero: {
+    title: { ar: "ابنِ ملفك المهني\nوانضم لأكبر شبكة\nللمعلمين العرب", en: "Build Your Professional\nProfile & Join the Largest\nArab Teachers Network" },
+    subtitle: { ar: "منصة صُنّاع التعليم تجمع المعلمين المتميزين مع المدارس الرائدة.", en: "EduMakers connects distinguished teachers with leading schools." },
+    exploreTeachers: { ar: "استكشف المعلمين", en: "Explore Teachers" },
+    startLearning: { ar: "ابدأ التعلم", en: "Start Learning" },
+    statTeachers: { ar: "معلم مسجل", en: "Registered Teachers" },
+    statSchools: { ar: "مدرسة ومؤسسة", en: "Schools & Institutions" },
+    statCerts: { ar: "شهادة صادرة", en: "Certificates Issued" },
+    statCourses: { ar: "دورة تدريبية", en: "Training Courses" },
+  },
 
-  features: {
     sectionTitle: { ar: "لماذا صُنّاع التعليم؟", en: "Why EduMakers?" },
     sectionSubtitle: { ar: "منصة متكاملة صُممت خصيصاً لتمكين المعلمين العرب من بناء مستقبل مهني رقمي متميز", en: "A comprehensive platform designed specifically to empower Arab teachers to build a distinguished digital career" },
     feature1Title: { ar: "ملف مهني ذكي", en: "Smart Professional Profile" },
