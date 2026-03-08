@@ -52,7 +52,7 @@ export default function Index() {
                 <br />
                 <span className="text-primary">{t(h.heroTitle2, lang)}</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl leading-relaxed font-bold">
                 {t(h.heroDesc, lang)}
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
