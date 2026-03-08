@@ -12,7 +12,8 @@ import {
   GraduationCap, Mail, Lock, User, Globe, MapPin, BookOpen, Building2,
   Award, Brain, Upload, Link2, Briefcase, Sparkles, Shield, Star,
   CheckCircle2, ChevronLeft, ChevronRight, Sun, Moon, Phone,
-  Plus, Trash2, Crown, Image, Video, Camera,
+  Plus, Trash2, Crown, Image, Video, Camera, IdCard, FileCheck,
+  Clock, AlertCircle, Loader2,
 } from "lucide-react";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
