@@ -69,6 +69,40 @@ const certifications: CertCard[] = [
     button: { ar: "تعرف على المزيد", en: "Learn More" },
   },
   {
+    id: "tefl",
+    title: { ar: "TEFL", en: "TEFL" },
+    description: {
+      ar: "شهادة دولية تؤهل المعلمين لتدريس اللغة الإنجليزية للطلاب الذين يتعلمونها كلغة أجنبية في المدارس والمعاهد حول العالم.",
+      en: "An international certification qualifying teachers to teach English to students learning it as a foreign language worldwide.",
+    },
+    category: "teaching",
+    color: "from-[hsl(270,55%,55%)] to-[hsl(290,50%,60%)]",
+    icon: <GraduationCap className="w-6 h-6" />,
+    skills: [
+      { ar: "تدريس اللغة الإنجليزية كلغة أجنبية", en: "Teaching English as a Foreign Language" },
+      { ar: "المدارس والمعاهد الدولية", en: "International Schools & Institutes" },
+      { ar: "تدريب حضوري أو عبر الإنترنت", en: "Online or In-Person Training" },
+    ],
+    button: { ar: "تعرف على الشهادة", en: "Learn About TEFL" },
+  },
+  {
+    id: "tesol",
+    title: { ar: "TESOL", en: "TESOL" },
+    description: {
+      ar: "برنامج تدريبي يركز على تدريس اللغة الإنجليزية للطلاب الذين يتحدثون لغات أخرى، ويستخدم بشكل واسع في المدارس والجامعات الدولية.",
+      en: "A training program focused on teaching English to speakers of other languages, widely used in international schools and universities.",
+    },
+    category: "teaching",
+    color: "from-[hsl(35,70%,50%)] to-[hsl(25,65%,55%)]",
+    icon: <GraduationCap className="w-6 h-6" />,
+    skills: [
+      { ar: "استراتيجيات تعليم الفصول متعددة اللغات", en: "Multilingual Classroom Strategies" },
+      { ar: "معترف بها عالمياً", en: "Globally Recognized" },
+      { ar: "مناسبة للتعامل مع طلاب متنوعين", en: "Diverse Student Populations" },
+    ],
+    button: { ar: "استكشف برامج TESOL", en: "Explore TESOL Programs" },
+  },
+  {
     id: "saudi-license",
     title: { ar: "الرخصة المهنية للمعلمين", en: "Saudi Teaching License" },
     description: {
