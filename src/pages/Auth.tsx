@@ -235,6 +235,13 @@ function SignupForm() {
                 <Building2 className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
               </div>
             </div>
+            <div className="space-y-2">
+              <Label>{t(a.currentJob, lang)}</Label>
+              <div className="relative">
+                <Input placeholder={t(a.currentJobPlaceholder, lang)} className={isRTL ? "pr-10" : "pl-10"} />
+                <Briefcase className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
+              </div>
+            </div>
           </motion.div>
         )}
 
