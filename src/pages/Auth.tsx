@@ -138,7 +138,10 @@ function SignupForm() {
   const { lang, isRTL } = useLanguage();
   const a = translations.auth;
   const [step, setStep] = useState(0);
-  const totalSteps = 6;
+  const totalSteps = 7;
+  const [unionMethod, setUnionMethod] = useState<"number" | "upload" | null>(null);
+  const [unionVerified, setUnionVerified] = useState(false);
+  const [unionPending, setUnionPending] = useState(false);
   const [courses, setCourses] = useState([{ name: "", issuer: "", year: "" }]);
   const [galleryItems, setGalleryItems] = useState<{ title: string; caption: string; type: "image" | "youtube"; url: string }[]>([]);
   const [selectedPlan, setSelectedPlan] = useState<"free" | "premium-monthly" | "premium-yearly">("free");
