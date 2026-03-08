@@ -1,26 +1,67 @@
 import { useParams } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import {
-  MapPin, BookOpen, BadgeCheck, Mail, Award, Brain, Clock,
-  FileText, Video, Presentation, GraduationCap, Briefcase
-} from "lucide-react";
+import { GraduationCap, Clock, Brain } from "lucide-react";
 import ImpactScore from "@/components/ImpactScore";
+import ProfileHeader from "@/components/profile/ProfileHeader";
+import CurrentJob from "@/components/profile/CurrentJob";
+import CoursesCredentials from "@/components/profile/CoursesCredentials";
+import GalleryProjects from "@/components/profile/GalleryProjects";
+import VerificationStatus from "@/components/profile/VerificationStatus";
 import { mockTeachers } from "@/data/mockData";
 import profileCover from "@/assets/profile-cover.jpg";
 
 const certificates = [
-  { title: "شهادة Google للمعلمين - المستوى 2", issuer: "Google for Education", verified: true, date: "2025" },
+  { title: "شهادة Google للمعلمين - المستوى 2", issuer: "Google for Education", verified: true, date: "2025", link: "#" },
   { title: "مدرب معتمد في الذكاء الاصطناعي", issuer: "أكاديمية المستقبل", verified: true, date: "2025" },
-  { title: "التصميم التعليمي المتقدم", issuer: "Coursera", verified: true, date: "2024" },
+  { title: "التصميم التعليمي المتقدم", issuer: "Coursera", verified: true, date: "2024", link: "#" },
   { title: "استخدام ChatGPT في التعليم", issuer: "صِنّاع التعليم", verified: false, date: "2024" },
+  { title: "Microsoft Innovative Educator", issuer: "Microsoft Education", verified: true, date: "2024", link: "#" },
+  { title: "إدارة الصفوف الافتراضية", issuer: "Udemy", verified: false, date: "2023" },
 ];
 
-const portfolio = [
-  { title: "خطة درس: الكسور باستخدام الواقع المعزز", type: "خطة درس", icon: FileText },
-  { title: "فيديو تعليمي: مقدمة في البرمجة", type: "فيديو", icon: Video },
-  { title: "عرض تقديمي: الذكاء الاصطناعي للمبتدئين", type: "عرض", icon: Presentation },
+const galleryItems = [
+  {
+    title: "ورشة الروبوتات التعليمية",
+    caption: "ورشة عمل تطبيقية للطلاب حول بناء وبرمجة الروبوتات التعليمية باستخدام Arduino",
+    type: "youtube" as const,
+    url: "dQw4w9WgXcQ",
+    tag: "ورشة",
+  },
+  {
+    title: "تدريب المعلمين على AI",
+    caption: "جلسة تدريبية حضورية للزملاء المعلمين حول استخدام أدوات الذكاء الاصطناعي في التحضير",
+    type: "youtube" as const,
+    url: "dQw4w9WgXcQ",
+    tag: "تدريب",
+  },
+  {
+    title: "مشروع STEM للطلاب",
+    caption: "مشروع تخرّج طلاب الصف العاشر في مسابقة العلوم والتكنولوجيا الوطنية",
+    type: "image" as const,
+    url: profileCover,
+    tag: "مشروع",
+  },
+  {
+    title: "ندوة التعليم الرقمي",
+    caption: "محاضرة عن بعد حول التحول الرقمي في التعليم ضمن مؤتمر إقليمي",
+    type: "youtube" as const,
+    url: "dQw4w9WgXcQ",
+    tag: "ندوة",
+  },
+  {
+    title: "معرض المشاريع الطلابية",
+    caption: "عرض مشاريع الطلاب في يوم المدرسة المفتوح أمام أولياء الأمور",
+    type: "image" as const,
+    url: profileCover,
+    tag: "معرض",
+  },
+  {
+    title: "تدريب Google Classroom",
+    caption: "تدريب أونلاين للمعلمين الجدد على إدارة الفصول عبر Google Classroom",
+    type: "youtube" as const,
+    url: "dQw4w9WgXcQ",
+    tag: "تدريب",
+  },
 ];
 
 export default function TeacherProfile() {
@@ -39,70 +80,16 @@ export default function TeacherProfile() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Main Column */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Profile Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="bg-card rounded-xl border p-6"
-            >
-              <div className="flex flex-col sm:flex-row items-start gap-5">
-                <div className="relative shrink-0">
-                  <div className="w-24 h-24 rounded-2xl bg-secondary flex items-center justify-center border-4 border-card overflow-hidden">
-                    {teacher.avatar ? (
-                      <img src={teacher.avatar} alt={teacher.name} className="w-full h-full object-cover" />
-                    ) : (
-                      <span className="text-4xl font-bold text-primary">{teacher.name[0]}</span>
-                    )}
-                  </div>
-                  {teacher.verified && (
-                    <div className="absolute -bottom-1 -left-1 w-7 h-7 rounded-full bg-badge-verified flex items-center justify-center">
-                      <BadgeCheck className="w-4 h-4 text-primary-foreground" />
-                    </div>
-                  )}
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h1 className="text-2xl font-bold text-foreground">{teacher.name}</h1>
-                    {teacher.verified && (
-                      <Badge className="bg-primary/10 text-primary border-0">
-                        <BadgeCheck className="w-3 h-3 ml-1" />
-                        موثق
-                      </Badge>
-                    )}
-                  </div>
-                  <p className="text-muted-foreground mb-3">{teacher.title}</p>
-                  <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-                    <span className="flex items-center gap-1"><MapPin className="w-4 h-4" />{teacher.location}</span>
-                    <span className="flex items-center gap-1"><BookOpen className="w-4 h-4" />{teacher.experience} سنوات خبرة</span>
-                    <span className="flex items-center gap-1"><Award className="w-4 h-4" />{teacher.certCount} شهادة</span>
-                  </div>
-                </div>
-                <div className="flex gap-2 shrink-0">
-                  <Button><Mail className="w-4 h-4 ml-2" />تواصل</Button>
-                  <Button variant="outline"><Briefcase className="w-4 h-4 ml-2" />دعوة للتقديم</Button>
-                </div>
-              </div>
+            <ProfileHeader teacher={teacher} />
 
-              {/* Subjects */}
-              <div className="mt-5 pt-5 border-t">
-                <h3 className="text-sm font-semibold text-foreground mb-2">المواد الدراسية</h3>
-                <div className="flex gap-2">
-                  {teacher.subjects.map((s) => (
-                    <span key={s} className="text-sm bg-primary/5 text-primary px-3 py-1 rounded-full">{s}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Skills */}
-              <div className="mt-4">
-                <h3 className="text-sm font-semibold text-foreground mb-2">المهارات</h3>
-                <div className="flex flex-wrap gap-2">
-                  {teacher.skills.map((s) => (
-                    <Badge key={s} variant="secondary">{s}</Badge>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            <CurrentJob
+              position={teacher.title}
+              organization="مدارس المعرفة الأهلية"
+              location={teacher.location}
+              type="دوام كامل"
+              since="2021"
+              description="مسؤول عن تدريس المنهج وتطوير المحتوى التعليمي الرقمي، وتدريب الزملاء على دمج أدوات الذكاء الاصطناعي في العملية التعليمية. يقود فريق التحول الرقمي في المدرسة."
+            />
 
             {/* Bio */}
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-card rounded-xl border p-6">
@@ -115,61 +102,19 @@ export default function TeacherProfile() {
               </p>
             </motion.div>
 
-            {/* Certificates */}
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-card rounded-xl border p-6">
-              <h2 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                <Award className="w-5 h-5 text-primary" />
-                الشهادات والدورات
-              </h2>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {certificates.map((cert, i) => (
-                  <div key={i} className="border rounded-lg p-4 card-elevated">
-                    <div className="flex items-start gap-3">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${cert.verified ? "bg-primary/10" : "bg-secondary"}`}>
-                        <Award className={`w-5 h-5 ${cert.verified ? "text-primary" : "text-muted-foreground"}`} />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-semibold text-foreground">{cert.title}</h4>
-                        <p className="text-xs text-muted-foreground">{cert.issuer}</p>
-                        <div className="flex items-center gap-2 mt-1.5">
-                          <span className="text-xs text-muted-foreground">{cert.date}</span>
-                          {cert.verified && (
-                            <Badge variant="outline" className="text-[10px] py-0 text-badge-verified border-badge-verified/30">
-                              <BadgeCheck className="w-3 h-3 ml-0.5" />
-                              معتمدة
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            <CoursesCredentials
+              courses={certificates}
+              linkedinUrl="https://linkedin.com/in/example"
+            />
 
-            {/* Portfolio */}
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-card rounded-xl border p-6">
-              <h2 className="font-bold text-foreground mb-4 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-primary" />
-                معرض الأعمال
-              </h2>
-              <div className="grid sm:grid-cols-3 gap-3">
-                {portfolio.map((p, i) => (
-                  <div key={i} className="border rounded-lg p-4 text-center card-elevated cursor-pointer">
-                    <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center mx-auto mb-3">
-                      <p.icon className="w-6 h-6 text-muted-foreground" />
-                    </div>
-                    <h4 className="text-sm font-semibold text-foreground mb-1">{p.title}</h4>
-                    <Badge variant="outline" className="text-xs">{p.type}</Badge>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            <GalleryProjects items={galleryItems} />
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             <ImpactScore score={teacher.impactScore} training={22} projects={18} ai={23} reviews={teacher.impactScore - 63} />
+
+            <VerificationStatus verified={teacher.verified} premium={teacher.verified} />
 
             {/* Availability */}
             <div className="bg-card rounded-xl border p-5">
