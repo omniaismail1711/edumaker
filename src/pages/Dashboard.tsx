@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { motion } from "framer-motion";
 import {
   User, Award, BookOpen, Briefcase, Brain, TrendingUp,
-  ChevronLeft, Plus, Bell, Settings, FileText, Star
+  ChevronLeft, Plus, Bell, Settings, FileText, Star, Library, FolderKanban
 } from "lucide-react";
 import ImpactScore from "@/components/ImpactScore";
 import { mockTeachers } from "@/data/mockData";
@@ -153,9 +154,23 @@ export default function Dashboard() {
                   <Brain className="w-4 h-4 ml-2" />
                   تحديث مهارات AI
                 </Button>
-                <Button variant="outline" className="w-full justify-start" size="sm">
-                  <Briefcase className="w-4 h-4 ml-2" />
-                  تصفح الوظائف
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/jobs">
+                    <Briefcase className="w-4 h-4 ml-2" />
+                    تصفح الوظائف
+                  </Link>
+                </Button>
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/resources">
+                    <Library className="w-4 h-4 ml-2" />
+                    مكتبة الموارد والنماذج
+                  </Link>
+                </Button>
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/projects">
+                    <FolderKanban className="w-4 h-4 ml-2" />
+                    المشاريع التعليمية
+                  </Link>
                 </Button>
               </div>
             </div>
