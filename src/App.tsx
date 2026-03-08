@@ -19,6 +19,7 @@ import CourseFundamental from "./pages/CourseFundamental";
 import CourseAdvanced from "./pages/CourseAdvanced";
 import Certifications from "./pages/Certifications";
 import CourseLibrary from "./pages/CourseLibrary";
+import ProjectManagement from "./pages/ProjectManagement";
 
 const queryClient = new QueryClient();
 
@@ -46,6 +47,7 @@ const App = () => (
                     <Route path="/course/advanced" element={<CourseAdvanced />} />
                     <Route path="/certifications" element={<Certifications />} />
                     <Route path="/library" element={<CourseLibrary />} />
+                    <Route path="/projects" element={<ProjectManagement />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
