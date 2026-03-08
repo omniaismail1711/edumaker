@@ -75,7 +75,7 @@ export default function Navbar() {
             </Link>
           </Button>
           <Button size="sm" asChild>
-            <Link to="/auth">{t(translations.nav.startNow, lang)}</Link>
+            <Link to="/choose-account">{t(translations.nav.startNow, lang)}</Link>
           </Button>
         </div>
 
