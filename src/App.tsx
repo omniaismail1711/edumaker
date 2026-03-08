@@ -23,6 +23,7 @@ import ProjectManagement from "./pages/ProjectManagement";
 import ChooseAccountType from "./pages/ChooseAccountType";
 import OrgRegistration from "./pages/OrgRegistration";
 import OrgDashboard from "./pages/OrgDashboard";
+import ResourceLibrary from "./pages/ResourceLibrary";
 
 const queryClient = new QueryClient();
 
