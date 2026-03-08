@@ -354,7 +354,7 @@ export const translations = {
     freePlan: { ar: "الخطة المجانية", en: "Free Plan" },
     freePlanDesc: { ar: "ملف شخصي أساسي مع إمكانيات محدودة", en: "Basic profile with limited features" },
     premiumPlan: { ar: "العضوية المميزة", en: "Premium Membership" },
-    premiumPlanPrice: { ar: "49 ر.س / شهرياً", en: "$13 / month" },
+    premiumPlanPrice: { ar: "49 ج.م / شهرياً", en: "EGP 49 / month" },
     premiumBenefit1: { ar: "شارة التوثيق الذهبية", en: "Gold Verification Badge" },
     premiumBenefit2: { ar: "ظهور مميز في نتائج البحث", en: "Featured in Search Results" },
     premiumBenefit3: { ar: "الوصول للدورات الحصرية", en: "Access to Exclusive Courses" },
