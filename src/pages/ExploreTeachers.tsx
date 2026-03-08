@@ -38,43 +38,73 @@ export default function ExploreTeachers() {
       {/* Header */}
       <div className="bg-card border-b">
         <div className="container py-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">استكشاف المعلمين</h1>
-          <p className="text-muted-foreground mb-6">ابحث عن المعلم المناسب حسب المهارات والشهادات والخبرة</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            {lang === "ar" ? "استكشاف المعلمين" : "Explore Teachers"}
+          </h1>
+          <p className="text-muted-foreground mb-6">
+            {lang === "ar" ? "ابحث عن المعلم المناسب حسب المهارات والشهادات والخبرة" : "Find the right teacher by skills, certifications, and experience"}
+          </p>
 
-          {/* Search */}
-          <div className="flex gap-3">
-            <div className="relative flex-1">
-              <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input
-                placeholder="ابحث بالاسم، المهارة، أو التخصص..."
-                className="pr-10"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </div>
-            <Button
-              variant={showFilters ? "default" : "outline"}
-              onClick={() => setShowFilters(!showFilters)}
+          {/* Tab Toggle: Explore / Leaderboard */}
+          <div className="flex bg-secondary rounded-xl p-1 w-fit mb-6">
+            <button
+              onClick={() => setActiveTab("explore")}
+              className={`flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                activeTab === "explore" ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
+              }`}
             >
-              <SlidersHorizontal className="w-4 h-4 ml-2" />
-              تصفية
-            </Button>
+              <Users className="w-4 h-4" />
+              {lang === "ar" ? "استكشاف" : "Explore"}
+            </button>
+            <button
+              onClick={() => setActiveTab("leaderboard")}
+              className={`flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                activeTab === "leaderboard" ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Trophy className="w-4 h-4" />
+              {lang === "ar" ? "لوحة الشرف" : "Leaderboard"}
+            </button>
           </div>
 
-          {/* Subject tabs */}
-          <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
-            {subjectFilters.map((s) => (
-              <Button
-                key={s}
-                variant={activeSubject === s ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveSubject(s)}
-                className="whitespace-nowrap"
-              >
-                {s}
-              </Button>
-            ))}
-          </div>
+          {activeTab === "explore" && (
+            <>
+              {/* Search */}
+              <div className="flex gap-3">
+                <div className="relative flex-1">
+                  <Search className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <Input
+                    placeholder={lang === "ar" ? "ابحث بالاسم، المهارة، أو التخصص..." : "Search by name, skill, or subject..."}
+                    className="pr-10"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                  />
+                </div>
+                <Button
+                  variant={showFilters ? "default" : "outline"}
+                  onClick={() => setShowFilters(!showFilters)}
+                >
+                  <SlidersHorizontal className="w-4 h-4 ml-2" />
+                  {lang === "ar" ? "تصفية" : "Filter"}
+                </Button>
+              </div>
+
+              {/* Subject tabs */}
+              <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+                {subjectFilters.map((s) => (
+                  <Button
+                    key={s}
+                    variant={activeSubject === s ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setActiveSubject(s)}
+                    className="whitespace-nowrap"
+                  >
+                    {s}
+                  </Button>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
