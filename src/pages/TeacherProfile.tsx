@@ -6,6 +6,7 @@ import ProfileHeader from "@/components/profile/ProfileHeader";
 import CurrentJob from "@/components/profile/CurrentJob";
 import CoursesCredentials from "@/components/profile/CoursesCredentials";
 import GalleryProjects from "@/components/profile/GalleryProjects";
+import ProfileProjects from "@/components/profile/ProfileProjects";
 import VerificationStatus from "@/components/profile/VerificationStatus";
 import { mockTeachers } from "@/data/mockData";
 import profileCover from "@/assets/profile-cover.jpg";
@@ -114,6 +115,8 @@ export default function TeacherProfile() {
             />
 
             <GalleryProjects items={galleryItems} />
+
+            <ProfileProjects />
           </div>
 
           {/* Sidebar */}
