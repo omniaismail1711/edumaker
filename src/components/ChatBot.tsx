@@ -96,7 +96,7 @@ export default function ChatBot() {
             onClick={() => setOpen(true)}
             className="fixed bottom-6 left-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
           >
-            <MessageCircle className="w-6 h-6" />
+            <BotMessageSquare className="w-6 h-6" />
           </motion.button>
         )}
       </AnimatePresence>
