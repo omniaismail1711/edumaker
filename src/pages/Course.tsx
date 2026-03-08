@@ -373,6 +373,9 @@ export default function Course() {
         </div>
       </section>
 
+      {/* Advanced Track */}
+      <AdvancedTrackSection />
+
       {/* Final CTA */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-bl from-primary via-[hsl(230,50%,55%)] to-[hsl(260,40%,50%)]" />
