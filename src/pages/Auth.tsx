@@ -12,7 +12,8 @@ import {
   GraduationCap, Mail, Lock, User, Globe, MapPin, BookOpen, Building2,
   Award, Brain, Upload, Link2, Briefcase, Sparkles, Shield, Star,
   CheckCircle2, ChevronLeft, ChevronRight, Sun, Moon, Phone,
-  Plus, Trash2, Crown, Image, Video, Camera,
+  Plus, Trash2, Crown, Image, Video, Camera, IdCard, FileCheck,
+  Clock, AlertCircle, Loader2,
 } from "lucide-react";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
@@ -138,13 +139,16 @@ function SignupForm() {
   const { lang, isRTL } = useLanguage();
   const a = translations.auth;
   const [step, setStep] = useState(0);
-  const totalSteps = 6;
+  const totalSteps = 7;
+  const [unionMethod, setUnionMethod] = useState<"number" | "upload" | null>(null);
+  const [unionVerified, setUnionVerified] = useState(false);
+  const [unionPending, setUnionPending] = useState(false);
   const [courses, setCourses] = useState([{ name: "", issuer: "", year: "" }]);
   const [galleryItems, setGalleryItems] = useState<{ title: string; caption: string; type: "image" | "youtube"; url: string }[]>([]);
   const [selectedPlan, setSelectedPlan] = useState<"free" | "premium-monthly" | "premium-yearly">("free");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
-  const stepTitles = [t(a.step1, lang), t(a.step2, lang), t(a.step3, lang), t(a.step4, lang), t(a.step5, lang), t(a.step6, lang)];
+  const stepTitles = [t(a.step1, lang), t(a.step2, lang), t(a.step3, lang), t(a.step4, lang), "التحقق المهني", t(a.step5, lang), t(a.step6, lang)];
 
   const educationalStages = Object.values(a.stages).map(v => t(v, lang));
   const subjects = ["الرياضيات", "العلوم", "اللغة العربية", "اللغة الإنجليزية", "الحاسب الآلي", "التربية الإسلامية", "الفيزياء", "الكيمياء", "الأحياء", "التاريخ", "الجغرافيا", "أخرى"];
@@ -467,9 +471,120 @@ function SignupForm() {
           </motion.div>
         )}
 
-        {/* Step 5: Account Settings */}
+        {/* Step 5: Union Verification */}
         {step === 5 && (
-          <motion.div key="step5" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
+          <motion.div key="step5" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
+            <div className="text-center mb-2">
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                <IdCard className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="font-semibold text-foreground">ربط الحساب مع نقابة المعلمين</h3>
+              <p className="text-xs text-muted-foreground mt-1">
+                إذا كنت عضوًا في نقابة المعلمين يمكنك التحقق من عضويتك للحصول على حساب مميز لمدة 6 أشهر
+              </p>
+            </div>
+
+            {/* Verified State */}
+            {unionVerified && (
+              <div className="border border-green-500/30 bg-green-500/5 rounded-xl p-4 text-center">
+                <CheckCircle2 className="w-8 h-8 text-green-500 mx-auto mb-2" />
+                <p className="font-semibold text-foreground text-sm">تم التحقق من عضويتك في نقابة المعلمين</p>
+                <p className="text-xs text-muted-foreground mt-1">سيتم ترقية حسابك تلقائياً للعضوية المميزة لمدة 6 أشهر</p>
+                <Badge className="mt-2 bg-primary/10 text-primary border-0">
+                  <Crown className="w-3 h-3 ml-1" /> حساب مميز حتى {new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toLocaleDateString("ar-EG")}
+                </Badge>
+              </div>
+            )}
+
+            {/* Pending State */}
+            {unionPending && !unionVerified && (
+              <div className="border border-yellow-500/30 bg-yellow-500/5 rounded-xl p-4 text-center">
+                <Clock className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
+                <p className="font-semibold text-foreground text-sm">طلب قيد المراجعة</p>
+                <p className="text-xs text-muted-foreground mt-1">سيتم مراجعة طلبك خلال 24-48 ساعة</p>
+              </div>
+            )}
+
+            {/* Verification Methods */}
+            {!unionVerified && !unionPending && (
+              <>
+                {/* Method Selection */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div
+                    className={`border rounded-xl p-4 cursor-pointer transition-all text-center ${unionMethod === "number" ? "border-primary bg-primary/5" : "hover:bg-secondary/50"}`}
+                    onClick={() => setUnionMethod("number")}
+                  >
+                    <IdCard className={`w-6 h-6 mx-auto mb-2 ${unionMethod === "number" ? "text-primary" : "text-muted-foreground"}`} />
+                    <p className="text-xs font-semibold text-foreground">رقم العضوية</p>
+                  </div>
+                  <div
+                    className={`border rounded-xl p-4 cursor-pointer transition-all text-center ${unionMethod === "upload" ? "border-primary bg-primary/5" : "hover:bg-secondary/50"}`}
+                    onClick={() => setUnionMethod("upload")}
+                  >
+                    <FileCheck className={`w-6 h-6 mx-auto mb-2 ${unionMethod === "upload" ? "text-primary" : "text-muted-foreground"}`} />
+                    <p className="text-xs font-semibold text-foreground">رفع إثبات العضوية</p>
+                  </div>
+                </div>
+
+                <AnimatePresence mode="wait">
+                  {/* Option 1: Membership Number */}
+                  {unionMethod === "number" && (
+                    <motion.div key="union-number" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-3">
+                      <div className="space-y-2">
+                        <Label>رقم عضوية نقابة المعلمين</Label>
+                        <div className="relative">
+                          <Input placeholder="أدخل رقم العضوية" className={isRTL ? "pr-10" : "pl-10"} />
+                          <IdCard className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label>الرقم القومي</Label>
+                        <div className="relative">
+                          <Input placeholder="أدخل الرقم القومي" className={`${isRTL ? "pr-10" : "pl-10"} text-left`} dir="ltr" />
+                          <Shield className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
+                        </div>
+                      </div>
+                      <Button className="w-full" onClick={() => setUnionVerified(true)}>
+                        <CheckCircle2 className="w-4 h-4 ml-1" />
+                        تحقق من العضوية
+                      </Button>
+                    </motion.div>
+                  )}
+
+                  {/* Option 2: Upload Proof */}
+                  {unionMethod === "upload" && (
+                    <motion.div key="union-upload" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-3">
+                      <div className="space-y-2">
+                        <Label>صورة كارنيه النقابة أو شهادة العضوية</Label>
+                        <div className="border-2 border-dashed border-border rounded-xl p-6 text-center hover:border-primary/40 transition-colors cursor-pointer">
+                          <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
+                          <p className="text-sm text-muted-foreground">اسحب الملف هنا أو اضغط للرفع</p>
+                          <p className="text-xs text-muted-foreground/70 mt-1">JPG, PNG, PDF — حد أقصى 5 ميجابايت</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2 p-3 rounded-lg bg-secondary/50 border">
+                        <AlertCircle className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+                        <p className="text-xs text-muted-foreground">سيتم مراجعة المستند يدوياً من فريق الإدارة. قد يستغرق الأمر 24-48 ساعة.</p>
+                      </div>
+                      <Button className="w-full" onClick={() => setUnionPending(true)}>
+                        <FileCheck className="w-4 h-4 ml-1" />
+                        إرسال طلب التحقق
+                      </Button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <button onClick={() => { setUnionMethod(null); }} className="text-xs text-muted-foreground hover:text-primary transition-colors w-full text-center mt-2">
+                  تخطي هذه الخطوة
+                </button>
+              </>
+            )}
+          </motion.div>
+        )}
+
+        {/* Step 6: Account Settings */}
+        {step === 6 && (
+          <motion.div key="step6" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
             <div className="space-y-4">
               <Label className="text-foreground text-base">{t(a.profileSettings, lang)}</Label>
               <div className="space-y-3">

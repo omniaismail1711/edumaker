@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, SlidersHorizontal, X, IdCard } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import TeacherCard from "@/components/TeacherCard";
 import { mockTeachers, skillCategories } from "@/data/mockData";
 
@@ -13,12 +15,14 @@ export default function ExploreTeachers() {
   const [activeSubject, setActiveSubject] = useState("الكل");
   const [showFilters, setShowFilters] = useState(false);
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [unionOnly, setUnionOnly] = useState(false);
 
   const filtered = mockTeachers.filter((t) => {
     const matchSearch = !search || t.name.includes(search) || t.title.includes(search) || t.skills.some((s) => s.includes(search));
     const matchSubject = activeSubject === "الكل" || t.subjects.some((s) => s.includes(activeSubject));
     const matchSkills = selectedSkills.length === 0 || selectedSkills.some((sk) => t.skills.includes(sk));
-    return matchSearch && matchSubject && matchSkills;
+    const matchUnion = !unionOnly || t.unionMember;
+    return matchSearch && matchSubject && matchSkills && matchUnion;
   });
 
   const toggleSkill = (skill: string) => {
@@ -84,6 +88,16 @@ export default function ExploreTeachers() {
                     </button>
                   )}
                 </div>
+
+                {/* Union filter */}
+                <div className="flex items-center gap-2 mb-4 p-3 rounded-lg border bg-primary/5">
+                  <Checkbox id="union-filter" checked={unionOnly} onCheckedChange={(v) => setUnionOnly(!!v)} />
+                  <Label htmlFor="union-filter" className="text-xs font-semibold cursor-pointer flex items-center gap-1.5">
+                    <IdCard className="w-3.5 h-3.5 text-primary" />
+                    عرض أعضاء نقابة المعلمين فقط
+                  </Label>
+                </div>
+
                 {skillCategories.map((cat) => (
                   <div key={cat.title} className="mb-4">
                     <p className="text-xs font-semibold text-muted-foreground mb-2">{cat.title}</p>

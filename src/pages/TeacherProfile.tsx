@@ -120,7 +120,7 @@ export default function TeacherProfile() {
           <div className="space-y-6">
             <ImpactScore score={teacher.impactScore} training={22} projects={18} ai={23} reviews={teacher.impactScore - 63} />
 
-            <VerificationStatus verified={teacher.verified} premium={teacher.verified} />
+            <VerificationStatus verified={teacher.verified} premium={teacher.verified} unionMember={teacher.unionMember} />
 
             {/* Availability */}
             <div className="bg-card rounded-xl border p-5">

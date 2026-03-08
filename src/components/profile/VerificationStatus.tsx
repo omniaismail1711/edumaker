@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import { ShieldCheck, Crown, Sparkles, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Crown, Sparkles, CheckCircle2, IdCard } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 interface VerificationStatusProps {
   verified: boolean;
   premium: boolean;
+  unionMember?: boolean;
 }
 
 const premiumBenefits = [
@@ -15,7 +16,7 @@ const premiumBenefits = [
   "أولوية في فرص التوظيف",
 ];
 
-export default function VerificationStatus({ verified, premium }: VerificationStatusProps) {
+export default function VerificationStatus({ verified, premium, unionMember }: VerificationStatusProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -47,6 +48,24 @@ export default function VerificationStatus({ verified, premium }: VerificationSt
           </Badge>
         )}
       </div>
+
+      {/* Union Member Badge */}
+      {unionMember && (
+        <div className="flex items-center gap-3 mb-3 p-3 rounded-lg bg-primary/5 border border-primary/20">
+          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-primary/10">
+            <IdCard className="w-5 h-5 text-primary" />
+          </div>
+          <div className="flex-1">
+            <p className="text-sm font-semibold text-foreground">عضو نقابة المعلمين</p>
+            <p className="text-xs text-muted-foreground">
+              حساب مميز حتى {new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toLocaleDateString("ar-EG")}
+            </p>
+          </div>
+          <Badge className="bg-primary/10 text-primary border-0 text-[10px]">
+            <Crown className="w-3 h-3 ml-0.5" /> مميز
+          </Badge>
+        </div>
+      )}
 
       {/* Premium */}
       <div className={`rounded-lg p-4 mt-3 ${premium ? "bg-badge-gold/10 border border-badge-gold/20" : "bg-secondary"}`}>
