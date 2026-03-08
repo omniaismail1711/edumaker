@@ -485,6 +485,8 @@ function CertSection({
                     <Badge variant="outline" className="mt-1 text-[10px]">
                       {cert.category === "language"
                         ? lang === "ar" ? "اختبار لغة" : "Language Test"
+                        : cert.category === "teaching"
+                        ? lang === "ar" ? "شهادة تدريس" : "Teaching Cert"
                         : cert.category === "license"
                         ? lang === "ar" ? "رخصة مهنية" : "Teaching License"
                         : lang === "ar" ? "شهادة تقنية" : "Tech Certification"}
