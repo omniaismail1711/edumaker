@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import ImpactScore from "@/components/ImpactScore";
 import { mockTeachers } from "@/data/mockData";
+import profileCover from "@/assets/profile-cover.jpg";
 
 const certificates = [
   { title: "شهادة Google للمعلمين - المستوى 2", issuer: "Google for Education", verified: true, date: "2025" },
