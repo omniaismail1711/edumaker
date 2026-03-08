@@ -19,7 +19,7 @@ const fadeUp = {
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.08, duration: 0.5 } }),
 };
 
-type CertCategory = "all" | "language" | "teaching" | "license" | "tech";
+type CertCategory = "all" | "language" | "teaching" | "license" | "tech" | "recruitment";
 
 interface CertCard {
   id: string;
