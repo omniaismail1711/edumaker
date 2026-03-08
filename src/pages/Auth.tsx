@@ -248,11 +248,15 @@ function SignupForm() {
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>المرحلة التعليمية</Label>
-              <Select>
-                <SelectTrigger><GraduationCap className="w-4 h-4 text-muted-foreground ml-2" /><SelectValue placeholder="اختر المرحلة" /></SelectTrigger>
-                <SelectContent>{educationalStages.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent>
-              </Select>
+              <Label>المرحلة التعليمية (يمكنك اختيار أكثر من مرحلة)</Label>
+              <div className="grid grid-cols-2 gap-2">
+                {educationalStages.map(stage => (
+                  <div key={stage} className="flex items-center gap-2 p-2 rounded-lg border bg-card hover:bg-secondary/50 transition-colors">
+                    <Checkbox id={`stage-${stage}`} />
+                    <Label htmlFor={`stage-${stage}`} className="text-sm cursor-pointer">{stage}</Label>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="space-y-2">
               <Label>سنوات الخبرة</Label>
