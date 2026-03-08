@@ -19,6 +19,7 @@ import CourseFundamental from "./pages/CourseFundamental";
 import CourseAdvanced from "./pages/CourseAdvanced";
 import Certifications from "./pages/Certifications";
 import CourseLibrary from "./pages/CourseLibrary";
+import ProjectManagement from "./pages/ProjectManagement";
 
 const queryClient = new QueryClient();
 
