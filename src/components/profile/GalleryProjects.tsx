@@ -30,6 +30,7 @@ function YouTubeEmbed({ videoId }: { videoId: string }) {
 
 export default function GalleryProjects({ items }: GalleryProjectsProps) {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<{ url: string; title: string } | null>(null);
 
   return (
     <>
@@ -51,7 +52,11 @@ export default function GalleryProjects({ items }: GalleryProjectsProps) {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 + i * 0.05 }}
               className="group border rounded-xl overflow-hidden card-elevated cursor-pointer"
-              onClick={() => item.type === "youtube" && setSelectedVideo(item.url)}
+              onClick={() =>
+                item.type === "youtube"
+                  ? setSelectedVideo(item.url)
+                  : setSelectedImage({ url: item.url, title: item.title })
+              }
             >
               {item.type === "youtube" ? (
                 <div className="relative aspect-video bg-secondary">
@@ -67,8 +72,8 @@ export default function GalleryProjects({ items }: GalleryProjectsProps) {
                   </div>
                 </div>
               ) : (
-                <div className="aspect-video bg-secondary">
-                  <img src={item.url} alt={item.title} className="w-full h-full object-cover" />
+                <div className="aspect-video bg-secondary overflow-hidden">
+                  <img src={item.url} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
               )}
               <div className="p-3">
@@ -86,6 +91,18 @@ export default function GalleryProjects({ items }: GalleryProjectsProps) {
       <Dialog open={!!selectedVideo} onOpenChange={() => setSelectedVideo(null)}>
         <DialogContent className="sm:max-w-2xl p-2">
           {selectedVideo && <YouTubeEmbed videoId={selectedVideo} />}
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="sm:max-w-3xl p-2">
+          {selectedImage && (
+            <img
+              src={selectedImage.url}
+              alt={selectedImage.title}
+              className="w-full rounded-lg object-contain max-h-[80vh]"
+            />
+          )}
         </DialogContent>
       </Dialog>
     </>
