@@ -147,7 +147,7 @@ function SignupForm() {
   const [selectedPlan, setSelectedPlan] = useState<"free" | "premium-monthly" | "premium-yearly">("free");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
-  const stepTitles = [t(a.step1, lang), t(a.step2, lang), t(a.step3, lang), t(a.step4, lang), t(a.step5, lang), t(a.step6, lang)];
+  const stepTitles = [t(a.step1, lang), t(a.step2, lang), t(a.step3, lang), t(a.step4, lang), "التحقق المهني", t(a.step5, lang), t(a.step6, lang)];
 
   const educationalStages = Object.values(a.stages).map(v => t(v, lang));
   const subjects = ["الرياضيات", "العلوم", "اللغة العربية", "اللغة الإنجليزية", "الحاسب الآلي", "التربية الإسلامية", "الفيزياء", "الكيمياء", "الأحياء", "التاريخ", "الجغرافيا", "أخرى"];
