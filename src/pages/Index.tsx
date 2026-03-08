@@ -47,7 +47,7 @@ export default function Index() {
                 <Sparkles className={`w-3.5 h-3.5 ${isRTL ? "ml-1" : "mr-1"}`} />
                 {t(h.badge, lang)}
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-relaxed md:leading-[1.4] mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.5] md:leading-[1.6] mb-6">
                 {t(h.heroTitle1, lang)}
                 <br />
                 <span className="text-primary">{t(h.heroTitle2, lang)}</span>
