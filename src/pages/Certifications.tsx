@@ -439,12 +439,14 @@ export default function Certifications() {
 /* Reusable section component */
 function CertSection({
   title,
+  subtitle,
   icon,
   certs,
   lang,
   isRTL,
 }: {
   title: string;
+  subtitle?: string;
   icon: React.ReactNode;
   certs: CertCard[];
   lang: "ar" | "en";
