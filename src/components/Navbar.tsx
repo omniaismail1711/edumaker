@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
   { label: "الرئيسية", path: "/", icon: GraduationCap },
   { label: "استكشاف المعلمين", path: "/explore", icon: Search },
+  { label: "الدورة التدريبية", path: "/course", icon: BookOpen },
   { label: "الوظائف", path: "/jobs", icon: Briefcase },
   { label: "لوحة التحكم", path: "/dashboard", icon: LayoutDashboard },
 ];
