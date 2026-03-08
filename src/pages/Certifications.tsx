@@ -651,6 +651,8 @@ function CertSection({
                         ? lang === "ar" ? "شهادة تدريس" : "Teaching Cert"
                         : cert.category === "license"
                         ? lang === "ar" ? "رخصة مهنية" : "Teaching License"
+                        : cert.category === "recruitment"
+                        ? lang === "ar" ? "اختبار توظيف" : "Recruitment Exam"
                         : lang === "ar" ? "شهادة تقنية" : "Tech Certification"}
                     </Badge>
                   </div>
