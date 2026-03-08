@@ -9,6 +9,12 @@ import GalleryProjects from "@/components/profile/GalleryProjects";
 import VerificationStatus from "@/components/profile/VerificationStatus";
 import { mockTeachers } from "@/data/mockData";
 import profileCover from "@/assets/profile-cover.jpg";
+import galleryRobotics from "@/assets/gallery/robotics-workshop.jpg";
+import galleryAiTraining from "@/assets/gallery/ai-training.jpg";
+import galleryStem from "@/assets/gallery/stem-project.jpg";
+import gallerySeminar from "@/assets/gallery/digital-seminar.jpg";
+import galleryExhibition from "@/assets/gallery/student-exhibition.jpg";
+import galleryClassroom from "@/assets/gallery/google-classroom.jpg";
 
 const certificates = [
   { title: "شهادة Google للمعلمين - المستوى 2", issuer: "Google for Education", verified: true, date: "2025", link: "#" },
@@ -23,43 +29,43 @@ const galleryItems = [
   {
     title: "ورشة الروبوتات التعليمية",
     caption: "ورشة عمل تطبيقية للطلاب حول بناء وبرمجة الروبوتات التعليمية باستخدام Arduino",
-    type: "youtube" as const,
-    url: "dQw4w9WgXcQ",
+    type: "image" as const,
+    url: galleryRobotics,
     tag: "ورشة",
   },
   {
     title: "تدريب المعلمين على AI",
     caption: "جلسة تدريبية حضورية للزملاء المعلمين حول استخدام أدوات الذكاء الاصطناعي في التحضير",
-    type: "youtube" as const,
-    url: "dQw4w9WgXcQ",
+    type: "image" as const,
+    url: galleryAiTraining,
     tag: "تدريب",
   },
   {
     title: "مشروع STEM للطلاب",
     caption: "مشروع تخرّج طلاب الصف العاشر في مسابقة العلوم والتكنولوجيا الوطنية",
     type: "image" as const,
-    url: profileCover,
+    url: galleryStem,
     tag: "مشروع",
   },
   {
     title: "ندوة التعليم الرقمي",
     caption: "محاضرة عن بعد حول التحول الرقمي في التعليم ضمن مؤتمر إقليمي",
-    type: "youtube" as const,
-    url: "dQw4w9WgXcQ",
+    type: "image" as const,
+    url: gallerySeminar,
     tag: "ندوة",
   },
   {
     title: "معرض المشاريع الطلابية",
     caption: "عرض مشاريع الطلاب في يوم المدرسة المفتوح أمام أولياء الأمور",
     type: "image" as const,
-    url: profileCover,
+    url: galleryExhibition,
     tag: "معرض",
   },
   {
     title: "تدريب Google Classroom",
     caption: "تدريب أونلاين للمعلمين الجدد على إدارة الفصول عبر Google Classroom",
-    type: "youtube" as const,
-    url: "dQw4w9WgXcQ",
+    type: "image" as const,
+    url: galleryClassroom,
     tag: "تدريب",
   },
 ];
