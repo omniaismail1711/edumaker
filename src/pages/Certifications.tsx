@@ -250,7 +250,7 @@ export default function Certifications() {
             </p>
             <p className="text-base text-muted-foreground max-w-xl mx-auto leading-[1.8]">
               {lang === "ar"
-                ? "تساعد هذه الشهادات المعلمين على إثبات مهاراتهم في اللغة، التكنولوجيا التعليمية، والتدريس الرقمي."
+                ? "تساعد هذه الشهادات المعلمين على إثبات مهاراتهم في اللغة، تكنولوجيا التعليم، والتدريس الرقمي."
                 : "These certifications help teachers prove their skills in language, educational technology, and digital teaching."}
             </p>
           </motion.div>
@@ -335,7 +335,7 @@ export default function Certifications() {
       {/* Section 4 & 5 – Tech Certifications */}
       {(filter === "all" || filter === "tech") && filtered.some((c) => c.category === "tech") && (
         <CertSection
-          title={lang === "ar" ? "شهادات التكنولوجيا التعليمية" : "Educational Technology Certifications"}
+          title={lang === "ar" ? "شهادات تكنولوجيا التعليم" : "Educational Technology Certifications"}
           icon={<Monitor className="w-5 h-5 text-primary" />}
           certs={filtered.filter((c) => c.category === "tech")}
           lang={lang}
