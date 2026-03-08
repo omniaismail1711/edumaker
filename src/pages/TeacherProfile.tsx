@@ -30,7 +30,7 @@ export default function TeacherProfile() {
   return (
     <div className="min-h-screen">
       {/* Cover */}
-      <div className="h-40 md:h-52 relative overflow-hidden">
+      <div className="h-32 md:h-40 relative overflow-hidden">
         <img src={profileCover} alt="" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/30" />
       </div>
