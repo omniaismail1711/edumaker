@@ -194,7 +194,8 @@ export default function Course() {
             ))}
           </div>
         </div>
-      </section>
+      {/* Recommended Courses & Explore All */}
+      <RecommendedCourses />
     </div>
   );
 }
