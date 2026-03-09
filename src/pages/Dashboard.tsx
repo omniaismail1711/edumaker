@@ -5,7 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { motion } from "framer-motion";
 import {
   User, Award, BookOpen, Briefcase, Brain, TrendingUp,
-  ChevronLeft, Plus, Bell, Settings, FileText, Star, Library, FolderKanban
+  ChevronLeft, Plus, Bell, Settings, FileText, Star, Library, FolderKanban, Store
 } from "lucide-react";
 import ImpactScore from "@/components/ImpactScore";
 import { mockTeachers } from "@/data/mockData";
