@@ -21,6 +21,7 @@ export default function Navbar() {
     { label: t(translations.nav.jobs, lang), path: "/jobs", icon: Briefcase },
     
     { label: lang === "ar" ? "الشهادات" : "Certifications", path: "/certifications", icon: Award },
+    { label: lang === "ar" ? "سوق الموارد" : "Marketplace", path: "/marketplace", icon: Store },
     { label: t(translations.nav.dashboard, lang), path: "/dashboard", icon: LayoutDashboard },
   ];
 

@@ -172,6 +172,12 @@ export default function Dashboard() {
                     المشاريع التعليمية
                   </Link>
                 </Button>
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/marketplace">
+                    <Store className="w-4 h-4 ml-2" />
+                    سوق موارد المعلمين
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
