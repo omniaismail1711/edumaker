@@ -24,6 +24,7 @@ import ChooseAccountType from "./pages/ChooseAccountType";
 import OrgRegistration from "./pages/OrgRegistration";
 import OrgDashboard from "./pages/OrgDashboard";
 import ResourceLibrary from "./pages/ResourceLibrary";
+import Marketplace from "./pages/Marketplace";
 
 const queryClient = new QueryClient();
 
@@ -57,6 +58,7 @@ const App = () => (
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/org-dashboard" element={<OrgDashboard />} />
                     <Route path="/resources" element={<ResourceLibrary />} />
+                    <Route path="/marketplace" element={<Marketplace />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </>

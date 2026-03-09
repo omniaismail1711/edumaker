@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search, Briefcase, User, LayoutDashboard, GraduationCap, BookOpen, Sun, Moon, Globe, Award } from "lucide-react";
+import { Menu, X, Search, Briefcase, User, LayoutDashboard, GraduationCap, BookOpen, Sun, Moon, Globe, Award, Store } from "lucide-react";
 import { useTheme } from "next-themes";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,7 @@ export default function Navbar() {
     { label: t(translations.nav.jobs, lang), path: "/jobs", icon: Briefcase },
     
     { label: lang === "ar" ? "الشهادات" : "Certifications", path: "/certifications", icon: Award },
+    { label: lang === "ar" ? "سوق الموارد" : "Marketplace", path: "/marketplace", icon: Store },
     { label: t(translations.nav.dashboard, lang), path: "/dashboard", icon: LayoutDashboard },
   ];
 

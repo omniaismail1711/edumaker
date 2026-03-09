@@ -5,7 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { motion } from "framer-motion";
 import {
   User, Award, BookOpen, Briefcase, Brain, TrendingUp,
-  ChevronLeft, Plus, Bell, Settings, FileText, Star, Library, FolderKanban
+  ChevronLeft, Plus, Bell, Settings, FileText, Star, Library, FolderKanban, Store
 } from "lucide-react";
 import ImpactScore from "@/components/ImpactScore";
 import { mockTeachers } from "@/data/mockData";
@@ -170,6 +170,12 @@ export default function Dashboard() {
                   <Link to="/projects">
                     <FolderKanban className="w-4 h-4 ml-2" />
                     المشاريع التعليمية
+                  </Link>
+                </Button>
+                <Button variant="outline" className="w-full justify-start" size="sm" asChild>
+                  <Link to="/marketplace">
+                    <Store className="w-4 h-4 ml-2" />
+                    سوق موارد المعلمين
                   </Link>
                 </Button>
               </div>

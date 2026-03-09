@@ -4,10 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import {
   GraduationCap, Search, Award, Brain, Briefcase, Users, CheckCircle2,
-  ArrowLeft, ArrowRight, Sparkles, TrendingUp, BookOpen, Shield, Crown, IdCard, Gift, Clock } from
-"lucide-react";
+  ArrowLeft, ArrowRight, Sparkles, TrendingUp, BookOpen, Shield, Crown, IdCard, Gift, Clock, Store, Download, Star
+} from "lucide-react";
 import TeacherCard from "@/components/TeacherCard";
 import { mockTeachers } from "@/data/mockData";
+import { mockResources } from "@/data/marketplaceData";
 import heroBg from "@/assets/hero-bg.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations, t } from "@/i18n/translations";
@@ -206,6 +207,49 @@ export default function Index() {
           </div>
         </motion.div>
       </section>
+      {/* Marketplace Section */}
+      <section className="bg-secondary/50 py-16 md:py-20">
+        <div className="container">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <Store className="w-6 h-6 text-primary" />
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                  {lang === "ar" ? "موارد تعليمية من معلمين مثلك" : "Teaching Resources from Teachers Like You"}
+                </h2>
+              </div>
+              <p className="text-muted-foreground">
+                {lang === "ar" ? "اكتشف أفضل الموارد التعليمية المعدة من معلمين متميزين" : "Discover top teaching resources created by outstanding teachers"}
+              </p>
+            </div>
+            <Button variant="outline" asChild>
+              <Link to="/marketplace">
+                {lang === "ar" ? "استكشف سوق الموارد" : "Explore Marketplace"}
+              </Link>
+            </Button>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {mockResources.slice(0, 3).map((resource, i) => (
+              <motion.div
+                key={resource.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="bg-card rounded-xl border p-5 card-elevated"
+              >
+                <h3 className="font-bold text-foreground mb-2 line-clamp-1">{resource.title}</h3>
+                <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{resource.description}</p>
+                <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1"><Download className="w-3.5 h-3.5" />{resource.downloads}</span>
+                  <span className="flex items-center gap-1"><Star className="w-3.5 h-3.5 fill-badge-gold text-badge-gold" />{resource.rating}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="container py-16 md:py-20">
         <div className="rounded-2xl p-8 md:p-12 text-center relative overflow-hidden" style={{ background: 'var(--hero-gradient)' }}>
