@@ -24,6 +24,7 @@ import ChooseAccountType from "./pages/ChooseAccountType";
 import OrgRegistration from "./pages/OrgRegistration";
 import OrgDashboard from "./pages/OrgDashboard";
 import ResourceLibrary from "./pages/ResourceLibrary";
+import Marketplace from "./pages/Marketplace";
 
 const queryClient = new QueryClient();
 
