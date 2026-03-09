@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import TeacherCard from "@/components/TeacherCard";
 import { mockTeachers } from "@/data/mockData";
+import { mockResources } from "@/data/marketplaceData";
 import heroBg from "@/assets/hero-bg.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { translations, t } from "@/i18n/translations";
