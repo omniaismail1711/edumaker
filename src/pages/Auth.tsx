@@ -172,463 +172,295 @@ function SignupForm() {
 
   return (
     <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }} className="space-y-4">
-      <StepIndicator current={step} total={totalSteps} />
-      <p className="text-center text-sm font-semibold text-primary mb-4">{stepTitles[step]}</p>
+      {/* Step Progress */}
+      <div className="flex items-center justify-center gap-2 mb-2">
+        {Array.from({ length: totalSteps }, (_, i) => (
+          <div key={i} className={`h-1.5 rounded-full transition-all duration-300 ${i === step ? "w-8 bg-primary" : i < step ? "w-6 bg-primary/50" : "w-6 bg-muted"}`} />
+        ))}
+      </div>
+      <p className="text-center text-sm font-semibold text-primary mb-4">{stepLabels[step]}</p>
 
       <AnimatePresence mode="wait">
-        {/* Step 0: Basic Info */}
+        {/* Step 0: Choose Account Type */}
         {step === 0 && (
           <motion.div key="step0" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
+            <h3 className="text-center font-bold text-foreground text-lg">{lang === "ar" ? "اختر نوع الحساب" : "Choose Account Type"}</h3>
+
+            {/* Teacher Card */}
+            <div
+              className={`border-2 rounded-2xl p-5 cursor-pointer transition-all ${userType === "teacher" ? "border-primary bg-primary/5 shadow-md" : "border-border hover:border-primary/30 hover:bg-secondary/30"}`}
+              onClick={() => setUserType("teacher")}
+            >
+              <div className="flex items-center gap-4">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${userType === "teacher" ? "bg-primary/20" : "bg-secondary"}`}>
+                  <GraduationCap className={`w-7 h-7 ${userType === "teacher" ? "text-primary" : "text-muted-foreground"}`} />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-foreground text-base">{lang === "ar" ? "معلم" : "Teacher"}</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed mt-1">
+                    {lang === "ar"
+                      ? "للمعلمين العاملين أو الخريجين من الكليات المرتبطة بالتدريس."
+                      : "For working teachers or graduates of education-related faculties."}
+                  </p>
+                </div>
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${userType === "teacher" ? "border-primary" : "border-muted-foreground/40"}`}>
+                  {userType === "teacher" && <div className="w-2.5 h-2.5 rounded-full bg-primary" />}
+                </div>
+              </div>
+            </div>
+
+            {/* Student Card */}
+            <div
+              className={`border-2 rounded-2xl p-5 cursor-pointer transition-all ${userType === "student" ? "border-accent bg-accent/5 shadow-md" : "border-border hover:border-accent/30 hover:bg-secondary/30"}`}
+              onClick={() => setUserType("student")}
+            >
+              <div className="flex items-center gap-4">
+                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${userType === "student" ? "bg-accent/20" : "bg-secondary"}`}>
+                  <BookOpen className={`w-7 h-7 ${userType === "student" ? "text-accent" : "text-muted-foreground"}`} />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold text-foreground text-base">{lang === "ar" ? "طالب" : "Student"}</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed mt-1">
+                    {lang === "ar"
+                      ? "لطلاب الكليات المرتبطة بالتدريس الذين يستعدون للعمل كمعلمين."
+                      : "For students of education-related faculties preparing to become teachers."}
+                  </p>
+                </div>
+                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${userType === "student" ? "border-accent" : "border-muted-foreground/40"}`}>
+                  {userType === "student" && <div className="w-2.5 h-2.5 rounded-full bg-accent" />}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Step 1: Basic Info */}
+        {step === 1 && (
+          <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
             <div className="space-y-2">
               <Label>{t(a.fullName, lang)}</Label>
               <div className="relative">
-                <Input placeholder={t(a.fullNamePlaceholder, lang)} className={isRTL ? "pr-10" : "pl-10"} />
+                <Input placeholder={t(a.fullNamePlaceholder, lang)} className={isRTL ? "pr-10 h-12 text-base" : "pl-10 h-12 text-base"} />
                 <User className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
               </div>
             </div>
             <div className="space-y-2">
               <Label>{t(a.email, lang)}</Label>
               <div className="relative">
-                <Input type="email" placeholder="example@email.com" className="pl-10 text-left" dir="ltr" />
+                <Input type="email" placeholder="example@email.com" className="pl-10 text-left h-12 text-base" dir="ltr" />
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               </div>
             </div>
             <div className="space-y-2">
               <Label>{t(a.password, lang)}</Label>
               <div className="relative">
-                <Input type="password" placeholder="••••••••" className="pl-10 text-left" dir="ltr" />
+                <Input type="password" placeholder="••••••••" className="pl-10 text-left h-12 text-base" dir="ltr" />
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label>{t(a.phone, lang)}</Label>
-              <div className="relative">
-                <Input placeholder={t(a.phonePlaceholder, lang)} className="pl-10 text-left" dir="ltr" />
-                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="space-y-2">
-                <Label>{t(a.country, lang)}</Label>
-                <Select>
-                  <SelectTrigger><Globe className={`w-4 h-4 text-muted-foreground ${isRTL ? "ml-2" : "mr-2"}`} /><SelectValue placeholder={t(a.selectCountry, lang)} /></SelectTrigger>
-                  <SelectContent>{countries.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label>{t(a.city, lang)}</Label>
-                <div className="relative">
-                  <Input placeholder={t(a.city, lang)} className={isRTL ? "pr-10" : "pl-10"} />
-                  <MapPin className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
-                </div>
               </div>
             </div>
           </motion.div>
         )}
 
-        {/* Step 1: Professional Info */}
-        {step === 1 && (
-          <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
+        {/* Step 2A: Teacher Professional Info */}
+        {step === 2 && userType === "teacher" && (
+          <motion.div key="step2a" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
             <div className="space-y-2">
-              <Label>{t(a.currentJob, lang)}</Label>
-              <div className="relative">
-                <Input placeholder={t(a.currentJobPlaceholder, lang)} className={isRTL ? "pr-10" : "pl-10"} />
-                <Briefcase className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label>{t(a.institution, lang)}</Label>
-              <div className="relative">
-                <Input placeholder={t(a.institutionPlaceholder, lang)} className={isRTL ? "pr-10" : "pl-10"} />
-                <Building2 className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label>{t(a.jobDescription, lang)}</Label>
-              <Textarea placeholder={t(a.jobDescriptionPlaceholder, lang)} rows={3} />
-            </div>
-            <div className="space-y-2">
-              <Label>{t(a.subject, lang)}</Label>
+              <Label>{lang === "ar" ? "المادة التي يدرسها" : "Subject"}</Label>
               <Select>
-                <SelectTrigger><BookOpen className={`w-4 h-4 text-muted-foreground ${isRTL ? "ml-2" : "mr-2"}`} /><SelectValue placeholder={t(a.selectSubject, lang)} /></SelectTrigger>
+                <SelectTrigger className="h-12"><BookOpen className={`w-4 h-4 text-muted-foreground ${isRTL ? "ml-2" : "mr-2"}`} /><SelectValue placeholder={t(a.selectSubject, lang)} /></SelectTrigger>
                 <SelectContent>{subjects.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>{t(a.educationalStage, lang)}</Label>
-              <div className="grid grid-cols-2 gap-2">
-                {educationalStages.map(stage => (
-                  <div key={stage} className="flex items-center gap-2 p-2 rounded-lg border bg-card hover:bg-secondary/50 transition-colors">
-                    <Checkbox id={`stage-${stage}`} />
-                    <Label htmlFor={`stage-${stage}`} className="text-sm cursor-pointer">{stage}</Label>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="space-y-2">
-              <Label>{t(a.experience, lang)}</Label>
+              <Label>{lang === "ar" ? "المرحلة الدراسية" : "Grade Level"}</Label>
               <Select>
-                <SelectTrigger><SelectValue placeholder={t(a.selectExperience, lang)} /></SelectTrigger>
-                <SelectContent>{experienceOptions.map(y => <SelectItem key={y} value={y}>{y}</SelectItem>)}</SelectContent>
+                <SelectTrigger className="h-12"><SelectValue placeholder={lang === "ar" ? "اختر المرحلة" : "Select grade level"} /></SelectTrigger>
+                <SelectContent>{educationalStages.map(s => <SelectItem key={s} value={s}>{s}</SelectItem>)}</SelectContent>
               </Select>
             </div>
-          </motion.div>
-        )}
-
-        {/* Step 2: Skills & Certificates */}
-        {step === 2 && (
-          <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
-            <div className="space-y-3">
-              <Label>{t(a.skills, lang)}</Label>
-              <div className="flex flex-wrap gap-2">
-                {skills.map(skill => (
-                  <Badge key={skill} variant={selectedSkills.includes(skill) ? "default" : "outline"}
-                    className="cursor-pointer hover:bg-primary/10 transition-colors px-3 py-1.5 text-xs"
-                    onClick={() => toggleSkill(skill)}>{skill}</Badge>
-                ))}
+            <div className="space-y-2">
+              <Label>{lang === "ar" ? "سنوات الخبرة" : "Years of Experience"}</Label>
+              <Select>
+                <SelectTrigger className="h-12"><SelectValue placeholder={lang === "ar" ? "اختر سنوات الخبرة" : "Select experience"} /></SelectTrigger>
+                <SelectContent>
+                  {["أقل من سنة", "1-3 سنوات", "3-5 سنوات", "5-10 سنوات", "أكثر من 10 سنوات"].map(y => (
+                    <SelectItem key={y} value={y}>{y}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label>{lang === "ar" ? "كلية التخرج" : "Faculty of Graduation"}</Label>
+              <Select>
+                <SelectTrigger className="h-12"><Building2 className={`w-4 h-4 text-muted-foreground ${isRTL ? "ml-2" : "mr-2"}`} /><SelectValue placeholder={lang === "ar" ? "اختر الكلية" : "Select faculty"} /></SelectTrigger>
+                <SelectContent>{faculties.map(f => <SelectItem key={f} value={f}>{f}</SelectItem>)}</SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label>{lang === "ar" ? "اسم الجامعة" : "University"}</Label>
+              <div className="relative">
+                <Input placeholder={lang === "ar" ? "جامعة المنصورة – جامعة القاهرة – جامعة الإسكندرية" : "e.g. Cairo University"} className={`${isRTL ? "pr-10" : "pl-10"} h-12 text-base`} />
+                <Building2 className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
               </div>
             </div>
+            <div className="space-y-2">
+              <Label>{lang === "ar" ? "سنة التخرج" : "Year of Graduation"}</Label>
+              <Select>
+                <SelectTrigger className="h-12"><SelectValue placeholder={lang === "ar" ? "اختر السنة" : "Select year"} /></SelectTrigger>
+                <SelectContent>{graduationYears.map(y => <SelectItem key={y} value={y}>{y}</SelectItem>)}</SelectContent>
+              </Select>
+            </div>
 
-            {/* Dynamic courses */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <Label>{t(a.addCourse, lang)}</Label>
-                <Button type="button" variant="ghost" size="sm" onClick={() => setCourses(prev => [...prev, { name: "", issuer: "", year: "" }])}>
-                  <Plus className="w-4 h-4" />
+            {/* Union Verification */}
+            <div className="border rounded-xl p-4 space-y-3 bg-secondary/30">
+              <div className="flex items-center gap-2">
+                <IdCard className="w-5 h-5 text-primary" />
+                <Label className="text-sm font-semibold">{lang === "ar" ? "هل أنت عضو في نقابة المهن التعليمية؟" : "Are you a member of the Teachers' Union?"}</Label>
+              </div>
+              <div className="flex gap-3">
+                <Button type="button" variant={unionMember === "yes" ? "default" : "outline"} size="sm" onClick={() => setUnionMember("yes")} className="flex-1">
+                  {lang === "ar" ? "نعم" : "Yes"}
+                </Button>
+                <Button type="button" variant={unionMember === "no" ? "default" : "outline"} size="sm" onClick={() => setUnionMember("no")} className="flex-1">
+                  {lang === "ar" ? "لا" : "No"}
                 </Button>
               </div>
-              {courses.map((_, i) => (
-                <div key={i} className="border rounded-lg p-3 space-y-2 relative">
-                  {courses.length > 1 && (
-                    <Button type="button" variant="ghost" size="icon" className="absolute top-1 left-1 w-6 h-6"
-                      onClick={() => setCourses(prev => prev.filter((_, j) => j !== i))}>
-                      <Trash2 className="w-3 h-3 text-destructive" />
-                    </Button>
-                  )}
-                  <Input placeholder={t(a.courseNamePlaceholder, lang)} />
-                  <div className="grid grid-cols-2 gap-2">
-                    <Input placeholder={t(a.courseIssuerPlaceholder, lang)} />
-                    <Input placeholder={t(a.courseYear, lang)} type="number" min="2000" max="2026" />
-                  </div>
-                </div>
-              ))}
-            </div>
 
+              <AnimatePresence mode="wait">
+                {unionMember === "yes" && !unionVerified && !unionPending && (
+                  <motion.div key="union-upload" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} className="space-y-3 overflow-hidden">
+                    <div className="space-y-2">
+                      <Label className="text-xs">{lang === "ar" ? "صورة كارنيه النقابة أو شهادة العضوية" : "Upload membership card"}</Label>
+                      <div className="border-2 border-dashed border-border rounded-xl p-4 text-center hover:border-primary/40 transition-colors cursor-pointer">
+                        <Upload className="w-6 h-6 text-muted-foreground mx-auto mb-1" />
+                        <p className="text-xs text-muted-foreground">{lang === "ar" ? "اسحب الملف هنا أو اضغط للرفع" : "Drag & drop or click to upload"}</p>
+                      </div>
+                    </div>
+                    <Button size="sm" className="w-full" onClick={() => setUnionPending(true)}>
+                      <FileCheck className="w-4 h-4 ml-1" />
+                      {lang === "ar" ? "إرسال طلب التحقق" : "Submit verification"}
+                    </Button>
+                  </motion.div>
+                )}
+                {unionPending && !unionVerified && (
+                  <motion.div key="union-pending" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="border border-yellow-500/30 bg-yellow-500/5 rounded-lg p-3 text-center">
+                    <Clock className="w-5 h-5 text-yellow-500 mx-auto mb-1" />
+                    <p className="text-xs font-semibold text-foreground">{lang === "ar" ? "طلب قيد المراجعة" : "Verification pending"}</p>
+                  </motion.div>
+                )}
+                {unionVerified && (
+                  <motion.div key="union-done" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="border border-green-500/30 bg-green-500/5 rounded-lg p-3 text-center">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 mx-auto mb-1" />
+                    <p className="text-xs font-semibold text-foreground">{lang === "ar" ? "تم التحقق — 6 أشهر عضوية مميزة" : "Verified — 6 months premium"}</p>
+                    <Badge className="mt-1 bg-primary/10 text-primary border-0 text-[10px]">
+                      <Crown className="w-3 h-3 ml-1" /> {lang === "ar" ? "معلم مقيد بنقابة المهن التعليمية" : "Union Verified Teacher"}
+                    </Badge>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Step 2B: Student Info */}
+        {step === 2 && userType === "student" && (
+          <motion.div key="step2b" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
             <div className="space-y-2">
-              <Label>{t(a.uploadCerts, lang)}</Label>
-              <div className="border-2 border-dashed border-border rounded-xl p-6 text-center hover:border-primary/40 transition-colors cursor-pointer">
-                <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                <p className="text-sm text-muted-foreground">{t(a.uploadDragDrop, lang)}</p>
-                <p className="text-xs text-muted-foreground/70 mt-1">{t(a.uploadFormats, lang)}</p>
-              </div>
+              <Label>{lang === "ar" ? "السنة الدراسية" : "Academic Year"}</Label>
+              <Select>
+                <SelectTrigger className="h-12"><SelectValue placeholder={lang === "ar" ? "اختر السنة الدراسية" : "Select academic year"} /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="third">{lang === "ar" ? "السنة الثالثة" : "Third Year"}</SelectItem>
+                  <SelectItem value="fourth">{lang === "ar" ? "السنة الرابعة" : "Fourth Year"}</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div className="space-y-2">
-              <Label>{t(a.portfolioLink, lang)}</Label>
+              <Label>{lang === "ar" ? "الكلية" : "Faculty"}</Label>
+              <Select>
+                <SelectTrigger className="h-12"><Building2 className={`w-4 h-4 text-muted-foreground ${isRTL ? "ml-2" : "mr-2"}`} /><SelectValue placeholder={lang === "ar" ? "اختر الكلية" : "Select faculty"} /></SelectTrigger>
+                <SelectContent>{studentFaculties.map(f => <SelectItem key={f} value={f}>{f}</SelectItem>)}</SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label>{lang === "ar" ? "اسم الجامعة" : "University"}</Label>
               <div className="relative">
-                <Input placeholder={t(a.portfolioPlaceholder, lang)} className={`${isRTL ? "pr-10" : "pl-10"} text-left`} dir="ltr" />
-                <Link2 className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
+                <Input placeholder={lang === "ar" ? "جامعة المنصورة – جامعة القاهرة – جامعة الإسكندرية" : "e.g. Cairo University"} className={`${isRTL ? "pr-10" : "pl-10"} h-12 text-base`} />
+                <Building2 className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
               </div>
             </div>
           </motion.div>
         )}
 
-        {/* Step 3: Photo & Gallery */}
+        {/* Step 3: Confirmation */}
         {step === 3 && (
           <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
-            {/* Profile Photo */}
-            <div className="space-y-3">
-              <Label>{t(a.profilePhoto, lang)}</Label>
-              <div className="flex items-center gap-4">
-                <div className="w-20 h-20 rounded-2xl bg-secondary border-2 border-dashed border-border flex items-center justify-center">
-                  <Camera className="w-8 h-8 text-muted-foreground" />
-                </div>
-                <div className="flex-1">
-                  <Button type="button" variant="outline" size="sm"><Upload className="w-4 h-4 ml-1" />{t(a.uploadPhoto, lang)}</Button>
-                  <p className="text-xs text-muted-foreground mt-1">{t(a.profilePhotoDesc, lang)}</p>
-                </div>
+            <div className="text-center">
+              <div className={`w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center ${userType === "teacher" ? "bg-primary/10" : "bg-accent/10"}`}>
+                {userType === "teacher"
+                  ? <GraduationCap className="w-8 h-8 text-primary" />
+                  : <BookOpen className="w-8 h-8 text-accent" />}
               </div>
-            </div>
-
-            {/* Gallery */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <Label>{t(a.galleryTitle, lang)}</Label>
-                <Button type="button" variant="ghost" size="sm"
-                  onClick={() => setGalleryItems(prev => [...prev, { title: "", caption: "", type: "youtube", url: "" }])}>
-                  <Plus className="w-4 h-4 ml-1" />{t(a.addGalleryItem, lang)}
-                </Button>
-              </div>
-              <p className="text-xs text-muted-foreground">{t(a.galleryDesc, lang)}</p>
-
-              {galleryItems.map((item, i) => (
-                <div key={i} className="border rounded-lg p-3 space-y-2 relative">
-                  <Button type="button" variant="ghost" size="icon" className="absolute top-1 left-1 w-6 h-6"
-                    onClick={() => setGalleryItems(prev => prev.filter((_, j) => j !== i))}>
-                    <Trash2 className="w-3 h-3 text-destructive" />
-                  </Button>
-                  <Input placeholder={t(a.galleryItemTitlePlaceholder, lang)} />
-                  <Input placeholder={t(a.galleryItemCaptionPlaceholder, lang)} />
-                  <div className="flex gap-2">
-                    <Button type="button" variant={item.type === "youtube" ? "default" : "outline"} size="sm"
-                      onClick={() => { const n = [...galleryItems]; n[i].type = "youtube"; setGalleryItems(n); }}>
-                      <Video className="w-3 h-3 ml-1" />{t(a.galleryItemYoutube, lang)}
-                    </Button>
-                    <Button type="button" variant={item.type === "image" ? "default" : "outline"} size="sm"
-                      onClick={() => { const n = [...galleryItems]; n[i].type = "image"; setGalleryItems(n); }}>
-                      <Image className="w-3 h-3 ml-1" />{t(a.galleryItemImage, lang)}
-                    </Button>
-                  </div>
-                  {item.type === "youtube" ? (
-                    <Input placeholder={t(a.galleryItemUrlPlaceholder, lang)} className="text-left" dir="ltr" />
-                  ) : (
-                    <div className="border-2 border-dashed border-border rounded-lg p-4 text-center cursor-pointer hover:border-primary/40 transition-colors">
-                      <Upload className="w-6 h-6 text-muted-foreground mx-auto mb-1" />
-                      <p className="text-xs text-muted-foreground">{t(a.uploadDragDrop, lang)}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
-
-              {galleryItems.length === 0 && (
-                <div className="border-2 border-dashed border-border rounded-xl p-8 text-center">
-                  <Image className="w-10 h-10 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">{t(a.galleryDesc, lang)}</p>
-                </div>
-              )}
-            </div>
-          </motion.div>
-        )}
-
-        {/* Step 4: Verification & Subscription */}
-        {step === 4 && (
-          <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
-            <div className="text-center mb-2">
-              <h3 className="font-semibold text-foreground">{t(a.verificationTitle, lang)}</h3>
-              <p className="text-xs text-muted-foreground">{t(a.verificationDesc, lang)}</p>
-            </div>
-
-            {/* Free Plan */}
-            <div className={`border rounded-xl p-4 cursor-pointer transition-all ${selectedPlan === "free" ? "border-primary bg-primary/5" : "hover:bg-secondary/50"}`}
-              onClick={() => setSelectedPlan("free")}>
-              <div className="flex items-center gap-3">
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === "free" ? "border-primary" : "border-muted-foreground"}`}>
-                  {selectedPlan === "free" && <div className="w-2.5 h-2.5 rounded-full bg-primary" />}
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">{t(a.freePlan, lang)}</p>
-                  <p className="text-xs text-muted-foreground">{t(a.freePlanDesc, lang)}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Premium Plan - Monthly */}
-            <div className={`border rounded-xl p-4 cursor-pointer transition-all relative overflow-hidden ${selectedPlan === "premium-monthly" ? "border-badge-gold bg-badge-gold/5" : "hover:bg-secondary/50"}`}
-              onClick={() => setSelectedPlan("premium-monthly")}>
-              <div className="absolute top-0 right-0 bg-badge-gold text-primary-foreground text-[10px] font-bold px-3 py-0.5 rounded-bl-lg">PRO</div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === "premium-monthly" ? "border-badge-gold" : "border-muted-foreground"}`}>
-                  {selectedPlan === "premium-monthly" && <div className="w-2.5 h-2.5 rounded-full bg-badge-gold" />}
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground flex items-center gap-1.5">
-                    <Crown className="w-4 h-4 text-badge-gold" />
-                    {t(a.premiumPlan, lang)} — {t(a.monthly, lang)}
-                  </p>
-                  <p className="text-xs font-bold text-badge-gold">{t(a.premiumPlanPriceMonthly, lang)}</p>
-                </div>
-              </div>
-              <ul className="space-y-1.5 mr-8">
-                {premiumBenefits.map((b, i) => (
-                  <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <CheckCircle2 className="w-3 h-3 text-badge-gold shrink-0" />
-                    {t(b, lang)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Premium Plan - Yearly */}
-            <div className={`border rounded-xl p-4 cursor-pointer transition-all relative overflow-hidden ${selectedPlan === "premium-yearly" ? "border-badge-gold bg-badge-gold/5" : "hover:bg-secondary/50"}`}
-              onClick={() => setSelectedPlan("premium-yearly")}>
-              <div className="absolute top-0 right-0 bg-badge-gold text-primary-foreground text-[10px] font-bold px-3 py-0.5 rounded-bl-lg">PRO</div>
-              <div className="absolute top-0 left-0 bg-green-600 text-primary-foreground text-[10px] font-bold px-3 py-0.5 rounded-br-lg">{t(a.premiumPlanYearlySave, lang)}</div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === "premium-yearly" ? "border-badge-gold" : "border-muted-foreground"}`}>
-                  {selectedPlan === "premium-yearly" && <div className="w-2.5 h-2.5 rounded-full bg-badge-gold" />}
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground flex items-center gap-1.5">
-                    <Crown className="w-4 h-4 text-badge-gold" />
-                    {t(a.premiumPlan, lang)} — {t(a.yearly, lang)}
-                  </p>
-                  <p className="text-xs font-bold text-badge-gold">{t(a.premiumPlanPriceYearly, lang)}</p>
-                </div>
-              </div>
-              <ul className="space-y-1.5 mr-8">
-                {premiumBenefits.map((b, i) => (
-                  <li key={i} className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <CheckCircle2 className="w-3 h-3 text-badge-gold shrink-0" />
-                    {t(b, lang)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Step 5: Union Verification */}
-        {step === 5 && (
-          <motion.div key="step5" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-4">
-            <div className="text-center mb-2">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3">
-                <IdCard className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-semibold text-foreground">ربط الحساب مع نقابة المعلمين</h3>
-              <p className="text-xs text-muted-foreground mt-1">
-                إذا كنت عضوًا في نقابة المعلمين يمكنك التحقق من عضويتك للحصول على حساب مميز لمدة 6 أشهر
+              <h3 className="font-bold text-foreground text-lg mb-1">
+                {userType === "teacher"
+                  ? (lang === "ar" ? "إنشاء حساب معلم" : "Create Teacher Account")
+                  : (lang === "ar" ? "إنشاء حساب معلم المستقبل" : "Create Future Teacher Account")}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {userType === "teacher"
+                  ? (lang === "ar" ? "سيتم إنشاء ملفك المهني كمعلم مع الوصول الكامل لجميع مميزات المنصة." : "Your teacher profile will be created with full platform access.")
+                  : (lang === "ar" ? "سيتم إنشاء حسابك كطالب يستعد ليكون معلماً. يمكنك لاحقاً ترقية حسابك عند التخرج." : "Your student account will be created. You can upgrade to a full teacher account after graduation.")}
               </p>
             </div>
 
-            {/* Verified State */}
-            {unionVerified && (
-              <div className="border border-green-500/30 bg-green-500/5 rounded-xl p-4 text-center">
-                <CheckCircle2 className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                <p className="font-semibold text-foreground text-sm">تم التحقق من عضويتك في نقابة المعلمين</p>
-                <p className="text-xs text-muted-foreground mt-1">سيتم ترقية حسابك تلقائياً للعضوية المميزة لمدة 6 أشهر</p>
-                <Badge className="mt-2 bg-primary/10 text-primary border-0">
-                  <Crown className="w-3 h-3 ml-1" /> حساب مميز حتى {new Date(Date.now() + 180 * 24 * 60 * 60 * 1000).toLocaleDateString("ar-EG")}
-                </Badge>
-              </div>
-            )}
-
-            {/* Pending State */}
-            {unionPending && !unionVerified && (
-              <div className="border border-yellow-500/30 bg-yellow-500/5 rounded-xl p-4 text-center">
-                <Clock className="w-8 h-8 text-yellow-500 mx-auto mb-2" />
-                <p className="font-semibold text-foreground text-sm">طلب قيد المراجعة</p>
-                <p className="text-xs text-muted-foreground mt-1">سيتم مراجعة طلبك خلال 24-48 ساعة</p>
-              </div>
-            )}
-
-            {/* Verification Methods */}
-            {!unionVerified && !unionPending && (
-              <>
-                {/* Method Selection */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div
-                    className={`border rounded-xl p-4 cursor-pointer transition-all text-center ${unionMethod === "number" ? "border-primary bg-primary/5" : "hover:bg-secondary/50"}`}
-                    onClick={() => setUnionMethod("number")}
-                  >
-                    <IdCard className={`w-6 h-6 mx-auto mb-2 ${unionMethod === "number" ? "text-primary" : "text-muted-foreground"}`} />
-                    <p className="text-xs font-semibold text-foreground">رقم العضوية</p>
-                  </div>
-                  <div
-                    className={`border rounded-xl p-4 cursor-pointer transition-all text-center ${unionMethod === "upload" ? "border-primary bg-primary/5" : "hover:bg-secondary/50"}`}
-                    onClick={() => setUnionMethod("upload")}
-                  >
-                    <FileCheck className={`w-6 h-6 mx-auto mb-2 ${unionMethod === "upload" ? "text-primary" : "text-muted-foreground"}`} />
-                    <p className="text-xs font-semibold text-foreground">رفع إثبات العضوية</p>
-                  </div>
+            {userType === "student" && (
+              <div className="border rounded-xl p-4 bg-accent/5 border-accent/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="w-4 h-4 text-accent" />
+                  <p className="text-sm font-semibold text-foreground">{lang === "ar" ? "تحديث الحالة المهنية" : "Future Status Update"}</p>
                 </div>
-
-                <AnimatePresence mode="wait">
-                  {/* Option 1: Membership Number */}
-                  {unionMethod === "number" && (
-                    <motion.div key="union-number" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-3">
-                      <div className="space-y-2">
-                        <Label>رقم عضوية نقابة المعلمين</Label>
-                        <div className="relative">
-                          <Input placeholder="أدخل رقم العضوية" className={isRTL ? "pr-10" : "pl-10"} />
-                          <IdCard className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
-                        </div>
-                      </div>
-                      <div className="space-y-2">
-                        <Label>الرقم القومي</Label>
-                        <div className="relative">
-                          <Input placeholder="أدخل الرقم القومي" className={`${isRTL ? "pr-10" : "pl-10"} text-left`} dir="ltr" />
-                          <Shield className={`absolute ${isRTL ? "right-3" : "left-3"} top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground`} />
-                        </div>
-                      </div>
-                      <Button className="w-full" onClick={() => setUnionVerified(true)}>
-                        <CheckCircle2 className="w-4 h-4 ml-1" />
-                        تحقق من العضوية
-                      </Button>
-                    </motion.div>
-                  )}
-
-                  {/* Option 2: Upload Proof */}
-                  {unionMethod === "upload" && (
-                    <motion.div key="union-upload" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="space-y-3">
-                      <div className="space-y-2">
-                        <Label>صورة كارنيه النقابة أو شهادة العضوية</Label>
-                        <div className="border-2 border-dashed border-border rounded-xl p-6 text-center hover:border-primary/40 transition-colors cursor-pointer">
-                          <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-                          <p className="text-sm text-muted-foreground">اسحب الملف هنا أو اضغط للرفع</p>
-                          <p className="text-xs text-muted-foreground/70 mt-1">JPG, PNG, PDF — حد أقصى 5 ميجابايت</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-2 p-3 rounded-lg bg-secondary/50 border">
-                        <AlertCircle className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
-                        <p className="text-xs text-muted-foreground">سيتم مراجعة المستند يدوياً من فريق الإدارة. قد يستغرق الأمر 24-48 ساعة.</p>
-                      </div>
-                      <Button className="w-full" onClick={() => setUnionPending(true)}>
-                        <FileCheck className="w-4 h-4 ml-1" />
-                        إرسال طلب التحقق
-                      </Button>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <button onClick={() => { setUnionMethod(null); }} className="text-xs text-muted-foreground hover:text-primary transition-colors w-full text-center mt-2">
-                  تخطي هذه الخطوة
-                </button>
-              </>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {lang === "ar"
+                    ? "بعد التخرج، يمكنك تحديث حالتك إلى «معلم خريج» من إعدادات الملف الشخصي، مما سيفتح لك جميع مميزات المعلمين مثل سوق الموارد والملف المهني الكامل مع الاحتفاظ بحسابك وسجلك."
+                    : "After graduation, update your status to 'Graduate Teacher' in profile settings to unlock all teacher features while keeping your account history."}
+                </p>
+              </div>
             )}
-          </motion.div>
-        )}
 
-        {/* Step 6: Account Settings */}
-        {step === 6 && (
-          <motion.div key="step6" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-5">
-            <div className="space-y-4">
-              <Label className="text-foreground text-base">{t(a.profileSettings, lang)}</Label>
-              <div className="space-y-3">
-                {[
-                  { id: "available", label: t(a.availableForHire, lang), icon: Briefcase, desc: t(a.availableForHireDesc, lang) },
-                  { id: "training", label: t(a.interestedInTraining, lang), icon: Award, desc: t(a.interestedInTrainingDesc, lang) },
-                  { id: "visible", label: t(a.showProfile, lang), icon: Shield, desc: t(a.showProfileDesc, lang) },
-                ].map(opt => (
-                  <div key={opt.id} className="flex items-start gap-3 p-3 rounded-lg border bg-card hover:bg-secondary/50 transition-colors">
-                    <Checkbox id={opt.id} className="mt-0.5" />
-                    <div className="flex-1">
-                      <Label htmlFor={opt.id} className="text-sm font-semibold cursor-pointer flex items-center gap-2">
-                        <opt.icon className="w-4 h-4 text-primary" />
-                        {opt.label}
-                      </Label>
-                      <p className="text-xs text-muted-foreground mt-0.5">{opt.desc}</p>
-                    </div>
-                  </div>
-                ))}
+            <div className="space-y-2">
+              <div className="flex items-start gap-3 p-3 rounded-lg border bg-card">
+                <Checkbox id="terms" className="mt-0.5" />
+                <Label htmlFor="terms" className="text-xs text-muted-foreground cursor-pointer leading-relaxed">
+                  {lang === "ar"
+                    ? "أوافق على شروط الاستخدام وسياسة الخصوصية"
+                    : "I agree to the Terms of Service and Privacy Policy"}
+                </Label>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* Navigation */}
       <div className="flex gap-3 pt-2">
         {step > 0 && (
-          <Button variant="outline" className="flex-1 gap-1" onClick={() => setStep(s => s - 1)}>
+          <Button variant="outline" className="flex-1 gap-1 h-11" onClick={() => setStep(s => s - 1)}>
             <PrevIcon className="w-4 h-4" />
             {t(a.previous, lang)}
           </Button>
         )}
-        {step < totalSteps - 1 ? (
-          <Button className="flex-1 gap-1" onClick={() => setStep(s => s + 1)}>
+        {step === 0 ? (
+          <Button className="flex-1 gap-1 h-11" disabled={!userType} onClick={() => setStep(1)}>
+            {lang === "ar" ? "متابعة التسجيل" : "Continue"}
+            <NextIcon className="w-4 h-4" />
+          </Button>
+        ) : step < totalSteps - 1 ? (
+          <Button className="flex-1 gap-1 h-11" onClick={() => setStep(s => s + 1)}>
             {t(a.next, lang)}
             <NextIcon className="w-4 h-4" />
           </Button>
         ) : (
-          <Button className="flex-1 font-semibold">
+          <Button className="flex-1 font-semibold h-11">
             <CheckCircle2 className="w-4 h-4 ml-1" />
             {t(a.createAccount, lang)}
           </Button>
