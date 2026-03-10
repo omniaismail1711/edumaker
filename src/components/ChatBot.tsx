@@ -65,7 +65,7 @@ function findAnswer(question: string, lang: "ar" | "en"): string {
 export default function ChatBot() {
   const { lang } = useLanguage();
   const cb = translations.chatbot;
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([
     { id: 0, role: "bot", text: t(cb.greeting, lang) },
