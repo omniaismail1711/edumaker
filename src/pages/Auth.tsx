@@ -139,31 +139,36 @@ function SignupForm() {
   const { lang, isRTL } = useLanguage();
   const a = translations.auth;
   const [step, setStep] = useState(0);
-  const totalSteps = 7;
-  const [unionMethod, setUnionMethod] = useState<"number" | "upload" | null>(null);
+  const [userType, setUserType] = useState<"teacher" | "student" | null>(null);
+  const [unionMember, setUnionMember] = useState<"yes" | "no" | null>(null);
   const [unionVerified, setUnionVerified] = useState(false);
   const [unionPending, setUnionPending] = useState(false);
-  const [courses, setCourses] = useState([{ name: "", issuer: "", year: "" }]);
-  const [galleryItems, setGalleryItems] = useState<{ title: string; caption: string; type: "image" | "youtube"; url: string }[]>([]);
-  const [selectedPlan, setSelectedPlan] = useState<"free" | "premium-monthly" | "premium-yearly">("free");
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
-  const stepTitles = [t(a.step1, lang), t(a.step2, lang), t(a.step3, lang), t(a.step4, lang), "التحقق المهني", t(a.step5, lang), t(a.step6, lang)];
-
-  const educationalStages = Object.values(a.stages).map(v => t(v, lang));
-  const subjects = ["الرياضيات", "العلوم", "اللغة العربية", "اللغة الإنجليزية", "الحاسب الآلي", "التربية الإسلامية", "الفيزياء", "الكيمياء", "الأحياء", "التاريخ", "الجغرافيا", "أخرى"];
-  const countries = ["السعودية", "مصر", "الأردن", "الإمارات", "الكويت", "قطر", "البحرين", "عُمان", "المغرب", "تونس", "الجزائر", "العراق"];
-  const experienceOptions = Object.values(a.experienceOptions).map(v => t(v, lang));
-  const skills = ["التعليم الرقمي", "الذكاء الاصطناعي", "Google Workspace", "Microsoft Teams", "Canva", "Gamification", "التعلم المدمج", "STEM"];
-
+  const totalSteps = 4;
   const PrevIcon = isRTL ? ChevronRight : ChevronLeft;
   const NextIcon = isRTL ? ChevronLeft : ChevronRight;
 
-  const toggleSkill = (skill: string) => {
-    setSelectedSkills(prev => prev.includes(skill) ? prev.filter(s => s !== skill) : [...prev, skill]);
-  };
+  const faculties = [
+    "كلية التربية",
+    "كلية التربية النوعية",
+    "كلية التربية للطفولة المبكرة / رياض الأطفال",
+    "كلية التربية الرياضية",
+    "كلية التربية الفنية",
+    "كلية التربية الموسيقية",
+  ];
+  const studentFaculties = [...faculties, "أخرى"];
+  const subjects = ["الرياضيات", "العلوم", "اللغة العربية", "اللغة الإنجليزية", "الحاسب الآلي", "التربية الإسلامية", "الفيزياء", "الكيمياء", "الأحياء", "التاريخ", "الجغرافيا", "أخرى"];
+  const educationalStages = Object.values(a.stages).map(v => t(v, lang));
+  const graduationYears = Array.from({ length: 16 }, (_, i) => String(2010 + i));
 
-  const premiumBenefits = [a.premiumBenefit1, a.premiumBenefit2, a.premiumBenefit3, a.premiumBenefit4, a.premiumBenefit5];
+  const stepLabels = [
+    lang === "ar" ? "نوع الحساب" : "Account Type",
+    lang === "ar" ? "البيانات الأساسية" : "Basic Info",
+    userType === "teacher"
+      ? (lang === "ar" ? "المعلومات المهنية" : "Professional Info")
+      : (lang === "ar" ? "المعلومات الدراسية" : "Academic Info"),
+    lang === "ar" ? "إنشاء الحساب" : "Create Account",
+  ];
 
   return (
     <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3 }} className="space-y-4">
