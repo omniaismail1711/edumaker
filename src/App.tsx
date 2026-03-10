@@ -60,6 +60,7 @@ const App = () => (
                     <Route path="/org-dashboard" element={<OrgDashboard />} />
                     <Route path="/resources" element={<ResourceLibrary />} />
                     <Route path="/marketplace" element={<Marketplace />} />
+                    <Route path="/future-teacher" element={<FutureTeacherProgram />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </>
