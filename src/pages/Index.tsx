@@ -107,6 +107,39 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Future Teacher Program Promo */}
+      <section className="bg-secondary/50 py-16 md:py-20">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border bg-card p-8 md:p-12 flex flex-col md:flex-row items-center gap-8"
+          >
+            <div className="flex-1 text-center md:text-right">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 mx-auto md:mx-0">
+                <GraduationCap className="w-6 h-6 text-primary" />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3 leading-relaxed">
+                هل أنت طالب في كلية مرتبطة بالتدريس؟
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6 max-w-xl">
+                انضم إلى برنامج المعلم المستقبلي واكتسب المهارات العملية التي تحتاجها قبل بدء مسيرتك المهنية.
+              </p>
+              <Button size="lg" className="font-semibold text-base" asChild>
+                <Link to="/future-teacher">
+                  <Sparkles className="w-5 h-5 ml-2" />
+                  استكشف البرنامج
+                </Link>
+              </Button>
+            </div>
+            <div className="shrink-0">
+              <img src={futureTeacherImg} alt="برنامج المعلم المستقبلي" className="w-48 md:w-64" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Featured Teachers */}
       <section className="bg-secondary/50 py-16 md:py-20">
         <div className="container">
