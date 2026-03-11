@@ -8,6 +8,9 @@ import {
 } from "lucide-react";
 import futureTeacherImg from "@/assets/future-teacher-program.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ProgramPillars from "@/components/future-teacher/ProgramPillars";
+import CertificateSection from "@/components/future-teacher/CertificateSection";
+import DigitalPortfolio from "@/components/future-teacher/DigitalPortfolio";
 
 const highlights = [
   { icon: ClipboardCheck, text: "تدريب عملي داخل الفصول" },
@@ -31,7 +34,6 @@ export default function FutureTeacherProgram() {
 
         <div className="container relative py-16 md:py-24">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-            {/* Content */}
             <motion.div
               className="flex-1 text-center lg:text-right"
               initial={{ opacity: 0, y: 24 }}
@@ -71,7 +73,6 @@ export default function FutureTeacherProgram() {
               </div>
             </motion.div>
 
-            {/* Illustration */}
             <motion.div
               className="flex-1 flex justify-center"
               initial={{ opacity: 0, scale: 0.9 }}
@@ -116,6 +117,15 @@ export default function FutureTeacherProgram() {
           </div>
         </div>
       </section>
+
+      {/* Three Pillars */}
+      <ProgramPillars />
+
+      {/* Certificate */}
+      <CertificateSection />
+
+      {/* Digital Portfolio & Hiring */}
+      <DigitalPortfolio />
 
       {/* CTA */}
       <section className="container py-16">
