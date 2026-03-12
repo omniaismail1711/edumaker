@@ -15,6 +15,9 @@ import {
   CheckCircle2,
   ArrowLeft,
   ArrowRight,
+  School,
+  MapPin,
+  Shield,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo.png";
