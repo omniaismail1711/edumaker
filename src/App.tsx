@@ -45,6 +45,7 @@ const App = () => (
               <Route path="/auth" element={<Auth />} />
               <Route path="/choose-account" element={<ChooseAccountType />} />
               <Route path="/auth/organization" element={<OrgRegistration />} />
+              <Route path="/auth/school" element={<SchoolRegistration />} />
               <Route path="*" element={
                 <>
                   <Navbar />
