@@ -26,6 +26,9 @@ import OrgDashboard from "./pages/OrgDashboard";
 import ResourceLibrary from "./pages/ResourceLibrary";
 import Marketplace from "./pages/Marketplace";
 import FutureTeacherProgram from "./pages/FutureTeacherProgram";
+import SchoolRegistration from "./pages/SchoolRegistration";
+import SchoolProfile from "./pages/SchoolProfile";
+import SchoolDashboard from "./pages/SchoolDashboard";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +45,7 @@ const App = () => (
               <Route path="/auth" element={<Auth />} />
               <Route path="/choose-account" element={<ChooseAccountType />} />
               <Route path="/auth/organization" element={<OrgRegistration />} />
+              <Route path="/auth/school" element={<SchoolRegistration />} />
               <Route path="*" element={
                 <>
                   <Navbar />
@@ -58,6 +62,8 @@ const App = () => (
                     <Route path="/projects" element={<ProjectManagement />} />
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/org-dashboard" element={<OrgDashboard />} />
+                    <Route path="/school-profile" element={<SchoolProfile />} />
+                    <Route path="/school-dashboard" element={<SchoolDashboard />} />
                     <Route path="/resources" element={<ResourceLibrary />} />
                     <Route path="/marketplace" element={<Marketplace />} />
                     <Route path="/future-teacher" element={<FutureTeacherProgram />} />

@@ -15,6 +15,9 @@ import {
   CheckCircle2,
   ArrowLeft,
   ArrowRight,
+  School,
+  MapPin,
+  Shield,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import logo from "@/assets/logo.png";
@@ -31,8 +34,13 @@ export default function ChooseAccountType() {
     ? ["بحث متقدم عن المعلمين", "تدريب مخصص لفريقك", "إدارة مشاريع تعاونية", "توظيف أسرع وأذكى"]
     : ["Advanced teacher search", "Custom team training", "Collaborative projects", "Faster, smarter hiring"];
 
+  const schoolPerks = lang === "ar"
+    ? ["ملف مدرسة احترافي", "نشر فرص توظيف", "اكتشاف معلمين موثقين", "تحليلات وإحصائيات"]
+    : ["Professional school profile", "Post job opportunities", "Discover verified teachers", "Analytics & insights"];
+
   const teacherIcons = [Award, Brain, Briefcase, CheckCircle2];
   const orgIcons = [Search, Users, FolderKanban, CheckCircle2];
+  const schoolIcons = [Shield, Briefcase, Search, CheckCircle2];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -68,7 +76,7 @@ export default function ChooseAccountType() {
         </motion.div>
 
         {/* Two Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl w-full">
           {/* Teacher Card */}
           <motion.div
             initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
@@ -174,6 +182,59 @@ export default function ChooseAccountType() {
 
                   <Button variant="outline" className="w-full rounded-xl h-11 text-sm font-semibold gap-2 border-accent/30 hover:bg-accent/5">
                     {lang === "ar" ? "سجل كمؤسسة" : "Sign up as an Institution"}
+                    <ArrowIcon className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* School Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <Link to="/auth/school" className="block group">
+              <div className="relative bg-card border rounded-2xl p-8 h-full transition-all duration-300 hover:border-green-500/40 hover:shadow-[var(--card-shadow-hover)] overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-l from-green-500 to-green-400" />
+                <div className="absolute inset-0 bg-gradient-to-b from-green-500/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="relative z-10">
+                  <div className="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                    <School className="w-8 h-8 text-green-600 dark:text-green-400" />
+                  </div>
+
+                  <Badge className="bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/20 text-xs mb-3">
+                    <School className="w-3 h-3 me-1" />
+                    {lang === "ar" ? "للمدارس" : "For Schools"}
+                  </Badge>
+
+                  <h2 className="text-xl font-bold text-foreground mb-2 leading-[1.8]">
+                    {lang === "ar" ? "حساب مدرسة" : "School Account"}
+                  </h2>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                    {lang === "ar"
+                      ? "أنشئ ملف مدرسة احترافي، انشر فرص عمل، واكتشف أفضل المعلمين."
+                      : "Create a school profile, post jobs, and discover top teachers."}
+                  </p>
+
+                  <div className="space-y-2.5 mb-6">
+                    {schoolPerks.map((perk, i) => {
+                      const Icon = schoolIcons[i];
+                      return (
+                        <div key={i} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                          <div className="w-7 h-7 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                            <Icon className="w-3.5 h-3.5 text-green-600 dark:text-green-400" />
+                          </div>
+                          <span>{perk}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <Button variant="outline" className="w-full rounded-xl h-11 text-sm font-semibold gap-2 border-green-500/30 hover:bg-green-500/5">
+                    {lang === "ar" ? "سجل كمدرسة" : "Sign up as a School"}
                     <ArrowIcon className="w-4 h-4" />
                   </Button>
                 </div>
