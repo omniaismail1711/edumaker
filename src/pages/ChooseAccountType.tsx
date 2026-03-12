@@ -76,7 +76,7 @@ export default function ChooseAccountType() {
         </motion.div>
 
         {/* Two Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl w-full">
           {/* Teacher Card */}
           <motion.div
             initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
