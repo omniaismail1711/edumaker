@@ -34,8 +34,13 @@ export default function ChooseAccountType() {
     ? ["بحث متقدم عن المعلمين", "تدريب مخصص لفريقك", "إدارة مشاريع تعاونية", "توظيف أسرع وأذكى"]
     : ["Advanced teacher search", "Custom team training", "Collaborative projects", "Faster, smarter hiring"];
 
+  const schoolPerks = lang === "ar"
+    ? ["ملف مدرسة احترافي", "نشر فرص توظيف", "اكتشاف معلمين موثقين", "تحليلات وإحصائيات"]
+    : ["Professional school profile", "Post job opportunities", "Discover verified teachers", "Analytics & insights"];
+
   const teacherIcons = [Award, Brain, Briefcase, CheckCircle2];
   const orgIcons = [Search, Users, FolderKanban, CheckCircle2];
+  const schoolIcons = [Shield, Briefcase, Search, CheckCircle2];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
