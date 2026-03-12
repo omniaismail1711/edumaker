@@ -26,6 +26,9 @@ import OrgDashboard from "./pages/OrgDashboard";
 import ResourceLibrary from "./pages/ResourceLibrary";
 import Marketplace from "./pages/Marketplace";
 import FutureTeacherProgram from "./pages/FutureTeacherProgram";
+import SchoolRegistration from "./pages/SchoolRegistration";
+import SchoolProfile from "./pages/SchoolProfile";
+import SchoolDashboard from "./pages/SchoolDashboard";
 
 const queryClient = new QueryClient();
 
