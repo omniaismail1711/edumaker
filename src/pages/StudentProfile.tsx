@@ -273,8 +273,8 @@ export default function StudentProfile() {
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-3">"{fb.text}"</p>
                   <div className="flex flex-wrap gap-2 text-xs">
-                    <span className="bg-green-500/10 text-green-600 dark:text-green-400 px-2 py-0.5 rounded-full">نقاط القوة: {fb.strengths}</span>
-                    <span className="bg-amber-500/10 text-amber-600 dark:text-amber-400 px-2 py-0.5 rounded-full">للتحسين: {fb.improvement}</span>
+                    <span className="bg-primary/10 text-primary px-2 py-0.5 rounded-full">نقاط القوة: {fb.strengths}</span>
+                    <span className="bg-accent/10 text-accent-foreground px-2 py-0.5 rounded-full">للتحسين: {fb.improvement}</span>
                   </div>
                 </CardContent>
               </Card>
