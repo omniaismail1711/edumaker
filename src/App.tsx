@@ -27,6 +27,8 @@ import ResourceLibrary from "./pages/ResourceLibrary";
 import Marketplace from "./pages/Marketplace";
 import FutureTeacherProgram from "./pages/FutureTeacherProgram";
 import StudentProfile from "./pages/StudentProfile";
+import AmbassadorProgram from "./pages/AmbassadorProgram";
+import AmbassadorDashboard from "./pages/AmbassadorDashboard";
 
 const queryClient = new QueryClient();
 
@@ -63,6 +65,8 @@ const App = () => (
                     <Route path="/marketplace" element={<Marketplace />} />
                     <Route path="/future-teacher" element={<FutureTeacherProgram />} />
                     <Route path="/student-profile" element={<StudentProfile />} />
+                    <Route path="/ambassador" element={<AmbassadorProgram />} />
+                    <Route path="/ambassador-dashboard" element={<AmbassadorDashboard />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </>
