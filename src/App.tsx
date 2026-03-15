@@ -27,6 +27,8 @@ import ResourceLibrary from "./pages/ResourceLibrary";
 import Marketplace from "./pages/Marketplace";
 import FutureTeacherProgram from "./pages/FutureTeacherProgram";
 import StudentProfile from "./pages/StudentProfile";
+import AmbassadorProgram from "./pages/AmbassadorProgram";
+import AmbassadorDashboard from "./pages/AmbassadorDashboard";
 
 const queryClient = new QueryClient();
 
