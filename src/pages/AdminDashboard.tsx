@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Users, GraduationCap, School, BookOpen, Award, Flag, TrendingUp,
-  Search, Filter, Eye, Edit, Ban, CheckCircle, Bell, Send,
+  Search, Filter, Eye, Edit, Ban, CheckCircle, Bell, Send, Mail,
   BarChart3, PieChart, Globe, Settings, Shield, UserCheck,
   FileText, Star, Megaphone, ChevronLeft, Download, MoreHorizontal
 } from "lucide-react";

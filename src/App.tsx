@@ -29,6 +29,8 @@ import FutureTeacherProgram from "./pages/FutureTeacherProgram";
 import StudentProfile from "./pages/StudentProfile";
 import AmbassadorProgram from "./pages/AmbassadorProgram";
 import AmbassadorDashboard from "./pages/AmbassadorDashboard";
+import AdminProfile from "./pages/AdminProfile";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
