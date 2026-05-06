@@ -1,5 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Award, BookOpen, Briefcase, GraduationCap, Mail, MapPin, Phone, Star, User } from "lucide-react";
+import { Award, BookOpen, Briefcase, Globe, GraduationCap, Mail, MapPin, Phone, Star, User } from "lucide-react";
 
 export interface CVData {
   fullName: string;
