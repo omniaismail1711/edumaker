@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import {
   GraduationCap, Search, Award, Brain, Briefcase, Users, CheckCircle2,
-  ArrowLeft, ArrowRight, Sparkles, TrendingUp, BookOpen, Shield, Crown, IdCard, Gift, Clock, Store, Download, Star
+  ArrowLeft, ArrowRight, Sparkles, TrendingUp, BookOpen, Shield, Crown, IdCard, Gift, Clock, Store, Download, Star, FileText, Wand2
 } from "lucide-react";
 import TeacherCard from "@/components/TeacherCard";
 import { mockTeachers } from "@/data/mockData";
@@ -138,6 +138,73 @@ export default function Index() {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* CV Builder Promo */}
+      <section className="container py-16 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="relative rounded-2xl border overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-bl from-primary/10 via-primary/5 to-transparent" />
+          <div className="absolute top-0 right-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+          <div className="relative p-8 md:p-12 flex flex-col lg:flex-row items-center gap-8">
+            <div className="flex-1 text-center lg:text-right">
+              <Badge className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
+                <Wand2 className="w-3.5 h-3.5 ml-1" />
+                {lang === "ar" ? "مدعوم بالذكاء الاصطناعي" : "AI Powered"}
+              </Badge>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3 leading-relaxed">
+                {lang === "ar" ? "أنشئ سيرتك الذاتية الاحترافية في دقائق" : "Create Your Professional CV in Minutes"}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6 max-w-xl">
+                {lang === "ar"
+                  ? "منشئ السيرة الذاتية الذكي يساعدك على إعداد CV احترافي جاهز للمدارس والمؤسسات التعليمية."
+                  : "Our smart CV builder helps you prepare a professional CV ready for schools and educational institutions."}
+              </p>
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
+                {[
+                  { icon: FileText, text: lang === "ar" ? "قوالب متعددة" : "Multiple Templates" },
+                  { icon: Wand2, text: lang === "ar" ? "تحسين بالAI" : "AI Enhancement" },
+                  { icon: Download, text: lang === "ar" ? "تصدير PDF" : "PDF Export" },
+                ].map((badge) => (
+                  <div key={badge.text} className="flex items-center gap-1.5 text-xs text-muted-foreground bg-card rounded-full px-3 py-1.5 border">
+                    <badge.icon className="w-3.5 h-3.5 text-primary" />
+                    {badge.text}
+                  </div>
+                ))}
+              </div>
+              <Button size="lg" className="font-semibold text-base" asChild>
+                <Link to="/cv-builder">
+                  <FileText className="w-5 h-5 ml-2" />
+                  {lang === "ar" ? "ابدأ الآن" : "Start Now"}
+                </Link>
+              </Button>
+            </div>
+            <div className="shrink-0">
+              <div className="w-64 bg-white rounded-2xl border shadow-lg p-6 relative">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <Badge className="bg-primary text-primary-foreground border-0 shadow-md text-xs font-bold px-4">
+                    <Sparkles className="w-3 h-3 ml-1" /> AI
+                  </Badge>
+                </div>
+                <div className="space-y-3 mt-4">
+                  <div className="h-3 w-3/4 bg-slate-200 rounded" />
+                  <div className="h-3 w-1/2 bg-slate-200 rounded" />
+                  <div className="h-3 w-full bg-slate-200 rounded" />
+                  <div className="h-3 w-2/3 bg-slate-200 rounded" />
+                  <div className="border-t my-2" />
+                  <div className="flex gap-2">
+                    <div className="h-8 w-1/2 bg-primary/10 rounded" />
+                    <div className="h-8 w-1/2 bg-primary/10 rounded" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Featured Teachers */}

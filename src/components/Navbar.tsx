@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search, Briefcase, User, LayoutDashboard, GraduationCap, BookOpen, Sun, Moon, Globe, Award, Store } from "lucide-react";
+import { Menu, X, Search, Briefcase, User, LayoutDashboard, GraduationCap, BookOpen, Sun, Moon, Globe, Award, Store, FileText } from "lucide-react";
 import { useTheme } from "next-themes";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
@@ -19,9 +19,9 @@ export default function Navbar() {
     { label: t(translations.nav.exploreTeachers, lang), path: "/explore", icon: Search },
     { label: t(translations.nav.courses, lang), path: "/course", icon: BookOpen },
     { label: t(translations.nav.jobs, lang), path: "/jobs", icon: Briefcase },
-    
     { label: lang === "ar" ? "الشهادات" : "Certifications", path: "/certifications", icon: Award },
     { label: lang === "ar" ? "سوق الموارد" : "Marketplace", path: "/marketplace", icon: Store },
+    { label: lang === "ar" ? "السيرة الذاتية" : "CV Builder", path: "/cv-builder", icon: FileText },
     { label: t(translations.nav.dashboard, lang), path: "/dashboard", icon: LayoutDashboard },
   ];
 
@@ -38,12 +38,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
             <Link
               key={item.path}
               to={item.path}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                 location.pathname === item.path
                   ? "bg-primary/10 text-primary"
                   : "text-muted-foreground hover:text-foreground hover:bg-secondary"

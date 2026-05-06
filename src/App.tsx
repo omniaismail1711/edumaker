@@ -31,6 +31,7 @@ import AmbassadorProgram from "./pages/AmbassadorProgram";
 import AmbassadorDashboard from "./pages/AmbassadorDashboard";
 import AdminProfile from "./pages/AdminProfile";
 import AdminDashboard from "./pages/AdminDashboard";
+import CVBuilder from "./pages/CVBuilder";
 
 const queryClient = new QueryClient();
 
@@ -71,6 +72,7 @@ const App = () => (
                     <Route path="/ambassador-dashboard" element={<AmbassadorDashboard />} />
                     <Route path="/admin-profile" element={<AdminProfile />} />
                     <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                    <Route path="/cv-builder" element={<CVBuilder />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </>
