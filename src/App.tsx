@@ -72,6 +72,7 @@ const App = () => (
                     <Route path="/ambassador-dashboard" element={<AmbassadorDashboard />} />
                     <Route path="/admin-profile" element={<AdminProfile />} />
                     <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                    <Route path="/cv-builder" element={<CVBuilder />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </>
