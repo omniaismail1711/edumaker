@@ -31,6 +31,7 @@ import AmbassadorProgram from "./pages/AmbassadorProgram";
 import AmbassadorDashboard from "./pages/AmbassadorDashboard";
 import AdminProfile from "./pages/AdminProfile";
 import AdminDashboard from "./pages/AdminDashboard";
+import CVBuilder from "./pages/CVBuilder";
 
 const queryClient = new QueryClient();
 
