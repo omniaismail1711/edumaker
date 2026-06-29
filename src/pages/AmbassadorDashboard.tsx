@@ -45,7 +45,7 @@ const resources = [
   { title: "فيديو تعليمي: كيفية استخدام المنصة", type: "MP4", icon: BookOpen },
 ];
 
-const referralLink = "https://edumaker.lovable.app/ref/youssef-ahmed";
+const referralLink = "https://teachersworkbook.lovable.app/ref/youssef-ahmed";
 
 const fade = (d = 0) => ({ initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, transition: { delay: d } });
 
