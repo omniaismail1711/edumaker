@@ -52,7 +52,7 @@ const adminProfile = {
   name: "أحمد محمد إبراهيم",
   role: "Super Admin",
   roleLabel: "مدير عام",
-  email: "admin@edubook.com",
+  email: "admin@teachersworkbook.com",
   adminId: "ADM-2024-001",
   dateJoined: "يناير 2024",
   bio: "مسؤول عن إدارة منصة صنّاع التعليم وضمان جودة المحتوى التعليمي وتجربة المستخدمين. أعمل على تطوير المنصة لتكون الوجهة الأولى للمعلمين في بناء مسارهم المهني.",

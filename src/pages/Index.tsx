@@ -367,9 +367,7 @@ export default function Index() {
       <footer className="border-t bg-card py-8">
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg hero-gradient flex items-center justify-center">
-              <GraduationCap className="w-4 h-4 text-primary-foreground" />
-            </div>
+            <img src="/logo.png" alt={t(translations.nav.platformName, lang)} className="w-8 h-8 object-contain" />
             <span className="font-bold text-foreground">{t(translations.nav.platformName, lang)}</span>
           </div>
           <div className="flex gap-6 text-sm text-muted-foreground">
