@@ -51,14 +51,14 @@ export default function ChooseAccountType() {
           className="text-center mb-10"
         >
           <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <img src={logo} alt="صُنّاع التعليم" className="w-12 h-12 object-contain" />
+            <img src={logo} alt="Teachers Workbook" className="w-12 h-12 object-contain" />
             <span className="text-2xl font-bold text-foreground">
-              {lang === "ar" ? "صُنّاع التعليم" : "Education Makers"}
+              {lang === "ar" ? "Teachers Workbook" : "Teachers Workbook"}
             </span>
           </Link>
 
           <h1 className="text-3xl md:text-4xl font-bold text-foreground leading-[1.8] mb-3">
-            {lang === "ar" ? "انضم إلى صُنّاع التعليم" : "Join Education Makers"}
+            {lang === "ar" ? "انضم إلى Teachers Workbook" : "Join Teachers Workbook"}
           </h1>
           <p className="text-muted-foreground text-sm md:text-base max-w-xl mx-auto leading-relaxed">
             {lang === "ar"
