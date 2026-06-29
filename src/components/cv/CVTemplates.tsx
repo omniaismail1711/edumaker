@@ -49,7 +49,7 @@ export const defaultCVData: CVData = {
   certifications: [
     { name: "شهادة ICDL", issuer: "UNESCO", year: "2020" },
     { name: "دورة مهارات التدريس الحديث", issuer: "وزارة التربية والتعليم", year: "2021" },
-    { name: "شهادة AI في التعليم", issuer: "EduMakers", year: "2023" },
+    { name: "شهادة AI في التعليم", issuer: "Teachers Workbook", year: "2023" },
   ],
   skills: ["إدارة الصف", "التعليم التفاعلي", "Microsoft Office", "Canva", "Google Classroom", "الذكاء الاصطناعي"],
   languages: [

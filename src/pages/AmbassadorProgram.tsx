@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 /* ───── data ───── */
 const benefits = [
   { icon: BookOpen, title: "دورات تدريبية مجانية", desc: "وصول حصري لدورات تطوير مهني متقدمة" },
-  { icon: Award, title: "شهادات معتمدة", desc: "شهادة سفير معتمد من Edubook" },
+  { icon: Award, title: "شهادات معتمدة", desc: "شهادة سفير معتمد من Teachers Workbook" },
   { icon: Shield, title: "شارة السفير", desc: "شارة مميزة تظهر على ملفك الشخصي" },
   { icon: Crown, title: "ملف شخصي مميز", desc: "إبراز ملفك في نتائج البحث والصفحة الرئيسية" },
 ];
@@ -41,7 +41,7 @@ const whoCanJoin = [
 ];
 
 const requirements = [
-  "ملف شخصي نشط ومكتمل على Edubook",
+  "ملف شخصي نشط ومكتمل على Teachers Workbook",
   "شغف بالتعليم وبناء المجتمعات التعليمية",
   "استعداد لدعم ومساعدة المعلمين الآخرين",
   "القدرة على التواصل مع معلمين أو طلاب في محيطك",
@@ -85,10 +85,10 @@ export default function AmbassadorProgram() {
               برنامج حصري
             </Badge>
             <h1 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-[1.6]">
-              برنامج سفراء Edubook
+              برنامج سفراء Teachers Workbook
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-              انضم لشبكة سفراء Edubook وساهم في نشر ثقافة التطوير المهني بين المعلمين وطلاب التربية في جامعتك ومجتمعك.
+              انضم لشبكة سفراء Teachers Workbook وساهم في نشر ثقافة التطوير المهني بين المعلمين وطلاب التربية في جامعتك ومجتمعك.
             </p>
             <div className="flex justify-center gap-3">
               <Button size="lg" className="px-8" onClick={() => document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" })}>
@@ -105,12 +105,12 @@ export default function AmbassadorProgram() {
       {/* ── What Ambassadors Do ── */}
       <section className="container max-w-5xl py-16">
         <motion.div {...fade()} className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3 leading-relaxed">ماذا يفعل سفير Edubook؟</h2>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3 leading-relaxed">ماذا يفعل سفير Teachers Workbook؟</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">السفراء هم القوة الدافعة لنمو مجتمع المعلمين على المنصة</p>
         </motion.div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { icon: Megaphone, text: "الترويج لـ Edubook في الجامعات والمدارس" },
+            { icon: Megaphone, text: "الترويج لـ Teachers Workbook في الجامعات والمدارس" },
             { icon: Users, text: "تعريف المعلمين والطلاب بالمنصة" },
             { icon: Presentation, text: "تنظيم ورش عمل وجلسات توعوية" },
             { icon: Heart, text: "دعم نمو مجتمع المعلمين" },
@@ -285,7 +285,7 @@ export default function AmbassadorProgram() {
               <Textarea value={formData.experience} onChange={e => handleChange("experience", e.target.value)} placeholder="اذكر أي خبرة سابقة في تنظيم ورش أو تدريب..." rows={2} />
             </div>
             <div className="space-y-1.5">
-              <Label>لماذا تريد أن تصبح سفيراً لـ Edubook؟ *</Label>
+              <Label>لماذا تريد أن تصبح سفيراً لـ Teachers Workbook؟ *</Label>
               <Textarea value={formData.motivation} onChange={e => handleChange("motivation", e.target.value)} placeholder="شاركنا دافعك ورؤيتك..." rows={3} required />
             </div>
             <div className="space-y-1.5">

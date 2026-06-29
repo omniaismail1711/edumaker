@@ -2,7 +2,7 @@ export type Language = "ar" | "en";
 
 export const translations = {
   nav: {
-    platformName: { ar: "صُنّاع التعليم", en: "EduMakers" },
+    platformName: { ar: "Teachers Workbook", en: "Teachers Workbook" },
     home: { ar: "الرئيسية", en: "Home" },
     exploreTeachers: { ar: "استكشف المعلمين", en: "Explore Teachers" },
     courses: { ar: "الدورات", en: "Courses" },
@@ -22,14 +22,14 @@ export const translations = {
     badge: { ar: "منصة المعلمين العرب الأولى", en: "The #1 Arab Teachers Platform" },
     heroTitle1: { ar: "ابنِ ملفك المهني", en: "Build Your Professional Profile" },
     heroTitle2: { ar: "وانضم لأكبر شبكة للمعلمين العرب", en: "& Join the Largest Arab Teachers Network" },
-    heroDesc: { ar: "منصة صُنّاع التعليم تجمع المعلمين المتميزين مع المدارس الرائدة. طوّر مهاراتك في الذكاء الاصطناعي واحصل على شهادات معتمدة.", en: "EduMakers connects distinguished teachers with leading schools. Develop your AI skills and earn certified credentials." },
+    heroDesc: { ar: "منصة Teachers Workbook تجمع المعلمين المتميزين مع المدارس الرائدة. طوّر مهاراتك في الذكاء الاصطناعي واحصل على شهادات معتمدة.", en: "Teachers Workbook connects distinguished teachers with leading schools. Develop your AI skills and earn certified credentials." },
     exploreTeachers: { ar: "استكشف المعلمين", en: "Explore Teachers" },
     browseJobs: { ar: "تصفح الوظائف", en: "Browse Jobs" },
     registeredTeachers: { ar: "معلم مسجل", en: "Registered Teachers" },
     verifiedCerts: { ar: "شهادة صادرة", en: "Certificates Issued" },
     partnerSchools: { ar: "مدرسة ومؤسسة", en: "Schools & Institutions" },
     jobOpportunities: { ar: "فرصة وظيفية", en: "Job Opportunities" },
-    whyUs: { ar: "لماذا صُنّاع التعليم؟", en: "Why EduMakers?" },
+    whyUs: { ar: "لماذا Teachers Workbook؟", en: "Why Teachers Workbook?" },
     whyUsDesc: { ar: "منصة متكاملة صُممت خصيصاً لتمكين المعلمين العرب من بناء مستقبل مهني رقمي متميز", en: "A comprehensive platform designed to empower Arab teachers to build a distinguished digital career" },
     aiSkills: { ar: "مهارات الذكاء الاصطناعي", en: "AI Skills" },
     aiSkillsDesc: { ar: "طوّر مهاراتك في أحدث تقنيات الذكاء الاصطناعي المطبّقة في التعليم", en: "Develop your skills in the latest AI technologies applied in education" },
@@ -47,18 +47,18 @@ export const translations = {
     featuredTeachersDesc: { ar: "تعرّف على بعض أبرز المعلمين في شبكتنا", en: "Meet some of the top teachers in our network" },
     viewAll: { ar: "عرض الكل", en: "View All" },
     joinNetwork: { ar: "جاهز لبناء مستقبلك المهني؟", en: "Ready to Build Your Professional Future?" },
-    joinNetworkDesc: { ar: "انضم لآلاف المعلمين الذين بدأوا رحلتهم مع صُنّاع التعليم", en: "Join thousands of teachers who started their journey with EduMakers" },
+    joinNetworkDesc: { ar: "انضم لآلاف المعلمين الذين بدأوا رحلتهم مع Teachers Workbook", en: "Join thousands of teachers who started their journey with Teachers Workbook" },
     createFreeAccount: { ar: "سجّل الآن مجاناً", en: "Register Now for Free" },
     footerHome: { ar: "الرئيسية", en: "Home" },
     footerTeachers: { ar: "المعلمون", en: "Teachers" },
     footerCourse: { ar: "الدورات", en: "Courses" },
     footerJobs: { ar: "الوظائف", en: "Jobs" },
-    copyright: { ar: "© 2025 صُنّاع التعليم. جميع الحقوق محفوظة.", en: "© 2025 EduMakers. All rights reserved." },
+    copyright: { ar: "© 2025 Teachers Workbook. جميع الحقوق محفوظة.", en: "© 2025 Teachers Workbook. All rights reserved." },
   },
 
   hero: {
     title: { ar: "ابنِ ملفك المهني\nوانضم لأكبر شبكة\nللمعلمين العرب", en: "Build Your Professional\nProfile & Join the Largest\nArab Teachers Network" },
-    subtitle: { ar: "منصة صُنّاع التعليم تجمع المعلمين المتميزين مع المدارس الرائدة.", en: "EduMakers connects distinguished teachers with leading schools." },
+    subtitle: { ar: "منصة Teachers Workbook تجمع المعلمين المتميزين مع المدارس الرائدة.", en: "Teachers Workbook connects distinguished teachers with leading schools." },
     exploreTeachers: { ar: "استكشف المعلمين", en: "Explore Teachers" },
     startLearning: { ar: "ابدأ التعلم", en: "Start Learning" },
     statTeachers: { ar: "معلم مسجل", en: "Registered Teachers" },
@@ -68,7 +68,7 @@ export const translations = {
   },
 
   features: {
-    sectionTitle: { ar: "لماذا صُنّاع التعليم؟", en: "Why EduMakers?" },
+    sectionTitle: { ar: "لماذا Teachers Workbook؟", en: "Why Teachers Workbook?" },
     sectionSubtitle: { ar: "منصة متكاملة صُممت خصيصاً لتمكين المعلمين العرب من بناء مستقبل مهني رقمي متميز", en: "A comprehensive platform designed specifically to empower Arab teachers to build a distinguished digital career" },
     feature1Title: { ar: "ملف مهني ذكي", en: "Smart Professional Profile" },
     feature1Desc: { ar: "أنشئ ملفاً شخصياً احترافياً يعرض مهاراتك وشهاداتك ومعرض أعمالك بطريقة جذابة", en: "Create a professional profile that showcases your skills, certificates, and portfolio attractively" },
@@ -82,7 +82,7 @@ export const translations = {
 
   cta: {
     title: { ar: "جاهز لبناء مستقبلك المهني؟", en: "Ready to Build Your Professional Future?" },
-    subtitle: { ar: "انضم لآلاف المعلمين الذين بدأوا رحلتهم مع صُنّاع التعليم", en: "Join thousands of teachers who started their journey with EduMakers" },
+    subtitle: { ar: "انضم لآلاف المعلمين الذين بدأوا رحلتهم مع Teachers Workbook", en: "Join thousands of teachers who started their journey with Teachers Workbook" },
     button: { ar: "سجّل الآن مجاناً", en: "Register Now for Free" },
   },
 
@@ -195,7 +195,7 @@ export const translations = {
     },
     whatYouGain: { ar: "ماذا ستكسب؟", en: "What You'll Gain" },
     outcomeCert: { ar: "شهادة معتمدة", en: "Certified Credential" },
-    outcomeCertDesc: { ar: "شهادة إتمام معتمدة من صُنّاع التعليم", en: "Verified completion certificate from EduMakers" },
+    outcomeCertDesc: { ar: "شهادة إتمام معتمدة من Teachers Workbook", en: "Verified completion certificate from Teachers Workbook" },
     outcomeProjects: { ar: "مشاريع تطبيقية", en: "Applied Projects" },
     outcomeProjectsDesc: { ar: "مشاريع عملية تضاف لملفك المهني", en: "Practical projects added to your professional portfolio" },
     outcomeTools: { ar: "أدوات احترافية", en: "Professional Tools" },
@@ -284,7 +284,7 @@ export const translations = {
   auth: {
     welcomeTitle: { ar: "الشبكة المهنية\nالأولى للمعلمين العرب", en: "The First Professional\nNetwork for Arab Educators" },
     welcomeDesc: { ar: "ابنِ ملفك المهني الرقمي، اعرض مهاراتك وشهاداتك، وتواصل مع أفضل المؤسسات التعليمية.", en: "Build your digital professional profile, showcase your skills and certifications, and connect with top educational institutions." },
-    welcomeBack: { ar: "مرحبًا بك في صُنّاع التعليم", en: "Welcome to EduMakers" },
+    welcomeBack: { ar: "مرحبًا بك في Teachers Workbook", en: "Welcome to Teachers Workbook" },
     welcomeBackSub: { ar: "ابنِ ملفك المهني وابدأ رحلتك التعليمية", en: "Build your professional profile and start your educational journey" },
     login: { ar: "تسجيل الدخول", en: "Login" },
     signup: { ar: "إنشاء حساب", en: "Sign Up" },
@@ -400,7 +400,7 @@ export const translations = {
   },
 
   chatbot: {
-    title: { ar: "مساعد صُنّاع التعليم", en: "EduMakers Assistant" },
+    title: { ar: "مساعد Teachers Workbook", en: "Teachers Workbook Assistant" },
     placeholder: { ar: "اكتب سؤالك هنا...", en: "Type your question here..." },
     greeting: { ar: "مرحباً! كيف يمكنني مساعدتك اليوم؟ 👋", en: "Hello! How can I help you today? 👋" },
   },

@@ -21,7 +21,7 @@ const certificates = [
   { title: "شهادة Google للمعلمين - المستوى 2", issuer: "Google for Education", verified: true, date: "2025", link: "#" },
   { title: "مدرب معتمد في الذكاء الاصطناعي", issuer: "أكاديمية المستقبل", verified: true, date: "2025" },
   { title: "التصميم التعليمي المتقدم", issuer: "Coursera", verified: true, date: "2024", link: "#" },
-  { title: "استخدام ChatGPT في التعليم", issuer: "صِنّاع التعليم", verified: false, date: "2024" },
+  { title: "استخدام ChatGPT في التعليم", issuer: "Teachers Workbook", verified: false, date: "2024" },
   { title: "Microsoft Innovative Educator", issuer: "Microsoft Education", verified: true, date: "2024", link: "#" },
   { title: "إدارة الصفوف الافتراضية", issuer: "Udemy", verified: false, date: "2023" },
 ];
