@@ -25,7 +25,7 @@ const nextLevel = { name: "سفير ذهبي", pointsNeeded: 500 };
 const recentActivity = [
   { text: "دعوت معلم جديد: أ. محمد سعيد", points: 10, date: "منذ ساعتين" },
   { text: "دعوت طالبة: نورهان أحمد", points: 5, date: "منذ يوم" },
-  { text: "نظمت ورشة: مقدمة في Edubook", points: 50, date: "منذ 3 أيام" },
+  { text: "نظمت ورشة: مقدمة في Teachers Workbook", points: 50, date: "منذ 3 أيام" },
   { text: "ساعدت معلمة على إكمال دورة التكنولوجيا", points: 15, date: "منذ أسبوع" },
   { text: "نشرت محتوى ترويجي على فيسبوك", points: 8, date: "منذ أسبوع" },
 ];
@@ -39,7 +39,7 @@ const leaderboard = [
 ];
 
 const resources = [
-  { title: "عرض تقديمي: تعريف بمنصة Edubook", type: "PDF", icon: FileText },
+  { title: "عرض تقديمي: تعريف بمنصة Teachers Workbook", type: "PDF", icon: FileText },
   { title: "منشورات جاهزة للسوشيال ميديا", type: "ZIP", icon: Share2 },
   { title: "دليل تنظيم ورشة عمل", type: "PDF", icon: Presentation },
   { title: "فيديو تعليمي: كيفية استخدام المنصة", type: "MP4", icon: BookOpen },
@@ -76,7 +76,7 @@ export default function AmbassadorDashboard() {
                 <Shield className="w-6 h-6 text-primary" />
                 <h1 className="text-2xl font-extrabold text-foreground">لوحة تحكم السفير</h1>
               </div>
-              <p className="text-muted-foreground text-sm">مرحباً يوسف! تابع تأثيرك وإنجازاتك كسفير Edubook</p>
+              <p className="text-muted-foreground text-sm">مرحباً يوسف! تابع تأثيرك وإنجازاتك كسفير Teachers Workbook</p>
             </div>
             <Badge className="bg-primary/10 text-primary border-primary/20 text-sm px-4 py-1.5">
               <Star className="w-4 h-4 ml-1" />
