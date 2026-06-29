@@ -25,8 +25,8 @@ const faqData: { keywords: string[]; ar: string; en: string }[] = [
   },
   {
     keywords: ["شهادة", "شهادات", "certificate", "certification", "توثيق"],
-    ar: "عند إتمام أي دورة تدريبية، تحصل على شهادة إتمام معتمدة من صُنّاع التعليم يمكنك إضافتها لملفك المهني.",
-    en: "Upon completing any training course, you receive a verified completion certificate from EduMakers that you can add to your professional profile.",
+    ar: "عند إتمام أي دورة تدريبية، تحصل على شهادة إتمام معتمدة من Teachers Workbook يمكنك إضافتها لملفك المهني.",
+    en: "Upon completing any training course, you receive a verified completion certificate from Teachers Workbook that you can add to your professional profile.",
   },
   {
     keywords: ["توظيف", "عمل", "وظيفة", "job", "hire", "employment", "فرص"],

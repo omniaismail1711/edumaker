@@ -109,7 +109,7 @@ export default function OrgRegistration() {
           <Link to="/choose-account" className="inline-flex items-center gap-2 mb-4">
             <img src={logo} alt="" className="w-10 h-10 object-contain" />
             <span className="text-xl font-bold text-foreground">
-              {lang === "ar" ? "صُنّاع التعليم" : "Education Makers"}
+              {lang === "ar" ? "Teachers Workbook" : "Teachers Workbook"}
             </span>
           </Link>
           <h1 className="text-2xl md:text-3xl font-bold text-foreground leading-[1.8]">

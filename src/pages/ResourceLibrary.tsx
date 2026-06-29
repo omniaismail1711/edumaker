@@ -341,7 +341,7 @@ export default function ResourceLibrary() {
             </h1>
             <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-8">
               {lang === "ar"
-                ? "اكتشف خطط دروس جاهزة، نماذج ذكاء اصطناعي، قوالب تصميم، وأدلة تعليمية من صُنّاع التعليم"
+                ? "اكتشف خطط دروس جاهزة، نماذج ذكاء اصطناعي، قوالب تصميم، وأدلة تعليمية من Teachers Workbook"
                 : "Discover lesson plans, AI prompts, design templates, and educational guides"}
             </p>
 

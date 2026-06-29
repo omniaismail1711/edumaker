@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 /* ───── data ───── */
 const benefits = [
   { icon: BookOpen, title: "دورات تدريبية مجانية", desc: "وصول حصري لدورات تطوير مهني متقدمة" },
-  { icon: Award, title: "شهادات معتمدة", desc: "شهادة سفير معتمد من Edubook" },
+  { icon: Award, title: "شهادات معتمدة", desc: "شهادة سفير معتمد من Teachers Workbook" },
   { icon: Shield, title: "شارة السفير", desc: "شارة مميزة تظهر على ملفك الشخصي" },
   { icon: Crown, title: "ملف شخصي مميز", desc: "إبراز ملفك في نتائج البحث والصفحة الرئيسية" },
 ];
